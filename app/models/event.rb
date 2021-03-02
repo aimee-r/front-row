@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
   # REFERENCES
-  # belongs_to :user, through: :event_attendees
+  has_many :event_attendees
+  has_many :users, through: :event_attendees
   # has_many :genres, through: :event_genres
   # VALIDATIONS
   validates :event_name, presence: true
