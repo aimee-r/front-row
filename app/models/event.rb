@@ -2,7 +2,7 @@ class Event < ApplicationRecord
   # REFERENCES
   has_many :event_attendees
   has_many :users, through: :event_attendees
-  belongs_to :users
+  belongs_to :user
   # has_many :genres, through: :event_genres
   # VALIDATIONS
   validates :event_name, presence: true
