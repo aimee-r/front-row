@@ -10,5 +10,5 @@ class Event < ApplicationRecord
   validates :city, presence: true
   validates :country, presence: true
   # STRIPE
-  monetize :price_cents
+  # monetize :price_cents
 end
