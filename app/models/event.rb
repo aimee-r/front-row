@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   # REFERENCES
-  belongs_to :user, through: :event_attendees
-  has_many :genres, through: :event_genres
+  # belongs_to :user, through: :event_attendees
+  # has_many :genres, through: :event_genres
   # VALIDATIONS
   validates :event_name, presence: true
   validates :description, presence: true
@@ -10,5 +10,5 @@ class Event < ApplicationRecord
   validates :city, presence: true
   validates :country, presence: true
   # STRIPE
-  monetize :price_cents
+  # monetize :price_cents
 end
