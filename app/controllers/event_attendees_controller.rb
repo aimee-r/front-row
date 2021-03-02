@@ -14,4 +14,10 @@ class EventAttendeesController < ApplicationController
     #       render :new
     #     end
   end
+
+  private
+
+  def event_attendees_params
+    params.require(:event_attendees).permit(:streaming_link)
+  end
 end
