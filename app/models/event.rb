@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+  # CLOUDINARY
+  has_one_attached :photo
   # REFERENCES
   has_many :event_attendees
   has_many :users, through: :event_attendees
