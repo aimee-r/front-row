@@ -34,14 +34,6 @@
                       start_year: Date.today.year - 90,
                       end_year: Date.today.year - 12,
                       order: [:day, :month, :year] %>
-          <%= f.input :artist_name,
-                      required: true,
-                      autofocus: true,
-                      input_html: { }%>
-          <%= f.input :location,
-                      required: true,
-                      autofocus: true,
-                      input_html: { }%>
           <%= f.input :email,
                       required: true,
                       autofocus: true,
