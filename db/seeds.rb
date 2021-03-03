@@ -19,8 +19,12 @@ Order.destroy_all
 Event.destroy_all
 User.destroy_all
 
+puts "Creating array of event images..."
 
-
+img1 = 'https://static.billboard.com/files/2020/12/chloe-x-halle-tiny-desk-2020-billboard-1548-1607458577-compressed.jpg'
+img2 = 'https://static.billboard.com/files/2021/02/02-The-Weeknd-Pepsi-Super-Bowl-LV-Halftime-Show-2021-billboard-1548-1612748085-compressed.jpg'
+img3 = 'https://static.billboard.com/files/2021/02/Megan-Thee-Stallion-Cry-Baby-feat.-DaBaby-screenshot-2021-billboard-1548-1612475015-compressed.jpg'
+event_img_arr =[img1, img2, img3]
 
 puts "Creating artists..."
 aimee = User.create!(first_name: 'Aimée', last_name: 'Rawlings', location: 'South Africa', dob: '1989-09-14', email: 'aimee@example.com', password: '123456', artist: true, artist_name: "DJ Amzy', bank_details: '121212 12345678', facebook: 'https://www.facebook.com/daftpunk/', instergram: 'https://www.facebook.com/daftpunk/', twitter: 'https://www.facebook.com/daftpunk/'  bio: 'DJ Amzy has been at the nexus of music, fashion, and nightlife for over half her living years as the go-to deejay for music impresarios, entertainment moguls, fashion icons, cultural trendsetters, and even world leaders. When President Obama wanted a deejay for both of his Inaugurations and his fiftieth birthday party at the White House, there's only one person he called. When Oprah Winfrey celebrated the opening of her school in South Africa on New Years Eve, there’s only one person she called. And when Jay Z needed a deejay for his wedding to Beyoncé, theres only one person he called." )
@@ -61,8 +65,8 @@ artists.each do |artist|
       country: Faker::Address.country,
       user: artist
       )
-    # file = URI.open('https://www.meditainment.com/images/dmImage/SourceImage/island-paradise.jpg')
-    # island.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+    file = URI.open(event_img_arr.sample)
+    event.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
     event.save!
   end
 end
