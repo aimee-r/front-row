@@ -5,7 +5,8 @@ class Event < ApplicationRecord
   has_many :event_attendees
   has_many :users, through: :event_attendees
   belongs_to :user
-  # has_many :genres, through: :event_genres
+  has_many :event_genres
+  has_many :genres, through: :event_genres
   # VALIDATIONS
   validates :event_name, presence: true, uniqueness: true
   validates :description, presence: true
