@@ -1,10 +1,1 @@
 <%= render 'shared/banner' %>
-
-<% @events.each do |event| %>
-<p><%= event.event_name %> - £ <%= Money.new(event.price_cents.to_s, :gbp) %></p>
-
-<%= form_tag orders_path do %>
-  <%= hidden_field_tag 'event_id', event.id %>
-  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-  <% end %>
-<% end %>
