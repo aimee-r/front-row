@@ -1,1 +1,73 @@
 <%= render 'shared/banner' %>
+
+<!-- <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://media.cntraveler.com/photos/5d83b27ee1494900093a5627/master/pass/Cebu-&-Visayan-events,-Philippines_GettyImages-1074254788.jpg);">
+  <div class="container">
+    <h1>Find your <strong>perfect</strong> paradise destination!</h1>
+    <p>Sort from hundreds of events around the world.</p>
+    </br>
+    <div id="form-field"><%= form_tag events_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    id: "form-field",
+    placeholder: " 🔍 Find an island"
+  %>
+  <%= submit_tag "Search", id: "submit-button" %>
+<% end %>
+  </div>
+  </div>
+</div> -->
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12">
+      <h1>All available shows</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <% if @query %>
+        <p>You searched for '<%= @query %>'. We found <%= @events.count %> events out of our <%= Island.count %> on our website.</p>
+      <% else %>
+        <p>Displaying all <%= Event.count %> events.</p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <% @events.each do |event| %>
+    <%= link_to event_path(event) do %>
+      <div class="col-4">
+        <div class="event-card">
+          <% if event.photo.attached? %>
+            <div class="event-card-image" style="height: 100px; background-image: url('<%= cl_image_path event.photo.key %>')"></div>
+          <% else %>
+             <div class="event-card-image" style="height: 100px; background-image: url(<%= 'https://ichef.bbci.co.uk/news/1024/cpsprodpb/3FCE/production/_112543361_gettyimages-1148471940.jpg' %>)"></div>
+          <% end %>
+          <div class="event-card-content">
+            <div class="event-card-title">
+              <h4><%= event.event_name %></h4>
+            </div>
+            <p><%= event.city %></p>
+            <div class="flex">
+              <div class="flex">
+                <i class="material-icons mr-2">`Replace this text`</span>
+              </div>
+              <div class="flex ml-3">
+
+                <p>Price: <%= event.price_cents %></p>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="event-card-button">
+            <%= link_to 'Find out more', event_path(event) %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+
+  </div>
+</div>

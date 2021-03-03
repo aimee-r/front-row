@@ -1,7 +1,5 @@
 
-
-
- <div class="container rounded" style="width: 900px;">
+<div class="container rounded" style="width: 900px;">
   <div class="row justify-content-center">
     <div class="col-md-8">
       <%= simple_form_for (@event) do |f| %>
@@ -10,8 +8,8 @@
         <%= f.input :start_time %>
         <%= f.input :end_time %>
         <%= f.input :city %>
+        <%= f.input :country, as: :text  %>
         <%= f.input :price_cents, label: "Price per Ticket" %>
-
         <%= f.input :photo, as: :file %>
         <%= f.submit 'Add your Event', class: 'btn btn-primary' %>
       <% end %>
