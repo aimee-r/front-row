@@ -1,25 +1,115 @@
-<h2>Sign up</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+<div class='container col-md-4 border border-success'>
+<div class="text-center">
+  <h1 class='p2 mt-3'>Sign up</h1>
+</div>
+  <br>
+    <ul class="nav nav-tabs nav-justified bg-success" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="user-tab" data-toggle="tab" href="#user" role="tab" aria-controls="user" aria-selected="true">User</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="artist-tab" data-toggle="tab" href="#artist" role="tab" aria-controls="artist" aria-selected="false">Artist</a>
+      </li>
+    </ul>
+    <br>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="user" role="tabpanel" aria-labelledby="user-tab">
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+        <div class="form-inputs p-4">
+        
+          <%= f.input :first_name,
+                      required: true,
+                      autofocus: true,
+                      input_html: { }%>
+          <%= f.input :last_name, 
+                      required: true,
+                      autofocus: true,
+                      input_html: { }%>
+          <%= f.input :dob, as: :date,
+                      prompt: { day: 'Day', month: 'Month', year: 'Year' },
+                      label: 'Date of birth',
+                      start_year: Date.today.year - 90,
+                      end_year: Date.today.year - 12,
+                      order: [:day, :month, :year] %>
+          <%= f.input :artist_name,
+                      required: true,
+                      autofocus: true,
+                      input_html: { }%>
+          <%= f.input :location,
+                      required: true,
+                      autofocus: true,
+                      input_html: { }%>
+          <%= f.input :email,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" }%>
+          <%= f.input :password,
+                      required: true,
+                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation,
+                      required: true,
+                      input_html: { autocomplete: "new-password" } %>
+        </div>
+          <div class='text-center mb-2 btn btn-block btn-success rounded-pill'>
+            <div class="form-actions">
+              <%= f.button :submit, "Sign up" %>
+            </div>
+          </div>
+        <% end %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+  <div class="tab-pane fade" id="artist" role="tabpanel" aria-labelledby="artist-tab">
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs p-4">
+        <%= f.hidden_field :artist, value: true %>
+        <%= f.input :first_name,
+                    required: true,
+                    autofocus: true,
+                    input_html: { }%>
+        <%= f.input :last_name,
+                    required: true,
+                    autofocus: true,
+                    input_html: { }%>
+        <%= f.input :dob, as: :date,
+                    prompt: { day: 'Day', month: 'Month', year: 'Year' },
+                    label: 'Date of birth',
+                    start_year: Date.today.year - 90,
+                    end_year: Date.today.year - 12,
+                    order: [:day, :month, :year] %>
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" }%>
+        <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    required: true,
+                    input_html: { autocomplete: "new-password" } %>
+      </div>
+        <div class='text-center mb-2 btn btn-block btn-success rounded-pill'>
+          <div class="form-actions">
+            <%= f.button :submit, "Sign up" %>
+          </div>
+        </div>
+      <% end %>
   </div>
-<% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+<div>
+
+  <div class='text-center mb-3'>
+    <div class='btn btn-block btn-success rounded-pill'>
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>
+
+
+</div>
