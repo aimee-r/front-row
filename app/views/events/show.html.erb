@@ -24,6 +24,12 @@
 
 <h1 class="m-0"><%= @event.event_name %></h1>
 
+<%= form_tag orders_path do %>
+  <%= hidden_field_tag 'event_id', @event.id %>
+  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+  <% end %>
+
+
  <% if current_user == @event.user %>
   <div class="container-buttons">
     <div id="edit-button"><%= link_to 'Edit', edit_event_path(@event) %></div>
