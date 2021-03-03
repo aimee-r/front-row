@@ -1,2 +1,6 @@
 <%= render 'shared/banner' %>
 
+<% @events.each do |event| %>
+<p><%= event.event_name %> - <%= event.price_cents %></p>
+<% end %>
+
