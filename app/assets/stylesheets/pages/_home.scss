@@ -1,1 +1,15 @@
 // Specific CSS for your home-page
+.white-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+ z-index: 200;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+
+}
+
+.hidden {
+  visibility: hidden;
+}

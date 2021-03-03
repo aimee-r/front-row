@@ -67,3 +67,5 @@ gem 'devise'
 gem 'faker'
 gem 'money-rails'
 gem 'stripe'
+gem 'stripe_event'
+
