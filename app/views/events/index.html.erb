@@ -2,5 +2,10 @@
 
 <% @events.each do |event| %>
 <p><%= event.event_name %> - <%= event.price_cents %></p>
-<% end %>
 
+<%= form_tag orders_path do %>
+  <%= hidden_field_tag 'event_id', event.id %>
+  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+  <% end %>
+
+<% end %>
