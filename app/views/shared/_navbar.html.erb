@@ -7,15 +7,24 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+     <div class="form-field"><%= form_tag events_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    id: "form-field",
+    placeholder: " 🔍 Find an artist or region..."
+  %>
+  <%= submit_tag "Search", id: "submit-button" %>
+<% end %>
+  </div>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
+          <%= link_to "Tickets", "#", class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
+          <%= link_to "About", "#", class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
 

@@ -1,0 +1,44 @@
+#submit-button {
+  margin-top: 20px;
+  width: 120px;
+  padding: 8px;
+  border-radius: 20px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  border: transparent;
+  color: white;
+  background-image: linear-gradient(-20deg, #fc6076 0%, #ff9a44 100%);
+}
+#submit-button:hover {
+  background-image: none;
+  background-color: transparent;
+  border: solid 1px white;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.form-field {
+  display: flex;
+}
+
+#form-field {
+  border-radius: 20px;
+  border: solid 1px white;
+  width: 300px;
+  height: 40px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  background-color: black;
+  color: white;
+}
+
+#form-field:focus {
+  outline: 0;
+}
+
+//      <div id="form-field"><%= form_tag events_path, method: :get do %>
+//   <%= text_field_tag :query,
+//     params[:query],
+//     id: "form-field",
+//     placeholder: " 🔍 Find an artist or region..."
+//   %>
+//   <%= submit_tag "Search", id: "submit-button" %>
+// <% end %>
+//   </div>
