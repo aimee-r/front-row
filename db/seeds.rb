@@ -15,8 +15,10 @@ puts "Destorying tables..."
 Genre.destroy_all
 EventGenre.destroy_all
 EventAttendee.destroy_all
+Order.destroy_all
 Event.destroy_all
 User.destroy_all
+
 
 
 

@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+  after_create :set_sku
   # CLOUDINARY
   has_one_attached :photo
   # REFERENCES
@@ -14,5 +15,10 @@ class Event < ApplicationRecord
   validates :city, presence: true
   validates :country, presence: true
   # STRIPE
-  # monetize :price_cents
+  monetize :price_cents
+
+  def set_sku
+    self.sku = "#{self.id}  #{self.event_name.gsub(" ", "-")}"
+    self.save
+  end
 end

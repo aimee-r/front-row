@@ -1,5 +1,9 @@
 <%= render 'shared/banner' %>
 
+
+<h1>This is where you see all the searched events</h1>
+
+
 <% if @event.photo.attached? %>
         <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('<%= cl_image_path @event.photo.key %>');">
   <div class="container">
