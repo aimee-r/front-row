@@ -25,18 +25,20 @@
     <span id="delete-button"><%= link_to 'Delete event', event_path(@event), method: 'delete', data: { confirm: "Are you sure?" } %></span>
     </div>
     <% else %>
-    <%= form_tag orders_path do %>
-  <%= hidden_field_tag 'event_id', @event.id %>
-  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-  <% end %>
+<p>this was a button</p>
   <% end %>
   </div>
 
 </br>
 
+    <%= form_tag orders_path do %>
+  <%= hidden_field_tag 'event_id', @event.id %>
+  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+  <% end %>
+
 <p>event hosted by <%= @event.user.first_name %></p>
 
-<p>Price: £<%= @event.price_cents %></p>
+<p>£<%= Money.new(@event.price_cents.to_s, :gbp) %><p>
 
 <p style="color:lightgray">___________________________________________________________________________</p>
 </br>
