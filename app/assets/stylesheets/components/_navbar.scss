@@ -6,6 +6,8 @@
 
 .navbar-brand p {
   color: white;
+  display: flex;
+  align-items: flex-end;
 }
 
 .navbar-lewagon .navbar-collapse {

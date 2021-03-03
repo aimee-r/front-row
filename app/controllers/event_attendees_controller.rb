@@ -1,7 +1,5 @@
 class EventAttendeesController < ApplicationController
-
   # CREATE
-
   def create
     @event = Event.find(params[:event_id])
     @event_attendees = EventAttendee.new(event_attendees_params)
@@ -13,5 +11,11 @@ class EventAttendeesController < ApplicationController
     #     else
     #       render :new
     #     end
+  end
+
+  private
+
+  def event_attendees_params
+    params.require(:event_attendees).permit(:streaming_link)
   end
 end

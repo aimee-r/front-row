@@ -1,1 +1,68 @@
-<h1>hello</h1>
+<%= render 'shared/banner' %>
+
+
+<h1>This is where you see all the searched events</h1>
+
+
+<% if @event.photo.attached? %>
+        <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('<%= cl_image_path @event.photo.key %>');">
+  <div class="container">
+    <h1>Welcome to <%= @event.city %></h1>
+  </div>
+</div>
+      <% else %>
+        <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('https://img.theculturetrip.com/wp-content/uploads/2018/04/shutterstock_1050077834.jpg');">
+  <div class="container">
+    <h1>Welcome to <%= @event.city %></h1>
+  </div>
+</div>
+<% end %>
+
+<div class ="container">
+
+<div class ="show-header">
+
+<h1 class="m-0"><%= @event.event_name %></h1>
+
+ <% if current_user == @event.user %>
+  <div class="container-buttons">
+    <div id="edit-button"><%= link_to 'Edit', edit_event_path(@event) %></div>
+    <span id="delete-button"><%= link_to 'Delete event', event_path(@event), method: 'delete', data: { confirm: "Are you sure?" } %></span>
+    </div>
+    <% else %>
+    'this was a book now link'
+  <% end %>
+  </div>
+
+</br>
+
+<p>event hosted by <%= @event.user.first_name %></p>
+
+<p>Price: £<%= @event.price_cents %></p>
+
+<p style="color:lightgray">___________________________________________________________________________</p>
+</br>
+<h3>Event Description</h3>
+</br>
+<p><%= @event.description %></p>
+
+<p style="color:lightgray">___________________________________________________________________________</p>
+
+<h4>Features of the event</h4>
+
+<ul class="show-features">
+  <li><i class="material-icons mr-2">people</i>event can have maximum <strong>Guests</strong>
+  </li>
+<li><i class="material-icons mr-2">bed</i>This event has <strong>Bedrooms</strong></li>
+</ul>
+
+<p style="color:lightgray">___________________________________________________________________________</p>
+
+    <div id="map"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </br>
+
+</div>
+</div>

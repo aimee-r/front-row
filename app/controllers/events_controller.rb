@@ -20,12 +20,13 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user = current_user
-      if @event.save
+      if @event.save!
         redirect_to event_path(@event)
       else
         render :new
       end
   end
+
 
   # DESTROY
   def destroy
@@ -49,6 +50,6 @@ class EventsController < ApplicationController
   # PARAMS
 
   def event_params
-    params.require(:event).permit(:event_name, :description, :price_cents, :start_time, :end_time, :city, :country)
+    params.require(:event).permit(:event_name, :description, :price_cents, :start_time, :end_time, :city, :country, :photo)
   end
 end
