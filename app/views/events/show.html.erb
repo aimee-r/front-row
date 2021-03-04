@@ -1,58 +1,38 @@
 
 <% if @event.photo.attached? %>
-        <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('<%= cl_image_path @event.photo.key %>');">
+        <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url('<%= cl_image_path @event.photo.key %>');">
   <div class="container">
-    <h1>Welcome to <%= @event.city %></h1>
+    <h1><%= @event.user.first_name %></h1>
+    <h2><%= @event.start_time.strftime('%A, %b %d') %></h2>
   </div>
 </div>
       <% else %>
-        <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('https://img.theculturetrip.com/wp-content/uploads/2018/04/shutterstock_1050077834.jpg');">
+        <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url('https://res.cloudinary.com/soundbetter/image/upload/c_fill,f_auto,g_face:auto,h_288,q_90,w_540/v1610559632/assets/photos/55969/IMG_3093.jpg');">
   <div class="container">
-    <h1>Welcome to <%= @event.city %></h1>
+        <h1><%= @event.user.first_name %></h1>
+    <h2><%= @event.start_time.strftime('%A, %b %d') %></h2>
   </div>
 </div>
 <% end %>
 
 <div class ="container">
 
-<div class ="show-header">
+<div class ="body-flex">
+
+<div class="flex-left">
+
 
 <h1 class="m-0"><%= @event.event_name %></h1>
 
-<%= form_tag orders_path do %>
-  <%= hidden_field_tag 'event_id', @event.id %>
-  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-  <% end %>
-
-
- <% if current_user == @event.user %>
-  <div class="container-buttons">
-    <div id="edit-button"><%= link_to 'Edit', edit_event_path(@event) %></div>
-    <span id="delete-button"><%= link_to 'Delete event', event_path(@event), method: 'delete', data: { confirm: "Are you sure?" } %></span>
-    </div>
-    <% else %>
-<p>this was a button</p>
-  <% end %>
-  </div>
-
-</br>
-
-    <%= form_tag orders_path do %>
-  <%= hidden_field_tag 'event_id', @event.id %>
-  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-  <% end %>
-
-<p>event hosted by <%= @event.user.first_name %></p>
-
-<p>£<%= Money.new(@event.price_cents.to_s, :gbp) %><p>
-
-<p style="color:lightgray">___________________________________________________________________________</p>
 </br>
 <h3>Event Description</h3>
 </br>
 <p><%= @event.description %></p>
 
-<p style="color:lightgray">___________________________________________________________________________</p>
+</br>
+<h3>About the artist</h3>
+</br>
+<p><%= @event.user.bio %></p>
 
 <h4>Features of the event</h4>
 
@@ -70,5 +50,31 @@
     </div>
   </br>
 
+</div>
+
+<div class="flex-right">
+
+<p><%= @event.city %></p>
+
+<p style="color:lightgray">____________________________________________</p>
+
+<p><%= @event.start_time.strftime('%A, %b %d') %></p>
+
+<p style="color:lightgray">____________________________________________</p>
+
+<p><%= @event.start_time.strftime('%l:%M %p') %></p>
+
+<p style="color:lightgray">____________________________________________</p>
+
+<p>£<%= Money.new(@event.price_cents.to_s, :gbp) %><p>
+
+<p style="color:lightgray">____________________________________________</p>
+
+<%= form_tag orders_path do %>
+  <%= hidden_field_tag 'event_id', @event.id %>
+  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+  <% end %>
+
+</div>
 </div>
 </div>
