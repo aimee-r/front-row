@@ -20,4 +20,3 @@ class EventGenresController < ApplicationController
   end
 end
 
-end
