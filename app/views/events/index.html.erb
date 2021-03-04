@@ -33,11 +33,11 @@
             <p>Hosted by <%= event.user.first_name %></p>
              </div>
               <div class="flex">
-                <%= event.city %> | <%= event.start_time.strftime('%A, %b %d') %> | 
+                <%= event.city %> | <%= event.start_time.strftime('%A, %b %d') %> | <%= event.start_time.strftime('%l:%M %p') %>
               </div>
                 <%# <p>£<%= Money.new(event.price_cents.to_s, :gbp) %>
             <div class="genre-box">
-                <span><%= event.genres[0].name %> </span>
+                <span><%= event.genres[0].name %> </span> 
             </div>
           </div>
         </div>

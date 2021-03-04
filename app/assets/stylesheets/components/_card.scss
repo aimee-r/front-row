@@ -1,6 +1,8 @@
 .flex {
   display: flex;
   font-size: 12px;
+  padding: 0px;
+  margin: 0px;
 }
 .flex-align {
   display: flex;
@@ -11,7 +13,7 @@
 .event-card {
   width: 350px;
   position: relative;
-  margin: 0.5rem 0 1rem 0;
+  margin: 20px 0px 20px 0;
   border-radius: 10px;
   background-color: black;
   transition: 200ms;
@@ -21,12 +23,12 @@
 .event-card-image {
   background-position: center;
   background-size: cover;
+  border-radius: 2px;
 }
 
 .event-card-content {
-  padding: 5px;
   background-color: black;
-  padding: 10px;
+  padding: 5px;
 }
 
 .event-card a {
@@ -46,10 +48,8 @@
 
 .show-card-content {
   text-align: center;
-  padding: 15px;
-  margin: 20px 20px 40px 0px;
+  padding-top: 15px;
   background-color: black;
-  border-radius: 10px;
   border: solid 1px #bbbbbb;
   width: 100px;
   height: 100px;
@@ -65,12 +65,12 @@
   text-overflow: ellipsis;
   max-width: 350px;
   padding-top: 5px;
-  padding-bottom: 5px;
   font-weight: bolder;
 }
 
 .event-card-title p {
   font-size: 12px;
+  margin-bottom: 6px;
 }
 
 .genre-box span {
@@ -79,5 +79,5 @@
   font-size: 10px;
   color: black;
   font-weight: bolder;
-  margin-top: 5px;
+  margin-top: 4px;
 }
