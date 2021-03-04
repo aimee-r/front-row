@@ -1,0 +1,53 @@
+<h1>User#show</h1>
+<p>Find me in app/views/user/show.html.erb</p>
+<h1>Artist Profile Page</h1>
+
+<ul>
+  <h2>Upcoming</h2>
+<% @user.events.each do |event| %>
+  <li><%=event.event_name %></li>
+<% end %>
+</ul>
+
+<div class="container-home">
+
+<div class="row">
+  <h1><%= @user.artist_name %></h1>
+  <br />
+  <h2>About the artist</h2>
+  <p><%= @user.bio %></p>
+</div>
+
+
+
+<div class="row">
+    <% @user.events.each do |event| %>
+    <%= link_to event_path(event) do %>
+      <div class="col-4">
+        <div class="event-card">
+          <% if event.photo.attached? %>
+            <div class="event-card-image" style="height: 150px; background-image: url('<%= cl_image_path event.photo.key %>')"></div>
+          <% else %>
+             <div class="event-card-image" style="height: 150px; background-image: url(<%= 'https://static.billboard.com/files/2020/12/chloe-x-halle-tiny-desk-2020-billboard-1548-1607458577-compressed.jpg' %>)"></div>
+          <% end %>
+          <div class="event-card-content">
+            <div class="event-card-title">
+              <h4><%= event.event_name %></h4>
+            <p>Hosted by <%= event.user.first_name %></p>
+             </div>
+              <div class="flex">
+                <%= event.city %> | <%= event.start_time.strftime('%A, %b %d') %> | <%= event.start_time.strftime('%l:%M %p') %>
+              </div>
+                <%# <p>£<%= Money.new(event.price_cents.to_s, :gbp) %>
+            <div class="genre-box">
+                <span><%= event.genres[0].name %> </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
+</div>

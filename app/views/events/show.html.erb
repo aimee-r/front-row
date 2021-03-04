@@ -9,7 +9,7 @@
       <% else %>
         <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url('https://res.cloudinary.com/soundbetter/image/upload/c_fill,f_auto,g_face:auto,h_288,q_90,w_540/v1610559632/assets/photos/55969/IMG_3093.jpg');">
   <div class="container">
-        <h1><%= @event.user.first_name %></h1>
+        <h1><%= @event.user.last_name %></h1>
     <h2><%= @event.start_time.strftime('%A, %b %d') %></h2>
   </div>
 </div>
@@ -23,6 +23,9 @@
 
 
 <h1 class="m-0"><%= @event.event_name %></h1>
+<h3>Artist Name</h3>
+<h3><%= link_to @event.user.artist_name, profile_path(@event.user_id)  %></h3>
+</br>
 
 </br>
 <h3>Event Description</h3>
