@@ -1,0 +1,13 @@
+.body-flex {
+  display: flex;
+}
+
+.flex-left {
+  flex: 70%;
+  max-width: 600px;
+}
+
+.flex-right {
+  flex: 30%;
+  text-align: center;
+}
