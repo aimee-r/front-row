@@ -1,6 +1,6 @@
 class EventGenresController < ApplicationController
 
-    def create
+  def create
     @event = Event.find(params[:event_id])
     @event_genre = EventGenre.new(event_genre_params)
     @event_genre.event = @event
