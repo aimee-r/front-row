@@ -3,5 +3,5 @@ class EventAttendee < ApplicationRecord
   belongs_to :user
   belongs_to :event
   # VALIDATIONS
-  validates :streaming_link, presence: true, uniqueness: true
+  # validates :streaming_link, presence: true, uniqueness: true
 end

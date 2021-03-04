@@ -72,3 +72,5 @@ gem 'stripe_event'
 
 gem 'country_select'
 
+
+gem "opentok", "~> 4.2"
