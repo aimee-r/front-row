@@ -1,6 +1,11 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
+  #PG Search
+  include PgSearch::Model
+  multisearchable against: [:artist_name]
+
   # REFERENCES
   has_many :orders
   has_many :events, dependent: :destroy

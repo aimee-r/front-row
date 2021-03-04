@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2">
+      <div id="events">
+        <%# @events.each do |event| %>
+          <h4><%#= event.event_name %></h4>
+          <p><%#= event.description %></p>
+        <%# end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="results">
+  <div class="row">
+    <div class="sorted-table" id="event-artist">
+      <h2>Artists</h2>
+        <ul>
+          <% @artists.each do |artist| %>
+          <li><%= link_to "#{artist.searchable_type.constantize.find(artist.searchable_id).artist_name}", artist_path(artist.searchable_id) %></li>
+          <% end %>
+        </ul>
+    </div>
+  </div>
+
+  <div class="results">
+  <div class="row">
+    <div class="sorted-table" id="event-event">
+      <h2>Events</h2>
+        <ul>
+          <% @events.each do |event| %>
+          <li><%= link_to "#{event.searchable_type.constantize.find(event.searchable_id).event_name}", event_path(event.searchable_id) %></li>
+          <% end %>
+        </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="sorted-table" id="event-genre">
+      <h2>Genres</h2>
+      <ul>
+       <% @genres.each do |genre| %>
+          <li><%= link_to "#{genre.searchable_type.constantize.find(genre.searchable_id).name}", events_path(query: genre.searchable_type.constantize.find(genre.searchable_id).name) %></li>
+          <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
