@@ -1,24 +1,37 @@
-<h1>User#show</h1>
-<p>Find me in app/views/user/show.html.erb</p>
-<h1>Artist Profile Page</h1>
 
-<ul>
-  <h2>Upcoming</h2>
-<% @user.events.each do |event| %>
-  <li><%=event.event_name %></li>
+<div class="container">
+
+<div class="artist-flex">
+<div class="flex-top-a">
+<% if current_user.photo.attached? %>
+  <%= cl_image_tag current_user.photo.key, class: "avatar-account" %>
+
+<%# <div class="social-list">
+<p>Follow <%= @user.artist_name %> 
+
+<%# <p><i class="material-icons mr-2">facebook</i>
+   <span class="material-icons">
+instagram</span>
+    <span class="material-icons">
+twitter</span>
+    <span class="material-icons">
+spotify</span></p>
+</div> %>
+<% else %>
+  <%= image_tag "https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-12.jpg", class: "avatar_account" %>
 <% end %>
-</ul>
-
-<div class="container-home">
-
-<div class="row">
-  <h1><%= @user.artist_name %></h1>
-  <br />
-  <h2>About the artist</h2>
-  <p><%= @user.bio %></p>
 </div>
 
+<div class="flex-bottom-a">
+<h1><%= @user.artist_name %></h1>
+  <br />
+  <p><%= @user.bio %></p>
 
+</div>
+</div>
+
+</br>
+<h3>Upcoming Events</h3>
 
 <div class="row">
     <% @user.events.each do |event| %>
@@ -51,3 +64,4 @@
 
 
 </div>
+
