@@ -30,45 +30,50 @@
       </ul>
     </div>
 
-  </div>
-
-
-  <div class="artist-block">
-    <h2>My tickets</h2>
-     <p style="color:lightgray">____________________________________________</p>
-    <% if current_user.event_attendees.nil? %>
-      <p> Basket Empty</p>
-    <% else %>
-      <!-- current_user.event_attendees.events.each do |event|
-      event.name -->
-       <p> Basket Empty</p>
-      <!-- end -->
-    <% end %>
-  </div>
-
-  <div class="artist-block">
+      <div class="artist-block">
     <% if current_user.artist? %>
       <ul>
         <h2>Artist Details</h2>
         <li><strong>Artist Name:</strong> <%= current_user.artist_name %></li>
-        <li><strong>Artist Bio:</strong> <%= current_user.bio %></li>
-        <li><strong>Artist Bank Details:</strong> <%= current_user.bank_details %></li>
-        <li><strong>Artist Facebook:</strong> <%= current_user.facebook %></li>
-        <li><strong>Artist Instagram:</strong> <%= current_user.instergram %></li>
-        <li><strong>Artist Twitter:</strong> <%= current_user.twitter %></li>
+        <li><strong>Bank Details:</strong> <%= current_user.bank_details %></li>
+        <li><strong>Facebook:</strong> <%= current_user.facebook %></li>
+        <li><strong>Instagram:</strong> <%= current_user.instergram %></li>
+        <li><strong>Twitter:</strong> <%= current_user.twitter %></li>
       </ul>
+    <% end %>
+
+  </div>
+
+  </div>
+
+<div class="user-flex">
+
+  <div class="ticket-block">
+    <h2>My Tickets</h2>
+     <p style="color:lightgray">_________________________________</p>
+    <% if current_user.event_attendees.nil? %>
+      <p style="color:lightgray"> Your basket is empty.</p>
+    <% else %>
+      <!-- current_user.event_attendees.events.each do |event|
+      event.name -->
+       <p style="color:lightgray"> Your basket is empty.</p>
+      <!-- end -->
     <% end %>
   </div>
 
-
+<div class="event-block">
   <% if current_user.artist? %>
       <h2>My Events</h2>
     <% @events.each do |event| %>
       <% if event.user == current_user %>
       <div class="event-line">
-         <%= event.event_name %><%= link_to 'View',event_path(event), class: 'btn-small' %></div>
-         <p style="color:lightgray">____________________________________________</p>
+         <%= event.event_name %>
+         <%= link_to 'View', event_path(event), class: 'btn-small event-btn' %>
+         <%= link_to 'Edit', event_path(event), class: 'btn-small edit-btn' %><%= link_to 'Delete', event_path(event), class: 'btn-small delete-btn' %>
+         </div>
       <% end %>
     <% end %>
   <% end %>
+  </div>
+</div>
 </div>
