@@ -4,7 +4,8 @@
 
 .flex-left {
   flex: 70%;
-  max-width: 600px;
+  max-width: 650px;
+  margin-right: 100px;
 }
 
 .flex-right {
@@ -12,9 +13,12 @@
   text-align: center;
 }
 
-// .flex-right p {
-//   margin-bottom: 1px;
-// }
+.flex-right p {
+  margin-bottom: 5px;
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+  font-size: 15px;
+}
 
 #event-header {
   text-transform: uppercase;
