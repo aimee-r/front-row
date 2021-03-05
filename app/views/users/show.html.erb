@@ -7,7 +7,7 @@
   <%= cl_image_tag current_user.photo.key, class: "avatar-artist" %>
 
 <%# <div class="social-list">
-<p>Follow <%= @user.artist_name %> 
+<p>Follow <%= @user.artist_name %>
 
 <%# <p><i class="material-icons mr-2">facebook</i>
    <span class="material-icons">
@@ -53,7 +53,9 @@ spotify</span></p>
               </div>
                 <%# <p>£<%= Money.new(event.price_cents.to_s, :gbp) %>
             <div class="genre-box">
-                <span><%= event.genres[0].name %> </span>
+                <% event.genres.each do |genre| %>
+                <span class="mr-2" ><%= genre.name %> </span>
+              <% end %>
             </div>
           </div>
         </div>

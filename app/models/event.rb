@@ -13,7 +13,7 @@ class Event < ApplicationRecord
   has_many :event_genres
   has_many :genres, through: :event_genres
   # VALIDATIONS
-  validates :event_name, presence: true, uniqueness: true
+  validates :event_name, presence: true
   validates :description, presence: true
   validates :start_time, presence: true
   validates :end_time, presence: true
