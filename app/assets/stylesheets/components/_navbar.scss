@@ -4,6 +4,8 @@
   color: white;
   z-index: 10;
   height: 80px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .navbar-brand p {
@@ -29,7 +31,8 @@ a {
 }
 
 .nav-item a {
-  color: white;
+  color: white !important;
+  margin-right: 20px;
 }
 
 .sticky {
