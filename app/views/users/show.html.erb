@@ -3,8 +3,8 @@
 
 <div class="artist-flex">
 <div class="flex-top-a">
-<% if current_user.photo.attached? %>
-  <%= cl_image_tag current_user.photo.key, class: "avatar-artist" %>
+<% if @user.photo.attached? %>
+  <%= cl_image_tag @user.photo.key, class: "avatar-artist" %>
 
 <%# <div class="social-list">
 <p>Follow <%= @user.artist_name %>
