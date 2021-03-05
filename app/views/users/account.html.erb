@@ -33,13 +33,12 @@
   <div class="artist-block">
     <h2>My tickets</h2>
      <p style="color:lightgray">____________________________________________</p>
-    <% if current_user.event_attendees.nil? %>
-      <p> Basket Empty</p>
+    <% if current_user.event_attendees.any? %>
+      <% current_user.event_attendees.each do |event_attendee|  %>
+      <%= event_attendee.event.event_name %>
+      <% end %>
     <% else %>
-      <!-- current_user.event_attendees.events.each do |event|
-      event.name -->
-       <p> Basket Empty</p>
-      <!-- end -->
+      <p> Basket Empty</p>
     <% end %>
   </div>
 
