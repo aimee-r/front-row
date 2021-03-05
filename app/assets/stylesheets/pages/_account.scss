@@ -38,21 +38,23 @@ ol {
 }
 
 .event-btn {
-  margin-left: 40px;
+  margin-left: 20px;
 }
 
 .event-line {
   border-bottom: 1px solid rgb(73, 73, 73);
   padding: 10px;
   margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .edit-btn {
   background-color: rgb(104, 238, 104);
-  margin-left: 40px;
+  margin-left: 20px;
 }
 
 .delete-btn {
   background-color: rgb(250, 70, 70);
-  margin-left: 40px;
+  margin-left: 20px;
 }

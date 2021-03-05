@@ -1,0 +1,25 @@
+<div class="banner-small" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.4)), url(https://diymusician.cdbaby.com/wp-content/uploads/2016/12/studio-image-diy-blog.jpeg);">
+  <div class="container">
+    <h1>Update your event</h1>
+  </div>
+</div>
+
+<div class="container rounded" style="width: 900px;">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <%= simple_form_for (@event) do |f| %>
+        <%= f.input :event_name, input_html: { class: "nice-class", maxlength: 50 } %>
+        <%= f.input :description, input_html: { maxlength: 150 } %>
+        <%= f.input :start_time %>
+        <%= f.input :end_time %>
+        <%= f.input :city %>
+        <%= f.country_select :country, priority_countries: ["GB", "US"] %>
+        <%= f.input :price_cents, label: "Price per Ticket" %>
+        <%= f.association :genres, multiple: true, size: 3 %>
+        <%= f.input :photo, as: :file %>
+        <%= f.submit 'Add your Event', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+ </div>
+

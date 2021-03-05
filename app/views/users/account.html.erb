@@ -11,11 +11,11 @@
     <% if current_user.photo.attached? %>
       <%= cl_image_tag current_user.photo.key, class: "avatar-account" %>
        </br></br>
-      <span><%= link_to 'Edit profile', '#', class: 'btn-small' %></span>
+      <span><%= link_to 'Edit profile', edit_user_registration_path, class: 'btn-small' %></span>
     <% else %>
       <%= image_tag "https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-12.jpg", class: "avatar_account" %>
       </br></br>
-      <span><%= link_to 'Edit profile', '#', class: 'btn-small' %></span>
+      <span><%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn-small' %></span>
     <% end %>
     </div>
 
@@ -68,9 +68,10 @@
       <% if event.user == current_user %>
       <div class="event-line">
          <%= event.event_name %>
+         <div class="button-box">
          <%= link_to 'View', event_path(event), class: 'btn-small event-btn' %>
-         <%= link_to 'Edit', event_path(event), class: 'btn-small edit-btn' %><%= link_to 'Delete', event_path(event), class: 'btn-small delete-btn' %>
-         </div>
+         <%= link_to 'Edit', edit_event_path(event), class: 'btn-small edit-btn' %><%= link_to 'Delete', event_path(event), method: 'delete', data: { confirm: "Are you sure?" }, class: 'btn-small delete-btn' %>
+         </div></div>
       <% end %>
     <% end %>
   <% end %>
