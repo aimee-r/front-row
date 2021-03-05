@@ -3,7 +3,11 @@ class EventsController < ApplicationController
 
   def index
     # Add query when implementing search bar
-    @events = Event.all
+    if params[:query].present?
+      @events = Event.select { |event| event.genres.include?(Genre.find_by(name: params[:query])) }
+    else
+      @events = Event.all
+    end
   end
 
   # NEW

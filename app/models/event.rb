@@ -1,4 +1,8 @@
 class Event < ApplicationRecord
+  # PG Search
+  include PgSearch::Model
+  multisearchable against: [:event_name, :city, :country]
+
   after_create :set_sku
   # CLOUDINARY
   has_one_attached :photo
