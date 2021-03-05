@@ -95,7 +95,7 @@ puts "Customers buying tickets..."
 
 Event.all.each do |event|
   rand(25..75).times do
-    EventAttendee.create(
+    EventAttendee.create!(
       event_id: event.id,
       user_id: customer_arr.sample,
       streaming_link: 'youtube.com'
