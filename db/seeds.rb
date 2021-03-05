@@ -68,6 +68,8 @@ customer_arr = []
   customer_arr.push(user)
 end
 
+puts customer_arr
+
 puts "Creating events..."
 
 artists.each do |artist|
@@ -97,7 +99,7 @@ Event.all.each do |event|
   rand(25..75).times do
     EventAttendee.create!(
       event_id: event.id,
-      user_id: customer_arr.sample,
+      user_id: customer_arr.sample.id,
       streaming_link: 'youtube.com'
       )
   end
