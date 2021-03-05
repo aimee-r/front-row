@@ -2,6 +2,8 @@
   justify-content: space-between;
   background-color: black;
   color: white;
+  z-index: 10;
+  height: 80px;
 }
 
 .navbar-brand p {
@@ -18,10 +20,29 @@
   width: 40px;
 }
 
-.navbar {
+.navbar a {
   color: white;
 }
 
 a {
   color: white;
+}
+
+.nav-item a {
+  color: white;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar-lewagon-white {
+  background-color: rgba(7, 7, 7, 0.849);
+  z-index: 10;
+}
+
+#navbarDropdown:hover {
+  cursor: pointer;
 }
