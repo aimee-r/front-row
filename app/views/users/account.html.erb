@@ -6,55 +6,69 @@
 
 <div class="container">
 
-<div class="user-flex">
-<div class="flex-top">
-<% if current_user.photo.attached? %>
-  <%= cl_image_tag current_user.photo.key, class: "avatar-account" %>
-   </br></br>
-  <span><%= link_to 'Edit profile', '#', class: 'btn-small' %></span>
-<% else %>
-  <%= image_tag "https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-12.jpg", class: "avatar_account" %>
-  </br></br>
-  <span><%= link_to 'Edit profile', '#', class: 'btn-small' %></span>
-<% end %>
-</div>
+  <div class="user-flex">
+    <div class="flex-top">
+    <% if current_user.photo.attached? %>
+      <%= cl_image_tag current_user.photo.key, class: "avatar-account" %>
+       </br></br>
+      <span><%= link_to 'Edit profile', '#', class: 'btn-small' %></span>
+    <% else %>
+      <%= image_tag "https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-12.jpg", class: "avatar_account" %>
+      </br></br>
+      <span><%= link_to 'Edit profile', '#', class: 'btn-small' %></span>
+    <% end %>
+    </div>
 
-<div class="flex-bottom">
-<ul>
-  <h2>User Details</h2>
-  <li><strong>First Name:</strong> <%= current_user.first_name %></li>
-  <li><strong>Last Name:</strong> <%= current_user.first_name %></li>
-  <li><strong>Email:</strong> <%= current_user.email %></li>
-  <li><strong>Location:</strong> <%= current_user.first_name %></li>
-  <li><strong>DOB:</strong> <%= current_user.dob %></li>
-</ul>
+    <div class="flex-bottom">
+      <ul>
+        <h2>User Details</h2>
+        <li><strong>First Name:</strong> <%= current_user.first_name %></li>
+        <li><strong>Last Name:</strong> <%= current_user.first_name %></li>
+        <li><strong>Email:</strong> <%= current_user.email %></li>
+        <li><strong>Location:</strong> <%= current_user.first_name %></li>
+        <li><strong>DOB:</strong> <%= current_user.dob %></li>
+      </ul>
+    </div>
 
-</div>
-</div>
-
-<div class="artist-block">
-<% if current_user.artist? %>
-<ul>
-  <h2>Artist Details</h2>
-  <li><strong>Artist Name:</strong> <%= current_user.artist_name %></li>
-  <li><strong>Artist Bio:</strong> <%= current_user.bio %></li>
-  <li><strong>Artist Bank Details:</strong> <%= current_user.bank_details %></li>
-  <li><strong>Artist Facebook:</strong> <%= current_user.facebook %></li>
-  <li><strong>Artist Instagram:</strong> <%= current_user.instergram %></li>
-  <li><strong>Artist Twitter:</strong> <%= current_user.twitter %></li>
-</ul>
-<% end %>
-</div>
+  </div>
 
 
-<% if current_user.artist? %>
-    <h2>My Events</h2>
-  <% @events.each do |event| %>
-    <% if event.user == current_user %>
-    <div class="event-line">
-       <%= event.event_name %><%= link_to 'View',event_path(event), class: 'btn-small' %></div>
-       <p style="color:lightgray">____________________________________________</p>
+  <div class="artist-block">
+    <h2>My tickets</h2>
+     <p style="color:lightgray">____________________________________________</p>
+    <% if current_user.event_attendees.nil? %>
+      <p> Basket Empty</p>
+    <% else %>
+      <!-- current_user.event_attendees.events.each do |event|
+      event.name -->
+       <p> Basket Empty</p>
+      <!-- end -->
+    <% end %>
+  </div>
+
+  <div class="artist-block">
+    <% if current_user.artist? %>
+      <ul>
+        <h2>Artist Details</h2>
+        <li><strong>Artist Name:</strong> <%= current_user.artist_name %></li>
+        <li><strong>Artist Bio:</strong> <%= current_user.bio %></li>
+        <li><strong>Artist Bank Details:</strong> <%= current_user.bank_details %></li>
+        <li><strong>Artist Facebook:</strong> <%= current_user.facebook %></li>
+        <li><strong>Artist Instagram:</strong> <%= current_user.instergram %></li>
+        <li><strong>Artist Twitter:</strong> <%= current_user.twitter %></li>
+      </ul>
+    <% end %>
+  </div>
+
+
+  <% if current_user.artist? %>
+      <h2>My Events</h2>
+    <% @events.each do |event| %>
+      <% if event.user == current_user %>
+      <div class="event-line">
+         <%= event.event_name %><%= link_to 'View',event_path(event), class: 'btn-small' %></div>
+         <p style="color:lightgray">____________________________________________</p>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
 </div>
