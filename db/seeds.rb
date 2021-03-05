@@ -61,23 +61,23 @@ aimee = User.create!(first_name: 'Aimée', last_name: 'Rawlings', location: 'Sou
 
 anne = User.create!(first_name: 'Anne', last_name: 'De Joly', location: 'London', dob: '1989-09-14', email: 'anne@example.com', password: '123456', artist: true, artist_name: 'DJ Anne de Joly', bank_details: '121212 12345678', facebook: 'https://www.facebook.com/daftpunk/', instergram: 'https://www.facebook.com/daftpunk/', twitter: 'https://www.facebook.com/daftpunk/',  bio: "DJ Anne has been at the nexus of music, fashion, and nightlife for over half her living years as the go-to deejay for music impresarios, entertainment moguls, fashion icons, cultural trendsetters, and even world leaders. When President Obama wanted a deejay for both of his Inaugurations and his fiftieth birthday party at the White House, theres only one person he called. When Oprah Winfrey celebrated the opening of her school in South Africa on New Years Eve, there’s only one person she called. And when Jay Z needed a deejay for his wedding to Beyoncé, theres only one person he called." )
     file = URI.open('https://github.com/Annedj.png')
-    aimee.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-    aimee.save!
+    anne.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+    anne.save!
 
 ife = User.create!(first_name: 'ife', last_name: 'Odugbesan', location: 'London', dob: '1989-09-14', email: 'ife@example.com', password: '123456', artist: true, artist_name: 'DJ Ife', bank_details: '121212 12345678', facebook: 'https://www.facebook.com/daftpunk/', instergram: 'https://www.facebook.com/daftpunk/', twitter: 'https://www.facebook.com/daftpunk/',  bio: "DJ Ife has been at the nexus of music, fashion, and nightlife for over half her living years as the go-to deejay for music impresarios, entertainment moguls, fashion icons, cultural trendsetters, and even world leaders. When President Obama wanted a deejay for both of his Inaugurations and his fiftieth birthday party at the White House, theres only one person he called. When Oprah Winfrey celebrated the opening of her school in South Africa on New Years Eve, there’s only one person she called. And when Jay Z needed a deejay for his wedding to Beyoncé, theres only one person he called." )
     file = URI.open('https://github.com/ifeodugbesan.png')
-    aimee.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-    aimee.save!
+    ife.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+    ife.save!
 
 leonard = User.create!(first_name: 'Leonard', last_name: 'Percival', location: 'London', dob: '1989-09-14', email: 'leonard@example.com', password: '123456', artist: true, artist_name: 'DJ leonard', bank_details: '121212 12345678', facebook: 'https://www.facebook.com/daftpunk/', instergram: 'https://www.facebook.com/daftpunk/', twitter: 'https://www.facebook.com/daftpunk/',  bio: "DJ Leonard has been at the nexus of music, fashion, and nightlife for over half her living years as the go-to deejay for music impresarios, entertainment moguls, fashion icons, cultural trendsetters, and even world leaders. When President Obama wanted a deejay for both of his Inaugurations and his fiftieth birthday party at the White House, theres only one person he called. When Oprah Winfrey celebrated the opening of her school in South Africa on New Years Eve, there’s only one person she called. And when Jay Z needed a deejay for his wedding to Beyoncé, theres only one person he called." )
     file = URI.open('https://github.com/oceantidote.png')
-    aimee.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-    aimee.save!
+    leonard.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+    leonard.save!
 
 romeo = User.create!(first_name: 'romeo', last_name: 'Saint-Albin', location: 'London', dob: '1989-09-14', email: 'romeo@example.com', password: '123456', artist: true, artist_name: 'DJ Romeo', bank_details: '121212 12345678', facebook: 'https://www.facebook.com/daftpunk/', instergram: 'https://www.facebook.com/daftpunk/', twitter: 'https://www.facebook.com/daftpunk/',  bio: "DJ Romeo has been at the nexus of music, fashion, and nightlife for over half her living years as the go-to deejay for music impresarios, entertainment moguls, fashion icons, cultural trendsetters, and even world leaders. When President Obama wanted a deejay for both of his Inaugurations and his fiftieth birthday party at the White House, theres only one person he called. When Oprah Winfrey celebrated the opening of her school in South Africa on New Years Eve, there’s only one person she called. And when Jay Z needed a deejay for his wedding to Beyoncé, theres only one person he called." )
     file = URI.open('https://github.com/oceantidote.png')
-    aimee.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-    aimee.save!
+    romeo.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+    romeo.save!
 
 lukas = User.create!(first_name: 'Lukáš', last_name: 'Musílek',  location: 'Czech Republic', dob: '1989-09-14', email: 'lukas@example.com', password: '123456', artist: true, artist_name: 'MC Lukas', bank_details: '121212 12345678', facebook: 'https://www.facebook.com/daftpunk/', instergram: 'https://www.facebook.com/daftpunk/', twitter: 'https://www.facebook.com/daftpunk/',  bio: "DJ Lukas has been at the nexus of music, fashion, and nightlife for over half her living years as the go-to deejay for music impresarios, entertainment moguls, fashion icons, cultural trendsetters, and even world leaders. When President Obama wanted a deejay for both of his Inaugurations and his fiftieth birthday party at the White House, there's only one person he called. When Oprah Winfrey celebrated the opening of her school in South Africa on New Years Eve, there’s only one person she called. And when Jay Z needed a deejay for his wedding to Beyoncé, theres only one person he called." )
     file = URI.open('https://github.com/Lmusilek')
