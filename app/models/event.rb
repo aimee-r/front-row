@@ -1,5 +1,7 @@
 class Event < ApplicationRecord
   after_create :set_sku
+  after_create :create_room
+  has_one :room
   # CLOUDINARY
   has_one_attached :photo
   # REFERENCES
@@ -21,5 +23,9 @@ class Event < ApplicationRecord
   def set_sku
     self.sku = "#{self.id}  #{self.event_name.gsub(" ", "-")}"
     self.save
+  end
+
+  def create_room
+    Room.create(name: event_name, event: self)
   end
 end

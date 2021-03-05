@@ -81,7 +81,6 @@ Event.all.each do |event|
     EventAttendee.create(
       event_id: event.id,
       user_id: customer_arr.sample,
-      streaming_link: 'youtube.com'
       )
   end
 end

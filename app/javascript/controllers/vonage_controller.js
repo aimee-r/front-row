@@ -50,7 +50,6 @@ export default class extends Controller {
     this.session.subscribe(event.stream, this.element, {
       insertMode: 'prepend',
       width: '100%',
-      padding: '10px',
       heigth: '100%'
     }, this.handleError.bind(this))
   }

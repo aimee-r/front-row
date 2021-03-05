@@ -19,5 +19,3 @@ class EventGenresController < ApplicationController
     params.require(:event_genre).permit(:genre_id)
   end
 end
-
-end

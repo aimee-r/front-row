@@ -19,10 +19,14 @@
 
 <h1 class="m-0"><%= @event.event_name %></h1>
 
-<%= form_tag orders_path do %>
-  <%= hidden_field_tag 'event_id', @event.id %>
-  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-  <% end %>
+  <% if Order.where(event: @event, state: 'paid', user: current_user).any? %>
+    <%= link_to "Go to stream", room_path(@event.room), class: 'btn btn-primary' %>
+    <% else %>
+    <%= form_tag orders_path do %>
+    <%= hidden_field_tag 'event_id', @event.id %>
+    <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+    <% end %>
+<% end %>
 
 
  <% if current_user == @event.user %>
@@ -36,11 +40,6 @@
   </div>
 
 </br>
-
-    <%= form_tag orders_path do %>
-  <%= hidden_field_tag 'event_id', @event.id %>
-  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
-  <% end %>
 
 <p>event hosted by <%= @event.user.first_name %></p>
 
