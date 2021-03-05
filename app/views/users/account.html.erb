@@ -1,12 +1,22 @@
-<h1>User#account</h1>
-<p>Find me in app/views/user/account.html.erb</p>
 
+<div class="container">
+<h1>Your Dashboard</h1>
+</br>
+
+<div class="user-flex">
+<div class="flex-top">
 <% if current_user.photo.attached? %>
   <%= cl_image_tag current_user.photo.key, class: "avatar-account" %>
+   </br></br>
+  <span><%= link_to 'Edit profile', '#', class: 'btn-small' %></span>
 <% else %>
   <%= image_tag "https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-12.jpg", class: "avatar_account" %>
+  </br></br>
+  <span><%= link_to 'Edit profile', '#', class: 'btn-small' %></span>
 <% end %>
+</div>
 
+<div class="flex-bottom">
 <ul>
   <h2>User Details</h2>
   <li><strong>First Name:</strong> <%= current_user.first_name %></li>
@@ -16,6 +26,10 @@
   <li><strong>DOB:</strong> <%= current_user.dob %></li>
 </ul>
 
+</div>
+</div>
+
+<div class="artist-block">
 <% if current_user.artist? %>
 <ul>
   <h2>Artist Details</h2>
@@ -27,14 +41,17 @@
   <li><strong>Artist Twitter:</strong> <%= current_user.twitter %></li>
 </ul>
 <% end %>
+</div>
+
 
 <% if current_user.artist? %>
-  <ol>
-    <h2>Event List</h2>
+    <h2>My Events</h2>
   <% @events.each do |event| %>
     <% if event.user == current_user %>
-       <li><%= event.event_name %><%= link_to 'View',event_path(event), class: 'btn btn-primary' %></p>
+    <div class="event-line">
+       <%= event.event_name %><%= link_to 'View',event_path(event), class: 'btn-small' %></div>
+       <p style="color:lightgray">____________________________________________</p>
     <% end %>
   <% end %>
-    </ol>
 <% end %>
+</div>

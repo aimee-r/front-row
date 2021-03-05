@@ -1,9 +1,9 @@
 
 <% if @event.photo.attached? %>
         <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url('<%= cl_image_path @event.photo.key %>');">
-  <div class="container">
+  <div class="container" id="event-header" >
     <h1><%= @event.user.first_name %></h1>
-    <h2><%= @event.start_time.strftime('%A, %b %d') %></h2>
+    <h2><%= @event.start_time.strftime('%e %B %Y') %></h2>
   </div>
 </div>
       <% else %>
@@ -21,7 +21,6 @@
 
 <div class="flex-left">
 
-
 <h1 class="m-0"><%= @event.event_name %></h1>
 <h3>Artist Name</h3>
 <h3><%= link_to @event.user.artist_name, profile_path(@event.user_id)  %></h3>
@@ -31,15 +30,10 @@
 <h3>Event Description</h3>
 </br>
 <p><%= @event.description %></p>
-
 </br>
 <h3>About the artist</h3>
 </br>
 <p><%= @event.user.bio %></p>
-
-<h4>Features of the event</h4>
-
-
 
 </div>
 
@@ -47,19 +41,18 @@
 
 <p><%= @event.city %></p>
 
-<p style="color:lightgray">____________________________________________</p>
+<p style="color:lightgray">_______________________________________</p>
 
 <p><%= @event.start_time.strftime('%A, %b %d') %></p>
 
-<p style="color:lightgray">____________________________________________</p>
+<p style="color:lightgray">_______________________________________</p>
 
 <p><%= @event.start_time.strftime('%l:%M %p') %></p>
 
-<p style="color:lightgray">____________________________________________</p>
+<p style="color:lightgray">_______________________________________</p>
 
 <p>£<%= Money.new(@event.price_cents.to_s, :gbp) %><p>
-
-<p style="color:lightgray">____________________________________________</p>
+<p style="color:lightgray">_______________________________________</p>
 
 <%= form_tag orders_path do %>
   <%= hidden_field_tag 'event_id', @event.id %>

@@ -1,0 +1,29 @@
+.user-flex {
+  display: flex;
+}
+
+.flex-top {
+  text-align: center;
+}
+
+.flex-top li {
+  margin-bottom: 10px;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0px;
+}
+
+.artist-block {
+  margin-top: 20px;
+}
+
+.artist-block li {
+  margin-bottom: 10px;
+}
+
+.flex-bottom ul {
+  padding-left: 30px;
+}

@@ -32,3 +32,23 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
 });
+
+// nav bar
+
+const initUpdateNavbarOnScroll = () => {
+  const navbar = document.querySelector('.navbar-lewagon');
+  if (navbar) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY >= window.innerHeight) {
+        navbar.classList.add('navbar-lewagon-white');
+      } else {
+        navbar.classList.remove('navbar-lewagon-white');
+      }
+    });
+  }
+}
+
+document.addEventListener('turbolinks:load', () => {
+  // Call your JS functions here
+  initUpdateNavbarOnScroll();
+});
