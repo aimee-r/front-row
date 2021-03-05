@@ -11,8 +11,10 @@ class PagesController < ApplicationController
       @artists = PgSearch.multisearch(params[:query]).where(searchable_type: 'User')
       @events = PgSearch.multisearch(params[:query]).where(searchable_type: 'Event')
       @genres = PgSearch.multisearch(params[:query]).where(searchable_type: 'Genre')
+    elsif params[:query].empty?
+      alert()
     else
-      # @events = Event.all
+      @events = Event.all
     end
   end
 end
