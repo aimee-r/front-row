@@ -2,14 +2,14 @@
 <% if @event.photo.attached? %>
         <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url('<%= cl_image_path @event.photo.key %>');">
   <div class="container" id="event-header" >
-    <h1><%= @event.user.first_name %></h1>
+    <h1><%= @event.user.artist_name %></h1>
     <h2><%= @event.start_time.strftime('%e %B %Y') %></h2>
   </div>
 </div>
       <% else %>
         <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url('https://res.cloudinary.com/soundbetter/image/upload/c_fill,f_auto,g_face:auto,h_288,q_90,w_540/v1610559632/assets/photos/55969/IMG_3093.jpg');">
   <div class="container">
-        <h1><%= @event.user.last_name %></h1>
+        <h1><%= @event.user.artist_name %></h1>
     <h2><%= @event.start_time.strftime('%A, %b %d') %></h2>
   </div>
 </div>
