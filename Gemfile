@@ -32,6 +32,7 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
@@ -63,13 +64,16 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'faker'
-gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'money-rails'
 gem 'stripe'
 gem 'stripe_event'
 
 gem 'country_select'
-gem 'cloudinary', '~> 1.16.0'
 
 gem "opentok", "~> 4.2"
+gem 'pg_search', '~> 2.3.0'
+
+gem 'cloudinary', '~> 1.16.0'
+gem 'dotenv-rails', groups: [:development, :test]
+

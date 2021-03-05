@@ -1,0 +1,83 @@
+<div class="banner-small" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.4)), url(https://diymusician.cdbaby.com/wp-content/uploads/2016/12/studio-image-diy-blog.jpeg);">
+  <div class="container">
+    <h1>Dashboard</h1>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="user-flex">
+    <div class="flex-top">
+    <% if current_user.photo.attached? %>
+      <%= cl_image_tag current_user.photo.key, class: "avatar-account" %>
+       </br></br>
+       <span><%= link_to 'Create Event', new_event_path, class: 'btn-small' %></span>
+      <span><%= link_to 'Edit profile', edit_user_registration_path, class: 'btn-small edit-btn' %></span>
+    <% else %>
+      <%= image_tag "https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-12.jpg", class: "avatar_account" %>
+      </br></br>
+      <span><%= link_to 'Create Event', new_event_path, class: 'btn-small' %></span>
+      <br>
+      <span><%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn-small edit-btn' %></span>
+    <% end %>
+    </div>
+
+    <div class="flex-bottom">
+      <ul>
+        <h2>User Details</h2>
+        <li><strong>First Name:</strong> <%= current_user.first_name %></li>
+        <li><strong>Last Name:</strong> <%= current_user.first_name %></li>
+        <li><strong>Email:</strong> <%= current_user.email %></li>
+        <li><strong>Location:</strong> <%= current_user.first_name %></li>
+        <li><strong>DOB:</strong> <%= current_user.dob %></li>
+      </ul>
+    </div>
+
+      <div class="artist-block">
+    <% if current_user.artist? %>
+      <ul>
+        <h2>Artist Details</h2>
+        <li><strong>Artist Name:</strong> <%= current_user.artist_name %></li>
+        <li><strong>Bank Details:</strong> <%= current_user.bank_details %></li>
+        <li><strong>Facebook:</strong> <%= current_user.facebook %></li>
+        <li><strong>Instagram:</strong> <%= current_user.instergram %></li>
+        <li><strong>Twitter:</strong> <%= current_user.twitter %></li>
+      </ul>
+    <% end %>
+
+  </div>
+
+  </div>
+
+<div class="user-flex">
+
+
+  <div class="ticket-block">
+    <h2>My tickets</h2>
+     <p style="color:lightgray">____________________________</p>
+    <% if current_user.event_attendees.any? %>
+      <% current_user.event_attendees.each do |event_attendee|  %>
+      <%= event_attendee.event.event_name %>
+      <% end %>
+    <% else %>
+      <p>Your basket is empty.</p>
+    <% end %>
+  </div>
+
+<div class="event-block">
+  <% if current_user.artist? %>
+      <h2>My Events</h2>
+    <% @events.each do |event| %>
+      <% if event.user == current_user %>
+      <div class="event-line">
+         <%= event.event_name %>
+         <div class="button-box">
+         <%= link_to 'View', event_path(event), class: 'btn-small event-btn' %>
+         <%= link_to 'Edit', edit_event_path(event), class: 'btn-small edit-btn' %><%= link_to 'Delete', event_path(event), method: 'delete', data: { confirm: "Are you sure?" }, class: 'btn-small delete-btn' %>
+         </div></div>
+      <% end %>
+    <% end %>
+  <% end %>
+  </div>
+</div>
+</div>

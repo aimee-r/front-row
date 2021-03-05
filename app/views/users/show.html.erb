@@ -1,0 +1,69 @@
+
+<div class="container">
+
+<div class="artist-flex">
+<div class="flex-top-a">
+<% if @user.photo.attached? %>
+  <%= cl_image_tag @user.photo.key, class: "avatar-artist" %>
+
+<%# <div class="social-list">
+<p>Follow <%= @user.artist_name %>
+
+<%# <p><i class="material-icons mr-2">facebook</i>
+   <span class="material-icons">
+instagram</span>
+    <span class="material-icons">
+twitter</span>
+    <span class="material-icons">
+spotify</span></p>
+</div> %>
+<% else %>
+  <%= image_tag "https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-12.jpg", class: "avatar_account" %>
+<% end %>
+</div>
+
+<div class="flex-bottom-a">
+<h1><%= @user.artist_name %></h1>
+  <br />
+  <p><%= @user.bio %></p>
+
+</div>
+</div>
+
+</br>
+<h3>Upcoming Events</h3>
+
+<div class="row">
+    <% @user.events.each do |event| %>
+    <%= link_to event_path(event) do %>
+      <div class="col-4">
+        <div class="event-card">
+          <% if event.photo.attached? %>
+            <div class="event-card-image" style="height: 150px; background-image: url('<%= cl_image_path event.photo.key %>')"></div>
+          <% else %>
+             <div class="event-card-image" style="height: 150px; background-image: url(<%= 'https://static.billboard.com/files/2020/12/chloe-x-halle-tiny-desk-2020-billboard-1548-1607458577-compressed.jpg' %>)"></div>
+          <% end %>
+          <div class="event-card-content">
+            <div class="event-card-title">
+              <h4><%= event.event_name %></h4>
+            <p>Hosted by <%= event.user.first_name %></p>
+             </div>
+              <div class="flex">
+                <%= event.city %> | <%= event.start_time.strftime('%A, %b %d') %> | <%= event.start_time.strftime('%l:%M %p') %>
+              </div>
+                <%# <p>£<%= Money.new(event.price_cents.to_s, :gbp) %>
+            <div class="genre-box">
+                <% event.genres.each do |genre| %>
+                <span class="mr-2" ><%= genre.name %> </span>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
+</div>
+

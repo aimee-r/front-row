@@ -24,6 +24,14 @@
   background-position: center;
   background-size: cover;
   border-radius: 2px;
+  height: 180px;
+  transition: 800ms;
+}
+
+.event-card-image:hover {
+  height: 185;
+  width: 103%;
+  filter: brightness(120%);
 }
 
 .event-card-content {
@@ -33,11 +41,6 @@
 
 .event-card a {
   color: white;
-}
-
-.event-card a:hover {
-  color: white;
-  text-decoration: none;
 }
 
 .event-show-card {
@@ -74,10 +77,10 @@
 }
 
 .genre-box span {
-  background-color: lightgray;
-  padding: 4px;
+  background-color: rgba(70, 70, 70, 0.575);
+  padding: 5px;
   font-size: 10px;
-  color: black;
+  color: white;
   font-weight: bolder;
-  margin-top: 4px;
+  margin-top: 8px;
 }

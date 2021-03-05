@@ -34,3 +34,27 @@ document.addEventListener('turbolinks:load', () => {
 });
 
 import "controllers"
+
+// nav bar
+
+const initUpdateNavbarOnScroll = () => {
+  const navbar = document.querySelector('.navbar-lewagon');
+  const searchbar = document.querySelector('.form-field');
+  if (navbar) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY >= window.innerHeight) {
+        navbar.classList.add('navbar-lewagon-white');
+        searchbar.style.display = 'none';
+      } else {
+        navbar.classList.remove('navbar-lewagon-white');
+        searchbar.style.display = 'block';
+      }
+    });
+  }
+}
+
+
+document.addEventListener('turbolinks:load', () => {
+  // Call your JS functions here
+  initUpdateNavbarOnScroll();
+});

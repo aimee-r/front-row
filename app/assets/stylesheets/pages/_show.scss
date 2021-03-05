@@ -1,0 +1,30 @@
+.body-flex {
+  display: flex;
+}
+
+.flex-left {
+  flex: 70%;
+  max-width: 650px;
+  margin-right: 100px;
+}
+
+.flex-right {
+  flex: 30%;
+  text-align: center;
+}
+
+.flex-right p {
+  margin-bottom: 5px;
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+  font-size: 15px;
+}
+
+#event-header {
+  text-transform: uppercase;
+  font-size: larger;
+}
+
+#event-header h1 {
+  font-size: 75px;
+}

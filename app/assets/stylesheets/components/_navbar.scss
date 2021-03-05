@@ -2,6 +2,10 @@
   justify-content: space-between;
   background-color: black;
   color: white;
+  z-index: 10;
+  height: 80px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .navbar-brand p {
@@ -18,10 +22,43 @@
   width: 40px;
 }
 
-.navbar {
+.navbar a {
   color: white;
 }
 
 a {
   color: white;
 }
+
+.nav-item a {
+  color: white !important;
+  margin-right: 20px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar-lewagon-white {
+  background-color: rgba(7, 7, 7, 0.849);
+  z-index: 10;
+}
+
+#navbarDropdown:hover {
+  cursor: pointer;
+}
+
+.dropdown-background{
+  background-color: #040404;
+}
+
+.dropdown-border{
+   border: 1px solid #672af9;
+  }
+
+.dropdown-item:hover{
+  background:#672af9
+}
+

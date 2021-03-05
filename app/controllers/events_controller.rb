@@ -1,9 +1,15 @@
 class EventsController < ApplicationController
-  # skip_before_action :authenticate_user!, only: %i[index show]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     # Add query when implementing search bar
-    @events = Event.all
+    if params[:query].present?
+      @query = params[:query]
+      @events = Event.select { |event| event.genres.include?(Genre.find_by(name: params[:query])) }
+    else
+      @events = Event.all
+    end
+    @search = params[:search]
   end
 
   # NEW
@@ -50,6 +56,11 @@ class EventsController < ApplicationController
         render :edit
       end
   end
+
+  def edit
+    @event = Event.find(params[:id])
+  end
+
 
   private
 

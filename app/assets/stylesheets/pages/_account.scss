@@ -1,0 +1,55 @@
+.user-flex {
+  display: flex;
+  margin-top: 30px;
+}
+
+.flex-top {
+  text-align: center;
+}
+
+.flex-top li {
+  margin-bottom: 10px;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0px;
+}
+
+.artist-block {
+  margin-left: 60px;
+}
+
+.artist-block li {
+  margin-bottom: 10px;
+}
+
+.flex-bottom ul {
+  margin-left: 60px;
+}
+
+.ticket-block {
+  margin-right: 100px;
+}
+
+.event-btn {
+  margin-left: 20px;
+}
+
+.event-line {
+  border-bottom: 1px solid rgb(73, 73, 73);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-btn {
+  background-color: #8452fa;
+  margin-left: 20px;
+}
+
+.delete-btn {
+  background-color: rgb(250, 70, 70);
+  margin-left: 20px;
+}
