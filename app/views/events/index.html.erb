@@ -7,12 +7,12 @@
     </div>
   </div>
 
+
   <div class="row">
     <div class="col">
-      <% if @query %>
-        <p>You searched for '<%= @query %>'. We found <%= @events.count %> events out of our <%= Island.count %> on our website.</p>
+      <% if @search %>
+        <p>You have searched for '<%= @query %>'. Displaying <%= @events.count %> events.</p>
       <% else %>
-        <p>Displaying all <%= Event.count %> events.</p>
       <% end %>
     </div>
   </div>
