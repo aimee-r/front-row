@@ -22,3 +22,19 @@ body {
 .container-home {
   margin: 20px;
 }
+
+
+#videos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 10px;
+}
+
+.OT_root {
+  height: 600px !important;
+}
+
+.OT_publisher .OT_video-element {
+  padding: 20px;
+}

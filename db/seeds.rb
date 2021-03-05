@@ -142,8 +142,8 @@ Event.all.each do |event|
   rand(25..75).times do
     EventAttendee.create(
       event_id: event.id,
-      user_id: customer_arr.sample.id,
-      streaming_link: 'youtube.com'
+
+      user_id: customer_arr.sample,
       )
   end
 end

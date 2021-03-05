@@ -71,6 +71,7 @@ gem 'stripe_event'
 
 gem 'country_select'
 
+gem "opentok", "~> 4.2"
 gem 'pg_search', '~> 2.3.0'
 
 gem 'cloudinary', '~> 1.16.0'

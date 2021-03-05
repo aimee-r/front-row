@@ -33,6 +33,8 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
 });
 
+import "controllers"
+
 // nav bar
 
 const initUpdateNavbarOnScroll = () => {

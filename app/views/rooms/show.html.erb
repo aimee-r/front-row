@@ -1,0 +1,11 @@
+<% if @room.event.start_time > Time.now %>
+  <h1>This stream starts at <%= @room.event.start_time %> </h1>
+<% else %>
+  <div id="videos"
+        data-controller="vonage"
+        data-vonage-api-key="<%= ENV["VONAGE_API_KEY"] %>"
+        data-vonage-session-id= "<%= @room.vonage_session_id %>"
+        data-vonage-token="<%= @token %>"
+        data-vonage-name="<%= current_user.first_name %>">
+  </div>
+<% end %>
