@@ -51,13 +51,13 @@
 
   <div class="artist-block">
     <h2>My tickets</h2>
-     <p style="color:lightgray">____________________________________________</p>
+     <p style="color:lightgray">____________________________</p>
     <% if current_user.event_attendees.any? %>
       <% current_user.event_attendees.each do |event_attendee|  %>
       <%= event_attendee.event.event_name %>
       <% end %>
     <% else %>
-      <p> Basket Empty</p>
+      <p>Your basket is empty.</p>
     <% end %>
   </div>
 
