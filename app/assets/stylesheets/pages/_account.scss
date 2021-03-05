@@ -1,5 +1,6 @@
 .user-flex {
   display: flex;
+  margin-top: 20px;
 }
 
 .flex-top {
@@ -30,11 +31,6 @@ ol {
 
 .ticket-block {
   margin-right: 100px;
-  margin-top: 40px;
-}
-
-.event-block {
-  margin-top: 40px;
 }
 
 .event-btn {
@@ -44,7 +40,6 @@ ol {
 .event-line {
   border-bottom: 1px solid rgb(73, 73, 73);
   padding: 10px;
-  margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
 }
