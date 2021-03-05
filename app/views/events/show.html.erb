@@ -25,29 +25,32 @@
 </br>
 <h4>Hosted by <%= link_to @event.user.artist_name, profile_path(@event.user_id) %></h4>
 </br>
-<h3>Event Description</h3>
-</br>
+<h4>Event Description</h4>
+
 <p><%= @event.description %></p>
 </br>
-<h3>About the artist</h3>
-</br>
+<h4>About the artist</h4>
+
 <p><%= @event.user.bio %></p>
 
 </div>
 
 <div class="flex-right">
 
-<p><%= @event.city %></p>
+<p><%= @event.city %>, <%= @event.country %></p>
 
 <p><%= @event.start_time.strftime('%A, %b %d') %></p>
 
 <p><%= @event.start_time.strftime('%l:%M %p') %></p>
 
 <p>£<%= Money.new(@event.price_cents.to_s, :gbp) %></p>
+
+<p style="color:gray">Please note: all events are currently available to stream worldwide</p>
+
 </br>
 <%= form_tag orders_path do %>
   <%= hidden_field_tag 'event_id', @event.id %>
-  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+  <%= submit_tag 'Buy Ticket', class: 'btn btn-primary' %>
   <% end %>
 
 </div>

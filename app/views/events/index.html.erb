@@ -30,7 +30,7 @@
           <div class="event-card-content">
             <div class="event-card-title">
               <h4><%= event.event_name %></h4>
-            <p>Hosted by <%= event.user.first_name %></p>
+            <p>Hosted by <%= event.user.artist_name %></p>
              </div>
               <div class="flex">
                 <%= event.country %>  |  <%= event.start_time.strftime('%e %B %Y') %>  |  <%= event.start_time.strftime('%l:%M %p') %>

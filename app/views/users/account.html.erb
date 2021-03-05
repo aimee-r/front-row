@@ -1,7 +1,10 @@
+<div class="banner-small" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.4)), url(https://diymusician.cdbaby.com/wp-content/uploads/2016/12/studio-image-diy-blog.jpeg);">
+  <div class="container">
+    <h1>Dashboard</h1>
+  </div>
+</div>
 
 <div class="container">
-  <h1>Your Dashboard</h1>
-  </br>
 
   <div class="user-flex">
     <div class="flex-top">
@@ -27,7 +30,23 @@
       </ul>
     </div>
 
+      <div class="artist-block">
+    <% if current_user.artist? %>
+      <ul>
+        <h2>Artist Details</h2>
+        <li><strong>Artist Name:</strong> <%= current_user.artist_name %></li>
+        <li><strong>Bank Details:</strong> <%= current_user.bank_details %></li>
+        <li><strong>Facebook:</strong> <%= current_user.facebook %></li>
+        <li><strong>Instagram:</strong> <%= current_user.instergram %></li>
+        <li><strong>Twitter:</strong> <%= current_user.twitter %></li>
+      </ul>
+    <% end %>
+
   </div>
+
+  </div>
+
+<div class="user-flex">
 
 
   <div class="artist-block">
@@ -42,29 +61,19 @@
     <% end %>
   </div>
 
-  <div class="artist-block">
-    <% if current_user.artist? %>
-      <ul>
-        <h2>Artist Details</h2>
-        <li><strong>Artist Name:</strong> <%= current_user.artist_name %></li>
-        <li><strong>Artist Bio:</strong> <%= current_user.bio %></li>
-        <li><strong>Artist Bank Details:</strong> <%= current_user.bank_details %></li>
-        <li><strong>Artist Facebook:</strong> <%= current_user.facebook %></li>
-        <li><strong>Artist Instagram:</strong> <%= current_user.instergram %></li>
-        <li><strong>Artist Twitter:</strong> <%= current_user.twitter %></li>
-      </ul>
-    <% end %>
-  </div>
-
-
+<div class="event-block">
   <% if current_user.artist? %>
       <h2>My Events</h2>
     <% @events.each do |event| %>
       <% if event.user == current_user %>
       <div class="event-line">
-         <%= event.event_name %><%= link_to 'View',event_path(event), class: 'btn-small' %></div>
-         <p style="color:lightgray">____________________________________________</p>
+         <%= event.event_name %>
+         <%= link_to 'View', event_path(event), class: 'btn-small event-btn' %>
+         <%= link_to 'Edit', event_path(event), class: 'btn-small edit-btn' %><%= link_to 'Delete', event_path(event), class: 'btn-small delete-btn' %>
+         </div>
       <% end %>
     <% end %>
   <% end %>
+  </div>
+</div>
 </div>
