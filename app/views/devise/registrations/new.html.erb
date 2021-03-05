@@ -19,12 +19,12 @@
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
         <div class="form-inputs p-4">
-        
+
           <%= f.input :first_name,
                       required: true,
                       autofocus: true,
                       input_html: { }%>
-          <%= f.input :last_name, 
+          <%= f.input :last_name,
                       required: true,
                       autofocus: true,
                       input_html: { }%>
@@ -45,6 +45,7 @@
           <%= f.input :password_confirmation,
                       required: true,
                       input_html: { autocomplete: "new-password" } %>
+          <%= f.input :photo, as: :file %>
         </div>
           <div class='text-center mb-2 btn btn-block btn-success rounded-pill'>
             <div class="form-actions">
@@ -84,6 +85,7 @@
         <%= f.input :password_confirmation,
                     required: true,
                     input_html: { autocomplete: "new-password" } %>
+        <%= f.input :photo, as: :file %>
       </div>
         <div class='text-center mb-2 btn btn-block btn-success rounded-pill'>
           <div class="form-actions">

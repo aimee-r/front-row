@@ -1,0 +1,5 @@
+index.html.erb
+
+<% @users.each do |user| %>
+  <%= link_to user.artist_name, profile_path(user)  %>
+<% end %>

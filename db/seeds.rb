@@ -24,13 +24,30 @@ puts "Creating array of event images..."
 img1 = 'https://static.billboard.com/files/2020/12/chloe-x-halle-tiny-desk-2020-billboard-1548-1607458577-compressed.jpg'
 img2 = 'https://static.billboard.com/files/2021/02/02-The-Weeknd-Pepsi-Super-Bowl-LV-Halftime-Show-2021-billboard-1548-1612748085-compressed.jpg'
 img3 = 'https://static.billboard.com/files/2021/02/Megan-Thee-Stallion-Cry-Baby-feat.-DaBaby-screenshot-2021-billboard-1548-1612475015-compressed.jpg'
-event_img_arr =[img1, img2, img3]
+img4 = 'https://wi-images.condecdn.net/image/NjJ1o3bO7AD/crop/1440/0.5235602094240838/f/boilerroom.jpg'
+img5 = 'https://www.electronicbeats.net/app/uploads/2017/05/boiler-room.jpg'
+img6 = 'https://images1.the-dots.com/1379127/boilerroom-truemusic-warsaw-229.jpeg?p=projectImage'
+img7 = 'https://videos.boilerroom.tv/assets/boilerroomjpg.jpg'
+
+event_img_arr =[img1, img2, img3, img4, img5, img6, img7]
 
 puts "Creating artists..."
-aimee = User.create!(first_name: 'Aimée', last_name: 'Rawlings', location: 'South Africa', dob: '1989-09-14', email: 'aimee@example.com', password: '123456', artist: true, artist_name: "DJ Amzy', bank_details: '121212 12345678', facebook: 'https://www.facebook.com/daftpunk/', instergram: 'https://www.facebook.com/daftpunk/', twitter: 'https://www.facebook.com/daftpunk/'  bio: 'DJ Amzy has been at the nexus of music, fashion, and nightlife for over half her living years as the go-to deejay for music impresarios, entertainment moguls, fashion icons, cultural trendsetters, and even world leaders. When President Obama wanted a deejay for both of his Inaugurations and his fiftieth birthday party at the White House, there's only one person he called. When Oprah Winfrey celebrated the opening of her school in South Africa on New Years Eve, there’s only one person she called. And when Jay Z needed a deejay for his wedding to Beyoncé, theres only one person he called." )
-lukas = User.create!(first_name: 'Lukáš', last_name: 'Musílek',  location: 'Czech Republic', dob: '1989-09-14', email: 'lukas@example.com', password: '123456', artist: true, artist_name: "DJ Amzy', bank_details: '121212 12345678', facebook: 'https://www.facebook.com/daftpunk/', instergram: 'https://www.facebook.com/daftpunk/', twitter: 'https://www.facebook.com/daftpunk/'  bio: 'DJ Amzy has been at the nexus of music, fashion, and nightlife for over half her living years as the go-to deejay for music impresarios, entertainment moguls, fashion icons, cultural trendsetters, and even world leaders. When President Obama wanted a deejay for both of his Inaugurations and his fiftieth birthday party at the White House, there's only one person he called. When Oprah Winfrey celebrated the opening of her school in South Africa on New Years Eve, there’s only one person she called. And when Jay Z needed a deejay for his wedding to Beyoncé, theres only one person he called." )
-rob = User.create!(first_name: 'Roberto', last_name: 'Piancatelli', location: 'Italian', dob: '1989-09-14', email: 'rob@example.com', password: '123456', artist: true, artist_name: "DJ Amzy', bank_details: '121212 12345678', facebook: 'https://www.facebook.com/daftpunk/', instergram: 'https://www.facebook.com/daftpunk/', twitter: 'https://www.facebook.com/daftpunk/'  bio: 'DJ Amzy has been at the nexus of music, fashion, and nightlife for over half her living years as the go-to deejay for music impresarios, entertainment moguls, fashion icons, cultural trendsetters, and even world leaders. When President Obama wanted a deejay for both of his Inaugurations and his fiftieth birthday party at the White House, there's only one person he called. When Oprah Winfrey celebrated the opening of her school in South Africa on New Years Eve, there’s only one person she called. And when Jay Z needed a deejay for his wedding to Beyoncé, theres only one person he called." )
-jeremaia = User.create!(first_name: 'Jeremaia', last_name: 'Harrison', location: 'UK', dob: '1989-09-14', email: 'jeremaia@example.com', password: '123456', artist: true, artist_name: "DJ Amzy', bank_details: '121212 12345678', facebook: 'https://www.facebook.com/daftpunk/', instergram: 'https://www.facebook.com/daftpunk/', twitter: 'https://www.facebook.com/daftpunk/'  bio: 'DJ Amzy has been at the nexus of music, fashion, and nightlife for over half her living years as the go-to deejay for music impresarios, entertainment moguls, fashion icons, cultural trendsetters, and even world leaders. When President Obama wanted a deejay for both of his Inaugurations and his fiftieth birthday party at the White House, there's only one person he called. When Oprah Winfrey celebrated the opening of her school in South Africa on New Years Eve, there’s only one person she called. And when Jay Z needed a deejay for his wedding to Beyoncé, theres only one person he called." )
+aimee = User.create!(first_name: 'Aimée', last_name: 'Rawlings', location: 'South Africa', dob: '1989-09-14', email: 'aimee@example.com', password: '123456', artist: true, artist_name: 'DJ Amzy', bank_details: '121212 12345678', facebook: 'https://www.facebook.com/daftpunk/', instergram: 'https://www.facebook.com/daftpunk/', twitter: 'https://www.facebook.com/daftpunk/',  bio: "DJ Amzy has been at the nexus of music, fashion, and nightlife for over half her living years as the go-to deejay for music impresarios, entertainment moguls, fashion icons, cultural trendsetters, and even world leaders. When President Obama wanted a deejay for both of his Inaugurations and his fiftieth birthday party at the White House, theres only one person he called. When Oprah Winfrey celebrated the opening of her school in South Africa on New Years Eve, there’s only one person she called. And when Jay Z needed a deejay for his wedding to Beyoncé, theres only one person he called." )
+    file = URI.open('https://github.com/aimee-r.png')
+    aimee.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+    aimee.save!
+lukas = User.create!(first_name: 'Lukáš', last_name: 'Musílek',  location: 'Czech Republic', dob: '1989-09-14', email: 'lukas@example.com', password: '123456', artist: true, artist_name: 'DJ Amzy', bank_details: '121212 12345678', facebook: 'https://www.facebook.com/daftpunk/', instergram: 'https://www.facebook.com/daftpunk/', twitter: 'https://www.facebook.com/daftpunk/',  bio: "DJ Amzy has been at the nexus of music, fashion, and nightlife for over half her living years as the go-to deejay for music impresarios, entertainment moguls, fashion icons, cultural trendsetters, and even world leaders. When President Obama wanted a deejay for both of his Inaugurations and his fiftieth birthday party at the White House, there's only one person he called. When Oprah Winfrey celebrated the opening of her school in South Africa on New Years Eve, there’s only one person she called. And when Jay Z needed a deejay for his wedding to Beyoncé, theres only one person he called." )
+    file = URI.open('https://github.com/Lmusilek')
+    lukas.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+    lukas.save!
+rob = User.create!(first_name: 'Roberto', last_name: 'Piancatelli', location: 'Italian', dob: '1989-09-14', email: 'rob@example.com', password: '123456', artist: true, artist_name: 'DJ Amzy', bank_details: '121212 12345678', facebook: 'https://www.facebook.com/daftpunk/', instergram: 'https://www.facebook.com/daftpunk/', twitter: 'https://www.facebook.com/daftpunk/',  bio: "DJ Amzy has been at the nexus of music, fashion, and nightlife for over half her living years as the go-to deejay for music impresarios, entertainment moguls, fashion icons, cultural trendsetters, and even world leaders. When President Obama wanted a deejay for both of his Inaugurations and his fiftieth birthday party at the White House, there's only one person he called. When Oprah Winfrey celebrated the opening of her school in South Africa on New Years Eve, there’s only one person she called. And when Jay Z needed a deejay for his wedding to Beyoncé, theres only one person he called." )
+    file = URI.open('https://github.com/RobertoPiancatelli.png')
+    rob.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+    rob.save!
+jeremaia = User.create!(first_name: 'Jeremaia', last_name: 'Harrison', location: 'UK', dob: '1989-09-14', email: 'jeremaia@example.com', password: '123456', artist: true, artist_name: 'DJ Amzy', bank_details: '121212 12345678', facebook: 'https://www.facebook.com/daftpunk/', instergram: 'https://www.facebook.com/daftpunk/', twitter: 'https://www.facebook.com/daftpunk/',  bio: "DJ Amzy has been at the nexus of music, fashion, and nightlife for over half her living years as the go-to deejay for music impresarios, entertainment moguls, fashion icons, cultural trendsetters, and even world leaders. When President Obama wanted a deejay for both of his Inaugurations and his fiftieth birthday party at the White House, there's only one person he called. When Oprah Winfrey celebrated the opening of her school in South Africa on New Years Eve, there’s only one person she called. And when Jay Z needed a deejay for his wedding to Beyoncé, theres only one person he called." )
+    file = URI.open('https://github.com/JHarrison89.png')
+    jeremaia.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+    jeremaia.save!
 
 puts "Saving artists into an array..."
 artists = [aimee, lukas, rob, jeremaia]
@@ -106,39 +123,6 @@ end
 
 puts "..."
 puts "Seed complete!"
-
-# Event.count.times do
-#   EventAttendees.create(
-#     event_id: event_count.sample
-#     streaming_link: 'youtube.com'
-#     rand(25..75).times do
-#     user_id: customer_arr.sample
-#     )
-#   end
-# end
-
-# EventAttendees.new
-
-# events_saved = Events.count
-
-
-# event_id_arr = []
-# id = 1
-# event_ids = Events.count
-# events_id.each do {
-#   event_id_arr.push(id)
-#   id += 1
-# }
-
-# Events.each do {
-#   event_id: events_ids.sample
-#   rand(25..75).times do
-#   user_id: customer_arr.sample
-#   end
-# end
-# }
-
-
 
 
 
