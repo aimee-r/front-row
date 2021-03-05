@@ -73,6 +73,6 @@ gem 'country_select'
 
 gem 'pg_search', '~> 2.3.0'
 
-gem 'cloudinary', '~> 1.18.1'
+gem 'cloudinary', '~> 1.16.0'
 gem 'dotenv-rails', groups: [:development, :test]
 
