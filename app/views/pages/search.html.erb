@@ -17,7 +17,7 @@
   <div class="results-search">
     <div class="row">
       <div class="sorted-table" id="event-artist">
-        <% unless @artists.nil? %>
+        <% unless @artists.empty? %>
           <h2>Artists</h2>
             <ul>
               <% @artists.each do |artist| %>
@@ -31,7 +31,7 @@
     <div class="results">
     <div class="row">
       <div class="sorted-table" id="event-event">
-        <% unless @events.nil? %>
+        <% unless @events.empty? %>
           <h2>Events</h2>
             <ul>
               <% @events.each do |event| %>
@@ -44,7 +44,7 @@
 
     <div class="row">
       <div class="sorted-table" id="event-genre">
-        <% unless @genres.nil? %>
+        <% unless @genres.empty? %>
           <h2>Genres</h2>
             <ul>
               <% @genres.each do |genre| %>
@@ -57,7 +57,7 @@
 
     <div class="row">
       <div class="sorted-table" id="event-genre">
-        <% unless @events.nil? %>
+        <% unless @events.empty? %>
           <h2>Countries</h2>
             <ul>
               <% @events.each do |event| %>
@@ -70,7 +70,7 @@
 
     <div class="row">
       <div class="sorted-table" id="event-genre">
-        <% unless @events.nil? %>
+        <% unless @events.empty? %>
         <h2>Cities</h2>
           <ul>
             <% @events.each do |event| %>
