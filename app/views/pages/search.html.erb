@@ -48,7 +48,7 @@
           <h2>Genres</h2>
             <ul>
               <% @genres.each do |genre| %>
-                <li><%= link_to "#{genre.searchable_type.constantize.find(genre.searchable_id).name}", events_path(query: genre.searchable_type.constantize.find(genre.searchable_id).name) %></li>
+                <li><%= link_to "#{genre.searchable_type.constantize.find(genre.searchable_id).name}", events_path(query: genre.searchable_type.constantize.find(genre.searchable_id).name, search: true) %></li>
               <% end %>
             </ul>
           <% end %>
