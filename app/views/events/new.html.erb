@@ -14,7 +14,7 @@
         <%= f.input :end_time %>
         <%= f.input :city %>
         <%= f.country_select :country, priority_countries: ["GB", "US"] %>
-        <%= f.input :price_cents, label: "Price per Ticket" %>
+        <%= f.input :price_cents, label: "Price per Ticket in £" %>
         <%= f.association :genres, multiple: true, size: 3 %>
         <%= f.input :photo, as: :file %>
         <%= f.submit 'Add your Event', class: 'btn btn-primary' %>
