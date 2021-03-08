@@ -1,0 +1,32 @@
+<!-- Button trigger modal -->
+<button type="button" id="search-button" data-toggle="modal" data-target="#exampleModal">
+  <i class="fas fa-search fa-lg"></i>
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="keyboard">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="form-field"><%= form_tag search_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            id: "form-field",
+            placeholder: "Find an artist, event or genre..."
+          %>
+          <%= submit_tag "Search", id: "submit-button" %>
+            <% end %>
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
