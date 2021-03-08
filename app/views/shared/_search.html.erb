@@ -8,28 +8,23 @@
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <div class="form-field"><%= form_tag(search_path, method: :get, remote: true, data: {action: "ajax:success->search#searchResults"}) do %>
-          <%= text_field_tag :query,
-            params[:query],
-            id: "form-field",
-            placeholder: "Find an artist, event or genre...",
-            # onchange: "this.form.submit()",
-            data: {
-              search_target: "input",
-              action: "keyup->search#searchResults",
-
-              
-            }
-          %>
-          <%= submit_tag "Search", id: "submit-button" %>
-            <% end %>
+        <div class="form-field">
+          <%= form_tag search_path, method: :get do %>
+            <%= text_field_tag :query,
+              params[:query],
+              id: "form-field",
+              placeholder: "Find an artist, event or genre...",
+              data: { search_target: "input", action: "keyup->search#searchResults" }
+            %>
+            <%= submit_tag "Search", id: "submit-button" %>
+          <% end %>
         </div>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body", data-search-target="container">
-        <%= render 'events/search' %>
+        <%#= render 'events/search', artists: @artists, events: @events, genres: @genres %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

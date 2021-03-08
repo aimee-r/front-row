@@ -12,7 +12,7 @@
     <div class="col">
       <% if @search %>
         <p>You have searched for '<%= @query %>'. Displaying <%= @events.count %> events.</p>
-      <% else %>git 
+      <% else %>
       <% end %>
     </div>
   </div>
@@ -38,7 +38,7 @@
                 <%# <p>£<%= Money.new(event.price_cents.to_s, :gbp) %>
             <div class="genre-box">
             <% event.genres.each do |genre| %>
-                <span class="mr-2" ><%= genre.name %> </span> 
+                <span class="mr-2" ><%= genre.name %> </span>
                 <% end %>
             </div>
           </div>

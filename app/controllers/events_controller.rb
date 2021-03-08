@@ -65,16 +65,16 @@ class EventsController < ApplicationController
   def search
     if params[:query].present?
       # @events = Event.where("event_name ILIKE ?", "%#{params[:query]}%")
-      @artists = PgSearch.multisearch(params[:query]).where(searchable_type: 'User').map{|d| d.searchable}
-      @events = PgSearch.multisearch(params[:query]).where(searchable_type: 'Event').map{|d| d.searchable}
-      @genres = PgSearch.multisearch(params[:query]).where(searchable_type: 'Genre').map{|d| d.searchable}
+      @artists = PgSearch.multisearch(params[:query]).where(searchable_type: 'User')
+      @events = PgSearch.multisearch(params[:query]).where(searchable_type: 'Event')
+      @genres = PgSearch.multisearch(params[:query]).where(searchable_type: 'Genre')
       # elsif params[:query].empty?
       #   alert()
     else
       @events = Event.all
     end
     respond_to do |format|
-      format.json { render json: { artists: @artists, events: @events, genres: @genres } }
+      format.html { render partial: 'events/search', locals: { artists: @artists, events: @events, genres: @genres } }
     end
   end
 
