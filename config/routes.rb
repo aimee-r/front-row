@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     resources :event_attendees, only: [:create]
   end
 
+  resources :rooms
+
+
+
   resources :orders, only: [:show, :create] do
     resources :payments, only: :new
   end

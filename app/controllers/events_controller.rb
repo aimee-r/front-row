@@ -27,6 +27,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event_genre = params[:event][:genre_ids].reject(&:blank?)
     @event.user = current_user
+    @event.price_cents = @event.price_cents * 100
     if @event.save!
       @event_genre.each do |genre|
         EventGenre.create!(

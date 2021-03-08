@@ -37,15 +37,16 @@
               </div>
                 <%# <p>£<%= Money.new(event.price_cents.to_s, :gbp) %>
             <div class="genre-box">
-            <% event.genres.each do |genre| %>
-                <span class="mr-2" ><%= genre.name %> </span> 
-                <% end %>
+              <% event.genres.each do |genre| %>
+                <span class="mr-2" ><%= genre.name %> </span>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
       <% end %>
     <% end %>
+
 
   </div>
 </div>

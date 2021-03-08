@@ -1,0 +1,15 @@
+<div class="banner-small" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.4)), url(https://diymusician.cdbaby.com/wp-content/uploads/2016/12/studio-image-diy-blog.jpeg);">
+  <div class="showtime">
+  <% if @room.event.start_time > Time.now %>
+    <input value="<%= @room.event.start_time%>" type="hidden" id="event-start-time" />
+    <h1>This stream starts in <strong><span id="counter"></span></strong></h1>
+  </div>
+  <% else %>
+    <div id="videos"
+          data-controller="vonage"
+          data-vonage-api-key="<%= ENV["VONAGE_API_KEY"] %>"
+          data-vonage-session-id= "<%= @room.vonage_session_id %>"
+          data-vonage-token="<%= @token %>"
+          data-vonage-name="<%= current_user.first_name %>">
+    </div>
+  <% end %>
