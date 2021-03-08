@@ -31,6 +31,7 @@ import "bootstrap";
 
 import "controllers"
 import { countdownTimer } from '../components/countdown.js'
+import { initChatroomCable } from '../channels/chatroom_channel.js'
 
 // nav bar
 
@@ -57,5 +58,5 @@ document.addEventListener('turbolinks:load', () => {
    if (document.getElementById("event-start-time")) {
     countdownTimer();
    }
-
+   initChatroomCable();
 });

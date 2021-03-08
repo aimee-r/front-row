@@ -7,7 +7,7 @@ class RoomsController < ApplicationController
     respond_to do |format|
       if @room.save
         format.html { redirect_to @room, notice: "Event was successfully created" }
-        format.json { render :show, status: :created, location: @event}
+        format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
@@ -16,7 +16,8 @@ class RoomsController < ApplicationController
   end
 
   def show
-     @room = Room.find(params[:id])
+    @room = Room.find(params[:id])
+     @message = Message.new
       # unless !Order.where(event: @room.event, state: 'paid', user: current_user).empty?
       #   flash[:alert] = "You are not authorised to view that stream"
       #   redirect_to root_path
