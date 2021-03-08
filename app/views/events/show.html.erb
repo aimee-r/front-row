@@ -50,10 +50,14 @@
 <p style="color:gray">Please note: all events are currently available to stream worldwide</p>
 
 </br>
-<%= form_tag orders_path do %>
-  <%= hidden_field_tag 'event_id', @event.id %>
-  <%= submit_tag 'Buy Ticket', class: 'btn btn-primary' %>
-  <% end %>
+  <% if Order.where(event: @event, state: 'paid', user: current_user).any? %>
+    <%= link_to "Go to stream", room_path(@event.room), class: 'btn btn-primary' %>
+    <% else %>
+    <%= form_tag orders_path do %>
+    <%= hidden_field_tag 'event_id', @event.id %>
+    <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+    <% end %>
+<% end %>
 
 </div>
 </div>
