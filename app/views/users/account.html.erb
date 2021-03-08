@@ -49,35 +49,46 @@
 
   </div>
 
-<div class="user-flex">
+  <div class="user-flex">
+      <div class="ticket-block">
+        <h2>My tickets</h2>
+         <p style="color:lightgray">____________________________</p>
+        <% if current_user.event_attendees.any? %>
+          <% current_user.event_attendees.each do |event_attendee|  %>
+          <%= event_attendee.event.event_name %>
+          <% end %>
+        <% else %>
+          <p>Your basket is empty.</p>
+        <% end %>
+      </div>
+
+      <div class="event-block">
+        <% if current_user.artist? %>
+            <h2>My Events</h2>
+          <% @events.each do |event| %>
+            <% if event.user == current_user %>
+            <div class="event-line">
+               <%= event.event_name %>
+               <div class="button-box">
+               <%= link_to 'View', event_path(event), class: 'btn-small event-btn' %>
+               <%= link_to 'Edit', edit_event_path(event), class: 'btn-small edit-btn' %><%= link_to 'Delete', event_path(event), method: 'delete', data: { confirm: "Are you sure?" }, class: 'btn-small delete-btn' %>
+               </div></div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
 
 
-  <div class="ticket-block">
-    <h2>My tickets</h2>
-     <p style="color:lightgray">____________________________</p>
-    <% if current_user.event_attendees.any? %>
-      <% current_user.event_attendees.each do |event_attendee|  %>
-      <%= event_attendee.event.event_name %>
-      <% end %>
-    <% else %>
-      <p>Your basket is empty.</p>
+      <div class="event-block">
+        <% if current_user.artist? %>
+          <%= line_chart UserView.group_by_minute(:created_at).count %>
+        <% end %>
+      </div>
+
+
+     <% content_for :chartkick do %>
+      <%= javascript_pack_tag 'chartkick' %>
     <% end %>
-  </div>
 
-<div class="event-block">
-  <% if current_user.artist? %>
-      <h2>My Events</h2>
-    <% @events.each do |event| %>
-      <% if event.user == current_user %>
-      <div class="event-line">
-         <%= event.event_name %>
-         <div class="button-box">
-         <%= link_to 'View', event_path(event), class: 'btn-small event-btn' %>
-         <%= link_to 'Edit', edit_event_path(event), class: 'btn-small edit-btn' %><%= link_to 'Delete', event_path(event), method: 'delete', data: { confirm: "Are you sure?" }, class: 'btn-small delete-btn' %>
-         </div></div>
-      <% end %>
-    <% end %>
-  <% end %>
-  </div>
-</div>
+    </div>
 </div>
