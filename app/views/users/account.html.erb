@@ -77,18 +77,23 @@
           <% end %>
         <% end %>
       </div>
+    </div>
 
-
-      <div class="event-block">
-        <% if current_user.artist? %>
-          <%= line_chart UserView.group_by_minute(:created_at).count %>
-        <% end %>
-      </div>
-
+ <div class="user-flex">
+   <% if current_user.artist? %>
+    <div class="col-md-6 p-3">
+      <%= line_chart UserView.group_by_minute(:created_at).count %>
+    </div>
+    <div class="col-md-6 p-3">
+      <%= geo_chart UserView.group(:country).count, {background: "#000"}  %>
+    </div>
+  <% end %>
 
      <% content_for :chartkick do %>
+
+     <%= javascript_include_tag "//www.google.com/jsapi" %>
       <%= javascript_pack_tag 'chartkick' %>
     <% end %>
 
-    </div>
+  </div>
 </div>
