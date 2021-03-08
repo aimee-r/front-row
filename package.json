@@ -1,4 +1,3 @@
-
 {
   "name": "front_row",
   "private": true,
@@ -10,6 +9,7 @@
     "bootstrap": "^4.6.0",
     "jquery": "^3.5.1",
     "jquery-ui": "^1.12.1",
+    "moment": "^2.29.1",
     "popper.js": "^1.16.1",
     "stimulus": "^2.0.0",
     "turbolinks": "^5.2.0"
