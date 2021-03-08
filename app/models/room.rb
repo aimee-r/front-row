@@ -1,5 +1,6 @@
 class Room < ApplicationRecord
   belongs_to :event
+  has_many :chatrooms
 
   before_create do
     opentok = OpenTok::OpenTok.new ENV["VONAGE_API_KEY"], ENV["VONAGE_API_SECRET"]
