@@ -34,6 +34,13 @@
 </div>
 </div>
 
+<% if @artist %>
+<iframe src="https://open.spotify.com/embed/<%= @artist.external_urls['spotify'].split("/")[-2..-1].join("/") %>" width="500" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
+<% end %>
+
+<iframe width="500" height="300" src="https://www.youtube.com/embed/2aFcwLgO1wI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 </br>
 <h3>Upcoming Events</h3>
 
@@ -55,7 +62,6 @@
               <div class="flex">
                 <%= event.city %> | <%= event.start_time.strftime('%A, %b %d') %> | <%= event.start_time.strftime('%l:%M %p') %>
               </div>
-                <%# <p>£<%= Money.new(event.price_cents.to_s, :gbp) %>
             <div class="genre-box">
                 <% event.genres.each do |genre| %>
                 <span class="mr-2" ><%= genre.name %> </span>
@@ -68,9 +74,6 @@
     <% end %>
   </div>
 
-
 </div>
-
-<iframe src="https://open.spotify.com/embed/<%= @artist.external_urls['spotify'].split("/")[-2..-1].join("/") %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
 
