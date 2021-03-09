@@ -1,7 +1,7 @@
 <div class="container">
   <% if params[:query].present? %>
 
-    <% if artists.nil? && events.nil? && genres.nil? %>
+    <% if artists.empty? && events.empty? && genres.empty? %>
       <h1 class="results-search"><%= 'No results found...'%></h1>
     <% else %>
       <div class="row justify-content-between">
