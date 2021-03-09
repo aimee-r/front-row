@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FrontRow</title>
+    <title>Front Row - Live Music Streaming</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -20,7 +20,9 @@
     <%= render 'shared/flashes' %>
     
     <%= yield %>
-     <p class="notice"><%= notice %></p>
+     <p class="notice"><%= notice %></p>   
+
      <%= render 'shared/search' %>
+
   </body>
 </html>
