@@ -75,6 +75,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    chartkick (3.4.2)
     childprocess (3.0.0)
     cloudinary (1.16.1)
       aws_cf_signer
@@ -106,13 +107,26 @@ GEM
     faker (2.16.0)
       i18n (>= 1.6, < 2)
     ffi (1.14.2)
+    ffi-compiler (1.0.1)
+      ffi (>= 1.0.0)
+      rake
     font-awesome-sass (5.15.1)
       sassc (>= 1.11)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    groupdate (5.2.2)
+      activesupport (>= 5)
+    http (4.4.1)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 2.2)
+      http-parser (~> 1.2.0)
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
+    http-form_data (2.3.0)
+    http-parser (1.2.3)
+      ffi-compiler (>= 1.0, < 2.0)
     httparty (0.18.1)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
@@ -299,12 +313,15 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  chartkick
   cloudinary (~> 1.16.0)
   country_select
   devise
   dotenv-rails
   faker
   font-awesome-sass
+  groupdate
+  http
   jbuilder (~> 2.7)
   listen (~> 3.2)
   money-rails

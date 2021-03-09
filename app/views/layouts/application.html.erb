@@ -7,11 +7,12 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-    <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>    
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYxpA2UlU2RaUxlVjN4v6j64zygxXUkTQ&map_ids= f8995999d270d0ea&callback=initMap"></script>
+    <%= yield(:chartkick) %>
   </head>
 
   <body>
