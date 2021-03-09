@@ -1,0 +1,47 @@
+// WHOLE CHAT CONTAINER
+.messages-container {
+  height: 400px;
+  overflow-y: scroll;
+  border: 1px solid purple;
+  border-radius: 4px;
+  margin-right: 5px;
+  background: darkgrey;
+  margin-top: 100px;
+}
+
+// MESSAGE SENT BY USER NAME AND DATE
+#messages span{
+  margin-left: 5px;
+}
+
+// MESSAGE CONTENT
+#messages p {
+  font-weight: bold;
+  margin-left: 4px;
+  color: purple;
+}
+// .container-flex{
+//   display: flex;
+// }
+
+// STREAMING VIDEO STYLES
+
+#videos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 10px;
+}
+
+.OT_root {
+  height: 600px !important;
+}
+
+.OT_publisher .OT_video-element {
+  padding: 20px;
+}
+
+.showtime {
+  font-weight: bold;
+  margin: 200px;
+}
