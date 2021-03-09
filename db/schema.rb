@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2021_03_08_171611) do
 
   # These are extensions that must be enabled in order to support this database
@@ -140,9 +139,7 @@ ActiveRecord::Schema.define(version: 2021_03_08_171611) do
     t.string "page"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
   end
-
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
