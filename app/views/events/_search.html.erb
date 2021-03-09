@@ -54,7 +54,7 @@
               <h4>Countries</h4>
                 <ul>
                   <% events.each do |event| %>
-                    <li><%= link_to "#{event.searchable_type.constantize.find(event.searchable_id).country}", events_path(query: event.searchable_type.constantize.find(event.searchable_id).country) %></li>
+                    <li><%= link_to "#{event.searchable_type.constantize.find(event.searchable_id).country}", events_path(country: event.searchable_type.constantize.find(event.searchable_id).country) %></li>
                   <% end %>
                 </ul>
             <% end %>
@@ -67,7 +67,7 @@
             <h4>Cities</h4>
               <ul>
                 <% events.each do |event| %>
-                  <li><%= link_to "#{event.searchable_type.constantize.find(event.searchable_id).city}", events_path(query: event.searchable_type.constantize.find(event.searchable_id).city) %></li>
+                  <li><%= link_to "#{event.searchable_type.constantize.find(event.searchable_id).city}", events_path(city: event.searchable_type.constantize.find(event.searchable_id).city) %></li>
                 <% end %>
               </ul>
             <% end %>
