@@ -57,37 +57,34 @@
 
 <div id="Tickets" class="tabcontent">
     <div class="row p-5">
-      <div class="col-md-12 mb-3">
-        <div class="col-md-12">
-          <h2 class="font-weight-bold">My tickets</h2>
-          <% if current_user.event_attendees.any? %>
+      <h2 class="font-weight-bold">My tickets</h2>
+      <% if current_user.event_attendees.any? %>
 
-            <table>
-            <tr class="row-border">
-              <th class="lable"> Event: </th>
-              <th class="lable-sm">Date: </th>
-              <th class="lable-sm">Time: </th>
-              <th class="lable-sm">Link: </th>
-            </tr>
+        <table>
+        <tr class="row-border">
+          <th class="lable"> Event: </th>
+          <th class="lable-sm">Date: </th>
+          <th class="lable-sm">Time: </th>
+          <th class="lable-sm">Link: </th>
+        </tr>
 
-          <% current_user.event_attendees.each do |event_attendee|  %>
+      <% current_user.event_attendees.each do |event_attendee|  %>
 
-            <tr class="row-border">
-              <td><%= event_attendee.event.event_name %></td>
-              <td><%= event_attendee.event.start_time.strftime('%e %B %Y') %></td>
-              <td><%= event_attendee.event.end_time.strftime('%l:%M %p') %></td>
-              <td>Link</td>
-            </tr>
-            <% end %>
-          </table>
+        <tr class="row-border">
+          <td><%= event_attendee.event.event_name %></td>
+          <td><%= event_attendee.event.start_time.strftime('%e %B %Y') %></td>
+          <td><%= event_attendee.event.end_time.strftime('%l:%M %p') %></td>
+          <td>Link</td>
+        </tr>
+        <% end %>
+      </table>
 
-          <% else %>
-            <p>Your basket is empty.</p>
-          <% end %>
-        </div>
-      </div>
+      <% else %>
+        <div class="col-md-12"><p>Your basket is empty.</p></div>
+      <% end %>
     </div>
-</div>
+  </div>
+
 
   <div id="Artist Details" class="tabcontent">
     <div class="row p-5">
