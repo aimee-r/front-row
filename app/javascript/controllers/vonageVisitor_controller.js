@@ -58,8 +58,8 @@ export default class extends Controller {
     /** Listen for a broadcast status update from the host */
     session.on('signal:broadcast', function (event) {
       const status = event.data;
-      broadcastActive = status === 'active';
-      if (true) {
+     const broadcastActive = status === 'active';
+      if (broadcastActive) {
         streams.forEach(function (stream) {
           console.log(session)
           const name = stream.name;
