@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index show]
+  skip_before_action :authenticate_user!, only: %i[index show search]
 
   def index
     # Add query when implementing search bar
@@ -10,6 +10,7 @@ class EventsController < ApplicationController
       @events = Event.all
     end
     @search = params[:search]
+      # @events = Event.all
   end
 
   # NEW
@@ -53,15 +54,31 @@ class EventsController < ApplicationController
   # UPDATE
   def update
     @event = Event.find(params[:id])
-      if @event.update(event_params)
-        redirect_to event_path(@event)
-      else
-        render :edit
-      end
+    if @event.update(event_params)
+      redirect_to event_path(@event)
+    else
+      render :edit
+    end
   end
 
   def edit
     @event = Event.find(params[:id])
+  end
+
+  def search
+    if params[:query].present?
+      # @events = Event.where("event_name ILIKE ?", "%#{params[:query]}%")
+      @artists = PgSearch.multisearch(params[:query]).where(searchable_type: 'User')
+      @events = PgSearch.multisearch(params[:query]).where(searchable_type: 'Event')
+      @genres = PgSearch.multisearch(params[:query]).where(searchable_type: 'Genre')
+      # elsif params[:query].empty?
+      #   alert()
+    else
+      @events = Event.all
+    end
+    respond_to do |format|
+      format.html { render partial: 'events/search', locals: { artists: @artists, events: @events, genres: @genres } }
+    end
   end
 
   private
