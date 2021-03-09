@@ -36,6 +36,7 @@ class EventsController < ApplicationController
           genre_id: genre.to_i
         )
       end
+      Chatroom.create(room_id: @event.room.id)
       redirect_to event_path(@event)
     else
       render :new
@@ -62,7 +63,6 @@ class EventsController < ApplicationController
   def edit
     @event = Event.find(params[:id])
   end
-
 
   private
 
