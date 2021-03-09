@@ -1,0 +1,2 @@
+class UserView < ApplicationRecord
+end

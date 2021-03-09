@@ -22,18 +22,17 @@ require("channels")
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 
+
 // External imports
 import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
-document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
-});
 
 import "controllers"
+import { countdownTimer } from '../components/countdown.js'
+import { initChatroomCable } from '../channels/chatroom_channel.js'
 
 // nav bar
 
@@ -57,4 +56,8 @@ const initUpdateNavbarOnScroll = () => {
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   initUpdateNavbarOnScroll();
+   if (document.getElementById("event-start-time")) {
+    countdownTimer();
+   }
+   initChatroomCable();
 });

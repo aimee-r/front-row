@@ -21,6 +21,7 @@ class EventsController < ApplicationController
   # SHOW
   def show
     @event = Event.find(params[:id])
+    UserVisit.visit(request.remote_ip, Event.find(params[:id]), "show")
   end
 
   # CREATE
@@ -28,6 +29,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event_genre = params[:event][:genre_ids].reject(&:blank?)
     @event.user = current_user
+    @event.price_cents = @event.price_cents * 100
     if @event.save!
       @event_genre.each do |genre|
         EventGenre.create!(
@@ -35,6 +37,7 @@ class EventsController < ApplicationController
           genre_id: genre.to_i
         )
       end
+      Chatroom.create(room_id: @event.room.id)
       redirect_to event_path(@event)
     else
       render :new
