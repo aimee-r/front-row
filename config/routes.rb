@@ -6,14 +6,13 @@ Rails.application.routes.draw do
   get "users/:id", to: "users#show", as: :profile
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get 'search', to: 'pages#search'
+  get 'about', to: 'pages#about', as: :about
 
   resources :events do
     resources :event_attendees, only: [:create]
   end
 
   resources :rooms
-
-
 
   resources :orders, only: [:show, :create] do
     resources :payments, only: :new
