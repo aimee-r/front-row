@@ -1,99 +1,223 @@
-<div class="banner-small" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.4)), url(https://diymusician.cdbaby.com/wp-content/uploads/2016/12/studio-image-diy-blog.jpeg);">
-  <div class="container">
-    <h1>Dashboard</h1>
-  </div>
+
+
+<div class="container" style="margin-top: 100px">
+
+<div class="tab">
+   <% if current_user.photo.attached? %>
+     <%= cl_image_tag current_user.photo.key, class: "avatar-account" %>
+  <% else %>
+    <%= image_tag "https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-12.jpg", class: "avatar-account" %>
+  <% end %>
+  <span><%= current_user.first_name %></span>
+  <br />
+  <span class="menu-icon">Menu</span>
+  <button class="tablinks" onclick="openCity(event, 'Account overview')" id="defaultOpen"><i class="fas fa-user account-icon purple-background"></i> Account overview</button>
+  <button class="tablinks" onclick="openCity(event, 'Tickets')"><i class="fas fa-ticket-alt account-icon blue-background"></i>Tickets</button>
+  <button class="tablinks" onclick="openCity(event, 'Artist Details')"><i class="fas fa-music account-icon pink-background"></i>Artist Details</button>
+  <button class="tablinks" onclick="openCity(event, 'Manage Events')"><i class="fas fa-cog account-icon green-background"></i>Manage Events</button>
+  <button class="tablinks" onclick="openCity(event, 'Edit User')"><i class="fas fa-edit account-icon orange-background"></i>Edit User</button>
+  <button class="tablinks" onclick="openCity(event, 'New Event')"><i class="fas fa-plus-square account-icon aqua-background"></i>New Event</button>
 </div>
 
-<div class="container">
 
-  <div class="user-flex">
-    <div class="flex-top">
-    <% if current_user.photo.attached? %>
-      <%= cl_image_tag current_user.photo.key, class: "avatar-account" %>
-       </br></br>
-       <span><%= link_to 'Create Event', new_event_path, class: 'btn-small' %></span>
-      <span><%= link_to 'Edit profile', edit_user_registration_path, class: 'btn-small edit-btn' %></span>
-    <% else %>
-      <%= image_tag "https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-12.jpg", class: "avatar_account" %>
-      </br></br>
-      <span><%= link_to 'Create Event', new_event_path, class: 'btn-small' %></span>
-      <br>
-      <span><%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn-small edit-btn' %></span>
-    <% end %>
-    </div>
+  <div id="Account overview" class="tabcontent">
+    <div class="row p-5">
 
-    <div class="flex-bottom">
-      <ul>
-        <h2>User Details</h2>
-        <li><strong>First Name:</strong> <%= current_user.first_name %></li>
-        <li><strong>Last Name:</strong> <%= current_user.first_name %></li>
-        <li><strong>Email:</strong> <%= current_user.email %></li>
-        <li><strong>Location:</strong> <%= current_user.first_name %></li>
-        <li><strong>DOB:</strong> <%= current_user.dob %></li>
-      </ul>
-    </div>
+      <h2 class="font-weight-bold">User Details</h2>
 
-      <div class="artist-block">
-    <% if current_user.artist? %>
-      <ul>
-        <h2>Artist Details</h2>
-        <li><strong>Artist Name:</strong> <%= current_user.artist_name %></li>
-        <li><strong>Bank Details:</strong> <%= current_user.bank_details %></li>
-        <li><strong>Facebook:</strong> <%= current_user.facebook %></li>
-        <li><strong>Instagram:</strong> <%= current_user.instergram %></li>
-        <li><strong>Twitter:</strong> <%= current_user.twitter %></li>
-      </ul>
-    <% end %>
+          <table>
+            <tr class="row-border">
+              <td class="lable">First Name: </td>
+              <td><%= current_user.first_name %></td>
+            </tr>
+            <tr class="row-border">
+              <td class="lable">Last Name:</td>
+              <td><%= current_user.last_name %></td>
+            </tr>
+            <tr class="row-border">
+              <td class="lable">Email:</td>
+              <td><%= current_user.email %></td>
+            </tr>
+            <tr class="row-border">
+              <td class="lable">Location:</td>
+              <td><%= current_user.location %></td>
+            </tr>
+            <tr class="row-border">
+              <td class="lable">DOB:</td>
+              <td><%= current_user.dob %></td>
+            </tr>
+          </table>
 
+        <div class="col-md-12 mt-5">
+          <button type="button" class="btn btn-primary"> <%= link_to 'Edit profile', edit_user_registration_path %> </button>
+          <button type="button" class="btn btn-primary"> <%= link_to 'Create event', new_event_path %> </button>
+        </div>
+      </div>
   </div>
 
-  </div>
+<div id="Tickets" class="tabcontent">
+    <div class="row p-5">
+      <div class="col-md-12 mb-3">
+        <div class="col-md-12">
+          <h2 class="font-weight-bold">My tickets</h2>
+          <% if current_user.event_attendees.any? %>
 
-  <div class="user-flex">
-      <div class="ticket-block">
-        <h2>My tickets</h2>
-         <p style="color:lightgray">____________________________</p>
-        <% if current_user.event_attendees.any? %>
+            <table>
+            <tr class="row-border">
+              <th class="lable"> Event: </th>
+              <th class="lable-sm">Date: </th>
+              <th class="lable-sm">Time: </th>
+              <th class="lable-sm">Link: </th>
+            </tr>
+
           <% current_user.event_attendees.each do |event_attendee|  %>
-          <%= event_attendee.event.event_name %>
+
+            <tr class="row-border">
+              <td><%= event_attendee.event.event_name %></td>
+              <td><%= event_attendee.event.start_time.strftime('%e %B %Y') %></td>
+              <td><%= event_attendee.event.end_time.strftime('%l:%M %p') %></td>
+              <td>Link</td>
+            </tr>
+            <% end %>
+          </table>
+
+          <% else %>
+            <p>Your basket is empty.</p>
           <% end %>
-        <% else %>
-          <p>Your basket is empty.</p>
+        </div>
+      </div>
+    </div>
+</div>
+
+  <div id="Artist Details" class="tabcontent">
+    <div class="row p-5">
+      <div class="col-md-12">
+        <% if current_user.artist? %>
+
+          <h2 class="font-weight-bold">Artist Details</h2>
+
+          <table>
+            <tr class="row-border">
+              <td class="lable">Artist Name: </td>
+              <td><%= current_user.artist_name %></td>
+            </tr>
+            <tr class="row-border">
+              <td class="lable">Bank Details:</td>
+              <td><%= current_user.bank_details %></td>
+            </tr>
+            <tr class="row-border">
+              <td class="lable">Facebook:</td>
+              <td><%= current_user.facebook %></td>
+            </tr>
+            <tr class="row-border">
+              <td class="lable">Instagram:</td>
+              <td><%= current_user.instergram %></td>
+            </tr>
+            <tr class="row-border">
+              <td class="lable">Twitter:</td>
+              <td><%= current_user.twitter %></td>
+            </tr>
+            <tr class="row-border">
+                <td class="lable">bio: </td>
+                <td><%= current_user.bio %></td>
+            </tr>
+          </table>
+
+          <div class="col-md-12 mt-5">
+            <button type="button" class="btn btn-primary"> <%= link_to 'Edit profile', edit_user_registration_path %> </button>
+          </div>
         <% end %>
       </div>
+    </div>
+  </div>
 
-      <div class="event-block">
-        <% if current_user.artist? %>
-            <h2>My Events</h2>
-          <% @events.each do |event| %>
-            <% if event.user == current_user %>
-            <div class="event-line">
-               <%= event.event_name %>
-               <div class="button-box">
-               <%= link_to 'View', event_path(event), class: 'btn-small event-btn' %>
-               <%= link_to 'Edit', edit_event_path(event), class: 'btn-small edit-btn' %><%= link_to 'Delete', event_path(event), method: 'delete', data: { confirm: "Are you sure?" }, class: 'btn-small delete-btn' %>
-               </div></div>
+
+    <div id="Manage Events" class="tabcontent">
+      <div class="row p-5">
+        <div class="col-md-12">
+          <% if current_user.artist? %>
+              <h2 class="font-weight-bold">My Events</h2>
+            <% @events.each do |event| %>
+              <% if event.user == current_user %>
+              <div class="event-line">
+                 <%= event.event_name %>
+                 <div class="button-box">
+                 <%= link_to 'View', event_path(event), class: 'btn-small event-btn' %>
+                 <%= link_to 'Edit', edit_event_path(event), class: 'btn-small edit-btn' %><%= link_to 'Delete', event_path(event), method: 'delete', data: { confirm: "Are you sure?" }, class: 'btn-small delete-btn' %>
+                 </div></div>
+              <% end %>
             <% end %>
           <% end %>
+
+
+        <% if current_user.artist? %>
+          <div class="col-md-6 p-3">
+            <%= line_chart UserView.group_by_minute(:created_at).count %>
+          </div>
+          <div class="col-md-6 p-3">
+            <%= geo_chart UserView.group(:country).count, {background: "#000"}  %>
+          </div>
+        <% end %>
+
+           <% content_for :chartkick do %>
+
+           <%= javascript_include_tag "//www.google.com/jsapi" %>
+            <%= javascript_pack_tag 'chartkick' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div id="Edit User" class="tabcontent">
+      <div class="row p-5">
+        <%= simple_form_for current_user, url: users_update_path, method: :patch do |f| %>
+            <%= f.input :first_name, required: true, autofocus: true,  error: 'Your name is required'  %>
+            <%= f.input :last_name, required: true %>
+            <%= f.input :email %>
+            <%= f.input :location %>
+            <%= f.input :dob %>
+            <% if current_user.artist? %>
+            <%= f.input :artist_name %>
+            <%= f.input :bio %>
+            <%= f.input :bank_details %>
+            <%= f.input :facebook %>
+            <%= f.input :instergram %>
+            <%= f.input :twitter %>
+            <% end %>
+            <%= f.submit 'Add your Event', class: 'btn btn-primary' %>
         <% end %>
       </div>
     </div>
 
- <div class="user-flex">
-   <% if current_user.artist? %>
-    <div class="col-md-6 p-3">
-      <%= line_chart UserView.group_by_minute(:created_at).count %>
+
+        <div id="New Event" class="tabcontent">
+      <div class="row p-5">
+        <%= render "/events/partial/new" %>
+      </div>
     </div>
-    <div class="col-md-6 p-3">
-      <%= geo_chart UserView.group(:country).count, {background: "#000"}  %>
-    </div>
-  <% end %>
 
-     <% content_for :chartkick do %>
 
-     <%= javascript_include_tag "//www.google.com/jsapi" %>
-      <%= javascript_pack_tag 'chartkick' %>
-    <% end %>
 
-  </div>
+
 </div>
+
+
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>

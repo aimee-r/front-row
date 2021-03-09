@@ -1,0 +1,38 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+  // border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 230px;
+  padding-right:20px;
+  white-space: nowrap;
+}
+
+.lable {
+  color: #67666e;
+  min-width: 230px;
+}
+
+// .lable-lg {
+//   color: #67666e;
+//   max-width: 150px;
+//   overflow-wrap: anywhere;
+//   word-wrap:break-word
+// }
+
+.lable-sm {
+  color: #67666e;
+  min-width: 150px;
+}
+
+.row-border{
+  border-bottom: solid 1px #67666e;
+}
+
+
