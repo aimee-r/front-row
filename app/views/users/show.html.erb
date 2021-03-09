@@ -3,23 +3,27 @@
 
 <div class="artist-flex">
 <div class="flex-top-a">
-<% if @user.photo.attached? %>
+<%# <% if @user.photo.attached? %>
   <%= cl_image_tag @user.photo.key, class: "avatar-artist" %>
+<div class="social-list">
+<p>Follow <%= @user.artist_name %></p>
+<p class="follow-icons">
+<a href="<%= @user.instergram %>">
 
-<%# <div class="social-list">
-<p>Follow <%= @user.artist_name %>
+<i class="fab fa-instagram"></i></a>
+    <a href="<%= @user.facebook %>">
+<i class="fab fa-facebook"></i>
+</a>
+<a href="<%= @user.spotify %>">
+<i class="fab fa-spotify"></i></a>
+<a href="<%= @user.twitter %>">
+<i class="fab fa-youtube"></i></a>
+</p>
+</div> 
 
-<%# <p><i class="material-icons mr-2">facebook</i>
-   <span class="material-icons">
-instagram</span>
-    <span class="material-icons">
-twitter</span>
-    <span class="material-icons">
-spotify</span></p>
-</div> %>
-<% else %>
+<%# <% else
   <%= image_tag "https://icon-library.com/images/no-profile-pic-icon/no-profile-pic-icon-12.jpg", class: "avatar_account" %>
-<% end %>
+<%# <% end %> 
 </div>
 
 <div class="flex-bottom-a">
@@ -29,6 +33,13 @@ spotify</span></p>
 
 </div>
 </div>
+
+<% if @artist %>
+<iframe src="https://open.spotify.com/embed/<%= @artist.external_urls['spotify'].split("/")[-2..-1].join("/") %>" width="500" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
+<% end %>
+
+<iframe width="500" height="300" src="https://www.youtube.com/embed/2aFcwLgO1wI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 </br>
 <h3>Upcoming Events</h3>
@@ -51,7 +62,6 @@ spotify</span></p>
               <div class="flex">
                 <%= event.city %> | <%= event.start_time.strftime('%A, %b %d') %> | <%= event.start_time.strftime('%l:%M %p') %>
               </div>
-                <%# <p>£<%= Money.new(event.price_cents.to_s, :gbp) %>
             <div class="genre-box">
                 <% event.genres.each do |genre| %>
                 <span class="mr-2" ><%= genre.name %> </span>
@@ -64,6 +74,6 @@ spotify</span></p>
     <% end %>
   </div>
 
-
 </div>
+
 

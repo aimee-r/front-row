@@ -1,23 +1,70 @@
-<%= render 'shared/banner' %>
+
 
 <div class="container">
   <div class="row">
     <div class="col-6">
       <h3>Upcoming Events</h3>
     </div>
-  </div>
 
-
-  <div class="row">
-    <div class="col">
       <% if @search %>
-        <p>You have searched for '<%= @query %>'. Displaying <%= @events.count %> events.</p>
-      <% else %>
+<div class="banner-small" style="background-image: linear-gradient(60deg, #303030 0%, #181818 100%);">
+  <div class="container">
+    <h1><strong>SEARCH RESULTS</strong> </br> '<%= @query %>'</h1>
+
+  </div>
+</div>
+
+      <div class="container">
+
+      <h3>Upcoming Events</h3>
+ 
+        <p>You searched for '<%= @query %>'. Displaying <%= @events.count %> events.</p>
+
+        <div class="row">
+    <% @events.each do |event| %>
+    <%= link_to event_path(event) do %>
+      <div class="col-4">
+        <div class="event-card">
+          <% if event.photo.attached? %>
+            <div class="event-card-image" style="background-image: url('<%= cl_image_path event.photo.key %>')"></div>
+          <% else %>
+             <div class="event-card-image" style="background-image: url(<%= 'https://static.billboard.com/files/2020/12/chloe-x-halle-tiny-desk-2020-billboard-1548-1607458577-compressed.jpg' %>)"></div>
+          <% end %>
+          <div class="event-card-content">
+            <div class="event-card-title">
+              <h4><%= event.event_name %></h4>
+            <p>Hosted by <%= event.user.artist_name %></p>
+             </div>
+              <div class="flex">
+                <%= event.country %>  |  <%= event.start_time.strftime('%e %B %Y') %>  |  <%= event.start_time.strftime('%l:%M %p') %>
+              </div>
+                <%# <p>£<%= Money.new(event.price_cents.to_s, :gbp) %>
+            <div class="genre-box">
+            <% event.genres.each do |genre| %>
+                <span class="mr-2" ><%= genre.name %> </span>
+                <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
       <% end %>
-    </div>
+    <% end %>
+
+
   </div>
 
-  <div class="row">
+        </div>
+      <% else %>
+      <%= render 'shared/banner' %>
+
+  <div class="container">
+ 
+  
+      <h3>Upcoming Events</h3>
+
+        <p>Displaying <%= @events.count %> events.</p>
+      
+          <div class="row">
     <% @events.each do |event| %>
     <%= link_to event_path(event) do %>
       <div class="col-4">
@@ -47,4 +94,10 @@
       <% end %>
     <% end %>
   </div>
-</div>
+   </div>
+
+
+
+      <% end %>
+
+
