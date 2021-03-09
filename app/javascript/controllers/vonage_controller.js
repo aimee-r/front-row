@@ -13,6 +13,7 @@ export default class extends Controller {
   static targets = [ "output" ]
 
   connect() {
+
     this.apiKey = this.data.get("apiKey")
     this.sessionId = this.data.get("sessionId")
     this.token = this.data.get("token")
@@ -60,3 +61,4 @@ export default class extends Controller {
     }
   }
 }
+
