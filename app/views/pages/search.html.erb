@@ -1,71 +1,81 @@
-<% if @artists.nil? && @events.nil? && @genres.nil? %>
-  <h1 class="results-search"><%= 'No results found...'%></h1>
-<% else %>
-  <div class="results-search">
+<div class="container">
+  <% if @artists.nil? && @events.nil? && @genres.nil? %>
+    <h1 class="results-search"><%= 'No results found...'%></h1>
+  <% else %>
     <div class="row">
-      <div class="sorted-table" id="event-artist">
-        <% unless @artists.empty? %>
-          <h2>Artists</h2>
-            <ul>
-              <% @artists.each do |artist| %>
-                <li><%= link_to "#{artist.searchable_type.constantize.find(artist.searchable_id).artist_name}", profile_path(artist.searchable_id) %></li>
-              <% end %>
-            </ul>
+      <div class="col-md-6">
+        <div class="sorted-table" id="event-artist">
+          <% unless @artists.empty? %>
+            <h3>Artists</h3>
+              <hr>
+              <ul>
+                <% @artists.each do |artist| %>
+                  <li><%= link_to "#{artist.searchable_type.constantize.find(artist.searchable_id).artist_name}", profile_path(artist.searchable_id) %></li>
+                <% end %>
+              </ul>
           <% end %>
+        </div>
       </div>
-    </div>
-
-    <div class="results">
-    <div class="row">
-      <div class="sorted-table" id="event-event">
-        <% unless @events.empty? %>
-          <h2>Events</h2>
-            <ul>
-              <% @events.each do |event| %>
-                <li><%= link_to "#{event.searchable_type.constantize.find(event.searchable_id).event_name}", event_path(event.searchable_id) %></li>
-              <% end %>
-            </ul>
-          <% end %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="sorted-table" id="event-genre">
-        <% unless @genres.empty? %>
-          <h2>Genres</h2>
-            <ul>
-              <% @genres.each do |genre| %>
-                <li><%= link_to "#{genre.searchable_type.constantize.find(genre.searchable_id).name}", events_path(query: genre.searchable_type.constantize.find(genre.searchable_id).name, search: true) %></li>
-              <% end %>
-            </ul>
-          <% end %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="sorted-table" id="event-genre">
-        <% unless @events.empty? %>
-          <h2>Countries</h2>
-            <ul>
-              <% @events.each do |event| %>
-                <li><%= link_to "#{event.searchable_type.constantize.find(event.searchable_id).country}", events_path(query: event.searchable_type.constantize.find(event.searchable_id).country) %></li>
-              <% end %>
-            </ul>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="sorted-table" id="event-genre">
-        <% unless @events.empty? %>
-        <h2>Cities</h2>
-          <ul>
-            <% @events.each do |event| %>
-              <li><%= link_to "#{event.searchable_type.constantize.find(event.searchable_id).city}", events_path(query: event.searchable_type.constantize.find(event.searchable_id).city) %></li>
+    
+      <div class="col-md-6">
+        <div class="sorted-table" id="event-event">
+          <% unless @events.empty? %>
+            <h3>Events</h3>
+              <hr>
+              <ul>
+                <% @events.each do |event| %>
+                  <li><%= link_to "#{event.searchable_type.constantize.find(event.searchable_id).event_name}", event_path(event.searchable_id) %></li>
+                <% end %>
+              </ul>
             <% end %>
-          </ul>
-        <% end %>
+         </div>
       </div>
     </div>
-  </div>
-<% end %>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="sorted-table" id="event-genre">
+          <% unless @genres.empty? %>
+            <h3>Genres</h3>
+              <hr>
+              <ul>
+                <% @genres.each do |genre| %>
+                  <li><%= link_to "#{genre.searchable_type.constantize.find(genre.searchable_id).name}", events_path(query: genre.searchable_type.constantize.find(genre.searchable_id).name, search: true) %></li>
+                <% end %>
+              </ul>
+            <% end %>
+         </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="sorted-table" id="event-genre">
+          <% unless @events.empty? %>
+            <h3>Countries</h3>
+            <hr>
+              <ul>
+                <% @events.each do |event| %>
+                  <li><%= link_to "#{event.searchable_type.constantize.find(event.searchable_id).country}", events_path(query: event.searchable_type.constantize.find(event.searchable_id).country) %></li>
+                <% end %>
+              </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-6">
+        <div class="sorted-table" id="event-genre">
+          <% unless @events.empty? %>
+          <h3>Cities</h3>
+            <hr>
+            <ul>
+              <% @events.each do |event| %>
+                <li><%= link_to "#{event.searchable_type.constantize.find(event.searchable_id).city}", events_path(query: event.searchable_type.constantize.find(event.searchable_id).city) %></li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

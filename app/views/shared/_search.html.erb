@@ -4,11 +4,11 @@
 </button>
 
 <!-- Modal -->
-<div class="modal fade" data-controller="search" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="keyboard">
+<div class="modal fade" data-controller="search" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="keyboard mouse">
   <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
-        <div class="form-field">
+        <div class="form-field">  
           <%= form_tag search_path, method: :get do %>
             <%= text_field_tag :query,
               params[:query],
@@ -25,9 +25,6 @@
       </div>
       <div class="modal-body", data-search-target="container">
         <%#= render 'events/search', artists: @artists, events: @events, genres: @genres %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

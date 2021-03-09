@@ -10,7 +10,7 @@
 }
 #submit-button:hover {
   background-color: transparent;
-  color: black;
+  color: white;
   border: solid 1px white;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
@@ -34,12 +34,19 @@
   outline: 0;
 }
 
-//      <div id="form-field"><%= form_tag events_path, method: :get do %>
-//   <%= text_field_tag :query,
-//     params[:query],
-//     id: "form-field",
-//     placeholder: " 🔍 Find an artist or region..."
-//   %>
-//   <%= submit_tag "Search", id: "submit-button" %>
-// <% end %>
-//   </div>
+.modal-content {
+  background-color: black;
+}
+
+.close {
+  color: white;
+}
+
+.fade {
+  background-color: black;
+}
+
+.modal-body {
+  margin-top: 25px;
+  padding: 0px;
+}
