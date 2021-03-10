@@ -12,13 +12,23 @@
   width: 600px;
 }
 
-.social-list {
-  margin: 30px 0px 30px 0px;
+// .social-list {
+//   margin: 30px 0px 30px 0px;
+// }
+
+// .social-list p {
+//   margin-bottom: 5px;
+//   padding: 10px;
+//   font-size: 25px;
+// }
+
+.follow-icons i {
+  font-size: 25px;
+  padding: 20px;
 }
 
-.social-list p {
-  margin-bottom: 5px;
-  padding: 10px;
-  border-bottom: 1px solid lightgray;
-  font-size: 15px;
+iframe {
+  border-radius: 5px;
+  margin: 30px;
+  margin-left: 0px;
 }

@@ -15,7 +15,7 @@
   position: relative;
   margin: 20px 0px 20px 0;
   border-radius: 10px;
-  background-color: #060505;
+  background-color: transparent;
   transition: 200ms;
   color: white;
 }
@@ -35,7 +35,7 @@
 }
 
 .event-card-content {
-  background-color: #060505;
+  background-color: transparent;
   padding: 5px;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .event-show-card {
-  background-color: black;
+  background-color: transparent;
   padding: 20px;
   margin-bottom: 10px;
 }
@@ -52,7 +52,7 @@
 .show-card-content {
   text-align: center;
   padding-top: 15px;
-  background-color: black;
+  background-color: transparent;
   border: solid 1px #bbbbbb;
   width: 100px;
   height: 100px;
