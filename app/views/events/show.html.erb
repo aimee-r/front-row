@@ -52,12 +52,14 @@
 </br>
   <% if Order.where(event: @event, state: 'paid', user: current_user).any? %>
     <%= link_to "Go to stream", room_path(@event.room), class: 'btn btn-primary' %>
+    <% elsif @event.user == current_user %>
+    <%= link_to "Start your Stream", room_path(@event.room), class: 'btn btn-primary' %>
     <% else %>
     <%= form_tag orders_path do %>
     <%= hidden_field_tag 'event_id', @event.id %>
     <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
     <% end %>
-<% end %>
+ <% end %>
 
 </div>
 </div>

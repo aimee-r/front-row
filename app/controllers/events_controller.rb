@@ -3,9 +3,7 @@ class EventsController < ApplicationController
 
   def index
     # Add query when implementing search bar
- 
     if params[:query].present?
-      @query = params[:query]
       @events = Event.select { |event| event.genres.include?(Genre.find_by(name: params[:query])) }
     elsif params[:country].present?
       @events = Event.where(country: params[:country])
@@ -15,6 +13,7 @@ class EventsController < ApplicationController
       @events = Event.all
     end
     @search = params[:search]
+    @query = params[:query] || params[:city] || params[:country]
       # @events = Event.all
   end
 
@@ -35,7 +34,7 @@ class EventsController < ApplicationController
     @event_genre = params[:event][:genre_ids].reject(&:blank?)
     @event.user = current_user
     @event.price_cents = @event.price_cents * 100
-    if @event.save!
+    if @event.save
       @event_genre.each do |genre|
         EventGenre.create!(
           event_id: @event.id,

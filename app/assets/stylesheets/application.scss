@@ -13,8 +13,8 @@
 @import "pages/index";
 
 body {
-  background-color: rgb(8, 8, 8);
-  color: rgb(228, 227, 225);
+  background-color: #060505;
+  color: #d8d8db;
   letter-spacing: 0.5px;
   line-height: 180%;
 }
@@ -23,22 +23,4 @@ body {
   margin: 20px;
 }
 
-#videos {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-  padding: 10px;
-}
 
-.OT_root {
-  height: 600px !important;
-}
-
-.OT_publisher .OT_video-element {
-  padding: 20px;
-}
-
-.showtime {
-  font-weight: bold;
-  margin: 200px;
-}

@@ -8,13 +8,24 @@
               <h1>This stream starts in <strong><span id="counter"></span></strong></h1>
             </div>
           <% else %>
+          <% if @room.event.user == current_user %>
             <div id="videos"
-              data-controller="vonage"
-              data-vonage-api-key="<%= ENV["VONAGE_API_KEY"] %>"
-              data-vonage-session-id= "<%= @room.vonage_session_id %>"
-              data-vonage-token="<%= @token %>"
-              data-vonage-name="<%= current_user.first_name %>">
-            </div>
+                data-controller="vonage"
+                data-vonage-api-key="<%= ENV["VONAGE_API_KEY"] %>"
+                data-vonage-session-id= "<%= @room.vonage_session_id %>"
+                data-vonage-token="<%= @token %>"
+                data-vonage-name="<%= current_user.first_name %>">
+              </div>
+            <% elsif %>
+              <div id="videos"
+                data-controller="vonageVisitor"
+                data-vonageVisitor-api-key="<%= ENV["VONAGE_API_KEY"] %>"
+                data-vonageVisitor-session-id= "<%= @room.vonage_session_id %>"
+                data-vonageVisitor-token="<%= @token %>"
+                data-vonageVisitor-name="<%= current_user.first_name %>">
+              </div>
+          <% end %>
+
           <% end %>
         </div>
         <div class="col-3">
@@ -32,7 +43,7 @@
             <% end %>
           </div>
           <%= simple_form_for [ @room.chatroom, @message ], remote: true, authenticity_token: true do |f| %>
-            <%= f.input :content, label: false, placeholder: "Message ##{@room.chatroom.name}" %>
+            <%= f.input :content, label: false, placeholder: "Message ##{@room.chatroom.name}", class: "btn btn-primary" %>
           <% end %>
         </div>
       </div>
