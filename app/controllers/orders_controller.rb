@@ -12,8 +12,8 @@ class OrdersController < ApplicationController
         currency: 'gbp',
         quantity: 1
       }],
-      success_url: "https://frontrow.host/orders/#{order.id}",
-      cancel_url: "https://frontrow.host/orders/#{order.id}"
+      success_url: "www.frontrow.host/orders/#{order.id}",
+      cancel_url: "www.frontrow.host/orders/#{order.id}"
     )
 
     order.update(checkout_session_id: session.id)
