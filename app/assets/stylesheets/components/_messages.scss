@@ -2,23 +2,30 @@
 .messages-container {
   height: 400px;
   overflow-y: scroll;
-  border: 1px solid purple;
+  border: 5px solid #2a2c3a;
   border-radius: 4px;
-  margin-right: 5px;
-  background: darkgrey;
-  margin-top: 100px;
+  margin-right: px;
+  background: #6729f9;
+  margin-top: 70px;
 }
 
 // MESSAGE SENT BY USER NAME AND DATE
 #messages span{
+  color: white;
+  font-weight: bold;
+  padding: 2px;
   margin-left: 5px;
 }
 
 // MESSAGE CONTENT
 #messages p {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  padding: 2px;
   font-weight: bold;
-  margin-left: 4px;
-  color: purple;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: white;
+  border-bottom: 1px solid #2a2c3a;
 }
 // .container-flex{
 //   display: flex;
@@ -45,3 +52,5 @@
   font-weight: bold;
   margin: 200px;
 }
+
+
