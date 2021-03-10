@@ -16,7 +16,7 @@
                 data-vonage-token="<%= @token %>"
                 data-vonage-name="<%= current_user.first_name %>">
               </div>
-            <% else %>
+            <% elsif %>
               <div id="videos"
                 data-controller="vonageVisitor"
                 data-vonageVisitor-api-key="<%= ENV["VONAGE_API_KEY"] %>"
@@ -43,7 +43,7 @@
             <% end %>
           </div>
           <%= simple_form_for [ @room.chatroom, @message ], remote: true, authenticity_token: true do |f| %>
-            <%= f.input :content, label: false, placeholder: "Message ##{@room.chatroom.name}" %>
+            <%= f.input :content, label: false, placeholder: "Message ##{@room.chatroom.name}", class: "btn btn-primary" %>
           <% end %>
         </div>
       </div>

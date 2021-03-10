@@ -140,7 +140,10 @@ puts "Customers buying tickets..."
 
 Event.all.each do |event|
   rand(25..75).times do
-    EventAttendee.create(
+    Order.create!(
+      state: "paid",
+      event_sku: event.sku,
+      amount_cents: event.price_cents,
       event_id: event.id,
       user_id: customer_arr.sample.id,
       )
