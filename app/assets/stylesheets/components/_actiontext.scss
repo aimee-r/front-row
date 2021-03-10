@@ -50,3 +50,15 @@
 .trix-button-row {
   width: 660px;
 }
+
+.trix-button-group--file-tools {
+  display: none !important;
+}
+
+.trix-content{
+  ul {
+    list-style: initial;
+  }
+
+  color: black!important;
+}
