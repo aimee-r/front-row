@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
         locals: { message: @message })
       )
 
-      redirect_to room_path(@chatroom.room, anchor: "message-#{@message.id}")
+      # redirect_to room_path(@chatroom.room, anchor: "message-#{@message.id}")
     else
       render "rooms/show"
     end
