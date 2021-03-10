@@ -136,25 +136,37 @@
                   <h2 class="font-weight-bold">My Events</h2>
                 <% @events.each do |event| %>
                   <% if event.user == current_user %>
+
                   <div class="event-line">
                      <%= event.event_name %>
-                     <div class="button-box">
-                     <%= link_to 'View', event_path(event), class: 'btn-small event-btn' %>
-                     <%= link_to 'Edit', edit_event_path(event), class: 'btn-small edit-btn' %><%= link_to 'Delete', event_path(event), method: 'delete', data: { confirm: "Are you sure?" }, class: 'btn-small delete-btn' %>
-                     </div></div>
+                    <div class="button-box">
+                      <button onclick="myFunction()">Click Me</button>
+                    </div>
+                  </div>
+
                   <% end %>
                 <% end %>
+
+                <% @number = 0 %>
+                <% @events.each do |event| %>
+                  <% if event.user == current_user %>
+                   <% @number += 1 %>
+
+                    <div id="@variable_<%= @number %>" style="display: none">
+                      <div class="col-md-6 p-3">
+                          <%= line_chart UserView.where(event_id: event).group_by_minute(:created_at).count %>
+                      </div>
+                      <div class="col-md-6 p-3">
+                        <%= geo_chart UserView.group(:country).count, {background: "#000"}  %>
+                      </div>
+                    </div>
+                    <% end %>
+                  <% end %>
               <% end %>
 
 
-            <% if current_user.artist? %>
-              <div class="col-md-6 p-3">
-                <%= line_chart UserView.group_by_minute(:created_at).count %>
-              </div>
-              <div class="col-md-6 p-3">
-                <%= geo_chart UserView.group(:country).count, {background: "#000"}  %>
-              </div>
-            <% end %>
+
+
 
                <% content_for :chartkick do %>
 
@@ -214,4 +226,15 @@
 
   // Get the element with id="defaultOpen" and click on it
   document.getElementById("defaultOpen").click();
+  </script>
+
+<script>
+  function myFunction() {
+  var x = document.getElementById("@variable_1", "@variable_2", "@variable_3");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
   </script>
