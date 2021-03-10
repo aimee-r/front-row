@@ -134,33 +134,25 @@
             <div class="col-md-12">
               <% if current_user.artist? %>
                   <h2 class="font-weight-bold">My Events</h2>
-                <% @events.each do |event| %>
-                  <% if event.user == current_user %>
+                <% @events.each_with_index do |event, index| %>
 
                   <div class="event-line">
                      <%= event.event_name %>
                     <div class="button-box">
-                      <button onclick="myFunction()">Click Me</button>
+                      <button class="btn btn-primary btn_stats" data-btn="stats_<%= event.id %>"><%= index == 0 ? "Showing" : "Show" %></button>
                     </div>
                   </div>
-
-                  <% end %>
                 <% end %>
 
-                <% @number = 0 %>
-                <% @events.each do |event| %>
-                  <% if event.user == current_user %>
-                   <% @number += 1 %>
-
-                    <div id="@variable_<%= @number %>" style="display: none">
+                <% @events.each_with_index do |event, index| %>
+                    <div class="stats_box <%= "d-none" unless index == 0 %> " data-stats="stats_<%= event.id %>">
                       <div class="col-md-6 p-3">
                           <%= line_chart UserView.where(event_id: event).group_by_minute(:created_at).count %>
                       </div>
                       <div class="col-md-6 p-3">
-                        <%= geo_chart UserView.group(:country).count, {background: "#000"}  %>
+                        <%= geo_chart UserView.where(event_id: event).group(:country).count, {background: "#000"}  %>
                       </div>
                     </div>
-                    <% end %>
                   <% end %>
               <% end %>
 
@@ -229,12 +221,23 @@
   </script>
 
 <script>
-  function myFunction() {
-  var x = document.getElementById("@variable_1", "@variable_2", "@variable_3");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
+  const buttons = document.querySelectorAll(".btn_stats");
+    const boxs = document.querySelectorAll(".stats_box");
+
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      boxs.forEach((box) => {
+        if (button.dataset.btn === box.dataset.stats) {
+          buttons.forEach(button => button.innerText = "Show");
+          event.target.innerText = "Showing"
+          box.classList.add("d-block")
+          box.classList.remove("d-none")
+        } else {
+          box.classList.remove("d-block")
+          box.classList.add("d-none")
+        }
+      })
+    })
+  })
   </script>
