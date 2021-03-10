@@ -81,4 +81,5 @@ gem "chartkick"
 gem 'groupdate'
 
 gem 'rspotify'
+gem 'redis'
 
