@@ -107,12 +107,12 @@
                   <td><%= current_user.facebook %></td>
                 </tr>
                 <tr class="row-border">
-                  <td class="lable">Instagram:</td>
-                  <td><%= current_user.instergram %></td>
+                  <td class="lable">instagram:</td>
+                  <td><%= current_user.instagram %></td>
                 </tr>
                 <tr class="row-border">
-                  <td class="lable">Twitter:</td>
-                  <td><%= current_user.twitter %></td>
+                  <td class="lable">Youtube:</td>
+                  <td><%= current_user.youtube %></td>
                 </tr>
                 <tr class="row-border">
                     <td class="lable">bio: </td>
@@ -190,8 +190,8 @@
                 <%= f.input :bio %>
                 <%= f.input :bank_details %>
                 <%= f.input :facebook %>
-                <%= f.input :instergram %>
-                <%= f.input :twitter %>
+                <%= f.input :instagram %>
+                <%= f.input :youtube %>
                 <% end %>
                 <%= f.submit 'Add your Event', class: 'btn btn-primary' %>
             <% end %>
