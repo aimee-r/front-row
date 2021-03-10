@@ -16,7 +16,7 @@
                 data-vonage-token="<%= @token %>"
                 data-vonage-name="<%= current_user.first_name %>">
               </div>
-            <% else %>
+            <% elsif %>
               <div id="videos"
                 data-controller="vonageVisitor"
                 data-vonageVisitor-api-key="<%= ENV["VONAGE_API_KEY"] %>"
