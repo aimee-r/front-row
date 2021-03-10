@@ -43,7 +43,7 @@
             <% end %>
           </div>
           <%= simple_form_for [ @room.chatroom, @message ], remote: true, authenticity_token: true do |f| %>
-            <%= f.input :content, label: false, placeholder: "Message ##{@room.chatroom.name}", class: "btn btn-primary" %>
+            <%= f.input :content, label: false, placeholder: "Type your Message here#{@room.chatroom.name}", input_html: { id: "something" } %>
           <% end %>
         </div>
       </div>
