@@ -1,0 +1,107 @@
+* {box-sizing: border-box}
+
+/* Style the tab */
+.tab {
+  float: left;
+  // border: 1px solid #ccc;
+  background-color: #201d2b;
+  width: 20%;
+  height: 100vh;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  display: block;
+  background-color: inherit;
+  color: #67666e;
+  padding: 22px 16px;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #2a2c3a;
+  color:#d8d8db;
+
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  background-color: #2a2c3a;
+  color:#d8d8db;
+}
+
+/* Style the tab content */
+.tabcontent {
+  float: left;
+  padding: 0px 12px;
+  width: 80%;
+  border-left: none;
+  background-color: #2a2c3a;
+  height: 100vh;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.purple-background{
+  background: #6969DF
+}
+
+.blue-background{
+  background: #32A7E2
+}
+
+.pink-background{
+  background: #B548C6
+}
+
+.green-background{
+  background: #22B07D
+}
+
+.orange-background{
+  background: #FF8700
+}
+
+
+.aqua-background{
+  background: #12CDD9
+}
+
+
+.peach-background{
+  background: #F67171
+}
+
+.menu-icon{
+    color: #67666e;
+    margin: 0px 16px 16px;
+    border-radius: 4px;
+    height: 33px;
+    width: 33px;
+    text-align: center;
+    padding: 15px 0px;
+    display: block;
+}
+
+
+.account-icon{
+    color: white;
+    font-size: 20px;
+    margin: 5px;
+    padding: 6px;
+    border-radius: 4px;
+    height: 33px;
+    width: 33px;
+    text-align: center;
+    margin-right: 10px;
+}
