@@ -2,26 +2,16 @@
   <%= link_to events_path, class: "navbar-brand" do %>
     <p>Front<strong>Row</strong><%= image_tag "https://res.cloudinary.com/ddqpdj02o/image/upload/v1614705778/Stand_Up_Comedy_9_mpuvgr.png" %></p>
     <% end %>
-
+    
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-     <div class="form-field"><%= form_tag search_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    id: "form-field",
-    placeholder: "Find an artist, event or genre..."
-  %>
-  <%= submit_tag "Search", id: "submit-button" %>
-<% end %>
-  </div>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to "About", "#", class: "nav-link" %>
+          <%= link_to "About", about_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <% if current_user.photo.attached? %>

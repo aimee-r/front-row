@@ -80,3 +80,5 @@ gem "http"
 gem "chartkick"
 gem 'groupdate'
 
+gem 'rspotify'
+
