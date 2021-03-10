@@ -31,7 +31,7 @@
                       hint: "leave it blank if you don't want to change it",
                       required: false,
                       input_html: { value: current_user.artist_name } %>
-          <%= f.input :bio,
+          <%= f.rich_text_area :rich_body,
                       hint: "leave it blank if you don't want to change it",
                       required: false,
                       input_html: { value: current_user.artist_name } %>
