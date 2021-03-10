@@ -27,6 +27,8 @@
      <p class="notice"><%= notice %></p>
 
      <%= render 'shared/search' %>
-<%= render 'shared/footer' %>
+<% unless params[:action] == 'search' %>
+   <%= render 'shared/footer' %>
+<% end %>
   </body>
 </html>
