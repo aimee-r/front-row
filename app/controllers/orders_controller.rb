@@ -12,10 +12,10 @@ class OrdersController < ApplicationController
         currency: 'gbp',
         quantity: 1
       }],
-      success_url: order_url(order),
-      cancel_url: order_url(order)
+      success_url: "https://front-row.host/orders/#{order.id}",
+      cancel_url: "https://front-row.host/orders/#{order.id}"
     )
- puts order_url(order)
+
     order.update(checkout_session_id: session.id)
     redirect_to new_order_payment_path(order)
   end
