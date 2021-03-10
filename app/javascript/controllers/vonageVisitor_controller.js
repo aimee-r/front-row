@@ -64,7 +64,7 @@ export default class extends Controller {
           console.log(session)
           const name = stream.name;
           const insertMode = name === 'Host' ? 'before' : 'after';
-          const properties = Object.assign({ name: name, insertMode: insertMode }, {width: 900, height: 300, insertMode: 'append'});
+          const properties = Object.assign({ name: name, insertMode: insertMode }, {width: 900, height: 300, insertMode: 'prepend'});
           const output =  session.subscribe(stream, 'videos', properties, function (error) {
             if (error) {
               console.log(error);
