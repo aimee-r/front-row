@@ -19,7 +19,8 @@
 
   <% unless params[:action] == 'search' %>
    <%= render 'shared/navbar' %>
-<% end %>
+   <div class="nav-buffer"> </div>
+  <% end %>
 
     <%= render 'shared/flashes' %>
 
