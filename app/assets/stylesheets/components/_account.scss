@@ -6,7 +6,7 @@
   // border: 1px solid #ccc;
   background-color: #201d2b;
   width: 20%;
-  height: 100vh;
+  height: 100%;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
 }
@@ -47,9 +47,13 @@
   width: 80%;
   border-left: none;
   background-color: #2a2c3a;
-  height: 100vh;
+  height: 100%;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
+}
+
+.account-container{
+  width:100%;
 }
 
 .purple-background{
