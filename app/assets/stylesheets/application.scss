@@ -13,6 +13,10 @@
 @import "components/index";
 @import "pages/index";
 
+// JS Components
+@import "flatpickr/dist/flatpickr";
+
+
 body {
   background-color: #060505;
   color: #d8d8db;

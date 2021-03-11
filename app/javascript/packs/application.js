@@ -32,6 +32,9 @@ import $ from "jquery"
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
+import { initFlatpickr } from "../components/flatpickr";
+
+
 
 import "controllers"
 import { countdownTimer } from '../components/countdown.js'
@@ -57,6 +60,8 @@ const initUpdateNavbarOnScroll = () => {
 
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
+  initFlatpickr();
+
   initUpdateNavbarOnScroll();
    if (document.getElementById("event-start-time")) {
     countdownTimer();
