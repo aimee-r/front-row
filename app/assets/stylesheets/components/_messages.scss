@@ -1,13 +1,11 @@
 // WHOLE CHAT CONTAINER
 .messages-container {
-  width: 400px;
-  height: 400px;
+  width: 350px;
+  height: 430px;
   overflow-y: scroll;
   border: 2px solid #4e4e4e;
   border-radius: 5px;
-  background-color: #3d3d3de7;
-  margin-top: 70px;
-  position: relative;
+  background-color: #131313e7;
   right: 80px;
 }
 
@@ -16,7 +14,7 @@
   color: rgb(214, 214, 214);
   font-weight: bold;
   padding: 2px;
-  margin-left: 5px;
+  margin-left: 10px;
 }
 
 // MESSAGE CONTENT
@@ -27,7 +25,7 @@
   margin-left: 10px;
   margin-right: 10px;
   color: #672af9;
-  border-bottom: 1px solid #4e4e4e;
+  border-bottom: 1px solid #1f1f1f;
 }
 // .container-flex{
 //   display: flex;
@@ -36,10 +34,13 @@
 #something {
   margin-top: 10px;
   background-color: #3d3d3de7;
-  border: 2px solid #4e4e4e;
-  width: 400px;
-  position: relative;
-  right: 80px;
+  border: 1px solid #672af9;
+  width: 350px;
+  color: white;
+}
+
+#live-title {
+  margin-top: 20px;
 }
 
 // STREAMING VIDEO STYLES
@@ -48,7 +49,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
-  padding: 20px;
+  margin: 0px 20px 0px 0px;
 }
 
 .OT_root {

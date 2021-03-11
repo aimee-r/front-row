@@ -38,24 +38,26 @@ img12 = 'https://images.unsplash.com/photo-1568480046613-6e3b671c66d2?ixid=MXwxM
 img13 = 'https://images.unsplash.com/photo-1518499845966-9a86ddb68051?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80'
 img14 = 'https://images.unsplash.com/photo-1612633509856-e10888c2df9e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80'
 img15 = 'https://images.unsplash.com/photo-1544191674-3d2c0f2342f8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1062&q=80'
+img16 = 'https://unsplash.com/photos/-O530O7KWcY'
 
-event_img_arr =[img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15]
+event_img_arr =[img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16]
 
 event_name1 = "Shunaji X Boogey Town"
-event_name2 = "An intimate evening on Front Row"
+event_name2 = "Streaming From Home | #13"
 event_name3 = "Jazz Rythyms! Live on Front Row "
 event_name4 = "Instrumental Orchestra Presents"
 event_name5 = "Live in London DJ Set"
 event_name6 = "Streaming From Isolation | #21"
-event_name7 = "Love To The World on Front Row "
+event_name7 = "Love To The World on Front Row"
 event_name8 = "Front Row  x Sugar Mountain Live DJ Set"
 event_name9 = "Front Row x Amplified"
 event_name10 = "Sounds of the Underground"
 event_name11 = "Mellow Moves To Your Living Room"
-event_name12 = "Dance with me! A Mightnight Special."
+event_name12 = "Dance with me! A Midnight Special"
+event_name13 = "Techno Party X Machina"
+event_name14 = "Lose Yourself To Dance"
 
-event_name_arr = [event_name1, event_name2, event_name3, event_name4, event_name5, event_name6, event_name7, event_name8, event_name9, event_name10 ]
-
+event_name_arr = [event_name1, event_name2, event_name3, event_name4, event_name5, event_name6, event_name7, event_name8, event_name9, event_name10, event_name11, event_name12, event_name13, event_name14 ]
 
 puts "Creating artists..."
 aimee = User.create!(first_name: 'Aimée', last_name: 'Rawlings', location: 'South Africa', dob: '1989-09-14', email: 'aimee@example.com', password: '123456', artist: true, artist_name: 'DJ Amzy', bank_details: '121212 12345678', facebook: 'https://www.facebook.com/daftpunk/', instagram: 'https://www.facebook.com/daftpunk/', youtube: 'https://www.youtube.com/embed/2aFcwLgO1wI',  bio: "DJ Amzy has been at the nexus of music, fashion, and nightlife for over half her living years as the go-to deejay for music impresarios, entertainment moguls, fashion icons, cultural trendsetters, and even world leaders. When President Obama wanted a deejay for both of his Inaugurations and his fiftieth birthday party at the White House, theres only one person he called. When Oprah Winfrey celebrated the opening of her school in South Africa on New Years Eve, there’s only one person she called. And when Jay Z needed a deejay for his wedding to Beyoncé, theres only one person he called." )
@@ -63,7 +65,7 @@ aimee = User.create!(first_name: 'Aimée', last_name: 'Rawlings', location: 'Sou
     aimee.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
     aimee.save!
 
-anne = User.create!(first_name: 'Anne', last_name: 'De Joly', location: 'London', dob: '1989-09-14', email: 'anne@example.com', password: '123456', artist: true, artist_name: 'DJ Anne de Joly', bank_details: '121212 12345678', facebook: 'https://www.facebook.com/daftpunk/', instagram: 'https://www.youtube.com/embed/2aFcwLgO1wI', youtube: 'https://www.youtube.com/watch?v=2aFcwLgO1wI',  bio: "DJ Anne has been at the nexus of music, fashion, and nightlife for over half her living years as the go-to deejay for music impresarios, entertainment moguls, fashion icons, cultural trendsetters, and even world leaders. When President Obama wanted a deejay for both of his Inaugurations and his fiftieth birthday party at the White House, theres only one person he called. When Oprah Winfrey celebrated the opening of her school in South Africa on New Years Eve, there’s only one person she called. And when Jay Z needed a deejay for his wedding to Beyoncé, theres only one person he called." )
+yoda = User.create!(first_name: 'DJ', last_name: 'Yoda', location: 'London', dob: '1989-09-14', email: 'yoda@example.com', password: '123456', artist: true, artist_name: 'DJ Yoda', bank_details: '121212 12345678', spotify: 'https://open.spotify.com/artist/134rP599PLJMjrccfctkmX' facebook: 'https://www.facebook.com/daftpunk/', instagram: 'https://www.youtube.com/embed/2aFcwLgO1wI', youtube: 'https://www.youtube.com/embed/pcnUNgCtSOk',  bio: "DJ Yoda has been at the nexus of music, fashion, and nightlife for over half his living years as the go-to deejay for music impresarios, entertainment moguls, fashion icons, cultural trendsetters, and even world leaders. When President Obama wanted a deejay for both of his Inaugurations and his fiftieth birthday party at the White House, theres only one person he called. When Oprah Winfrey celebrated the opening of her school in South Africa on New Years Eve, there’s only one person she called. And when Jay Z needed a deejay for his wedding to Beyoncé, theres only one person he called." )
     file = URI.open('https://github.com/Annedj.png')
     anne.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
     anne.save!
@@ -72,11 +74,6 @@ ife = User.create!(first_name: 'ife', last_name: 'Odugbesan', location: 'London'
     file = URI.open('https://github.com/ifeodugbesan.png')
     ife.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
     ife.save!
-
-leonard = User.create!(first_name: 'Leonard', last_name: 'Percival', location: 'London', dob: '1989-09-14', email: 'leonard@example.com', password: '123456', artist: true, artist_name: 'DJ Leonard', bank_details: '121212 12345678', facebook: 'https://www.facebook.com/daftpunk/', instagram: 'https://www.facebook.com/daftpunk/', youtube: 'https://www.facebook.com/daftpunk/',  bio: "DJ Leonard has been at the nexus of music, fashion, and nightlife for over half her living years as the go-to deejay for music impresarios, entertainment moguls, fashion icons, cultural trendsetters, and even world leaders. When President Obama wanted a deejay for both of his Inaugurations and his fiftieth birthday party at the White House, theres only one person he called. When Oprah Winfrey celebrated the opening of her school in South Africa on New Years Eve, there’s only one person she called. And when Jay Z needed a deejay for his wedding to Beyoncé, theres only one person he called." )
-    file = URI.open('https://github.com/oceantidote.png')
-    leonard.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-    leonard.save!
 
 romeo = User.create!(first_name: 'romeo', last_name: 'Saint-Albin', location: 'London', dob: '1989-09-14', email: 'romeo@example.com', password: '123456', artist: true, artist_name: 'DJ Romeo', bank_details: '121212 12345678', facebook: 'https://www.facebook.com/daftpunk/', instagram: 'https://www.facebook.com/daftpunk/', youtube: 'https://www.facebook.com/daftpunk/',  bio: "DJ Romeo has been at the nexus of music, fashion, and nightlife for over half her living years as the go-to deejay for music impresarios, entertainment moguls, fashion icons, cultural trendsetters, and even world leaders. When President Obama wanted a deejay for both of his Inaugurations and his fiftieth birthday party at the White House, theres only one person he called. When Oprah Winfrey celebrated the opening of her school in South Africa on New Years Eve, there’s only one person she called. And when Jay Z needed a deejay for his wedding to Beyoncé, theres only one person he called." )
     file = URI.open('https://github.com/oceantidote.png')
@@ -87,7 +84,7 @@ lukas = User.create!(first_name: 'Lukáš', last_name: 'Musílek',  location: 'C
     file = URI.open('https://github.com/Lmusilek')
     lukas.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
     lukas.save!
-rob = User.create!(first_name: 'Roberto', last_name: 'Piancatelli', location: 'Italian', dob: '1989-09-14', email: 'rob@example.com', password: '123456', artist: true, artist_name: 'MC 50p', bank_details: '121212 12345678', facebook: 'https://www.facebook.com/daftpunk/', instagram: 'https://www.facebook.com/daftpunk/', youtube: 'https://www.facebook.com/daftpunk/',  bio: "DJ Rob has been at the nexus of music, fashion, and nightlife for over half her living years as the go-to deejay for music impresarios, entertainment moguls, fashion icons, cultural trendsetters, and even world leaders. When President Obama wanted a deejay for both of his Inaugurations and his fiftieth birthday party at the White House, there's only one person he called. When Oprah Winfrey celebrated the opening of her school in South Africa on New Years Eve, there’s only one person she called. And when Jay Z needed a deejay for his wedding to Beyoncé, theres only one person he called." )
+rob = User.create!(first_name: 'Roberto', last_name: 'Piancatelli', location: 'Italian', dob: '1989-09-14', email: 'rob@example.com', password: '123456', artist: true, artist_name: 'Mr 50p', bank_details: '121212 12345678', facebook: 'https://www.facebook.com/daftpunk/', instagram: 'https://www.facebook.com/daftpunk/', youtube: 'https://www.facebook.com/daftpunk/',  bio: "DJ Rob has been at the nexus of music, fashion, and nightlife for over half her living years as the go-to deejay for music impresarios, entertainment moguls, fashion icons, cultural trendsetters, and even world leaders. When President Obama wanted a deejay for both of his Inaugurations and his fiftieth birthday party at the White House, there's only one person he called. When Oprah Winfrey celebrated the opening of her school in South Africa on New Years Eve, there’s only one person she called. And when Jay Z needed a deejay for his wedding to Beyoncé, theres only one person he called." )
     file = URI.open('https://github.com/RobertoPiancatelli.png')
     rob.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
     rob.save!
@@ -106,8 +103,13 @@ file = URI.open('https://texxandthecity.com/wp-content/uploads/2020/11/Painted-F
 painted.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 painted.save!
 
+bonobo = User.create!(first_name: 'Bon', last_name: 'Obo', location: 'Cape Town', dob: '1989-09-14', email: 'bonobo@example.com', password: '123456', artist: true, artist_name: 'Bonobo', bank_details: '121212 12345678', spotify: 'https://open.spotify.com/artist/0cmWgDlu9CwTgxPhf403hb' facebook: 'https://www.facebook.com/diegophilips/', instagram: 'https://www.instagram.com/dphilips/', spotify: 'https://open.spotify.com/artist/3ccrJOoILrsst0M1V0PlP3', youtube: 'https://www.youtube.com/embed/ERLy4Dam1pU',  bio: "Bonobo's rise has been stealthy but unstoppable and Simon Green, the man behind it all, is now one of the biggest electronic artists of our time, with 6 albums and a revered live show that has seen him play to sold-out crowds across the globe, including multiple shows at Alexandra Palace, Glastonbury, Coachella and Red Rocks Amphitheatre. His last album “Migration” reached #5 in the UK album charts and was GRAMMY nominated along with his subsequent “Linked” single. In 2019 he released the track “Ibrik” via his ‘fabric presents’ compilation and followed up in 2020 with a remix of Mercury Prize winner Michael Kiwanuka’s soulful “Final Days.” In 2020 Bonobo teamed up with producer Totally Enormous Extinct Dinosaurs to deliver “Heartbreak,” a track that builds on the foundations of electronic music, tracing a line from the dance floors of 1980’s NYC to today." )
+file = URI.open('https://www.dancemusicnw.com/wp-content/uploads/2014/10/Bonobo.jpg')
+bonobo.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+bonobo.save!
+
 puts "Saving artists into an array..."
-artists = [aimee, anne, ife, leonard, romeo, lukas, rob, jeremaia, diego, painted]
+artists = [aimee, yoda, ife, romeo, lukas, rob, jeremaia, diego, painted, bonobo]
 
 puts "Creating 100 customers..."
 puts "Pushing customers into array..."
@@ -135,8 +137,8 @@ artists.each do |artist|
       event_name: event_name_arr.sample,
       description: "The evening will consist of 9 sets from 15 artists spanning UK rap, hip hop, soul, grime & beyond. Alongside Lex Amor & Project Karnak's, we have exclusive DJ sets from Rei Sky & Rare Treat plus live PA performances from Josette Joseph & Temesgen, Dips & Lo-Wu, Intalekt & Billy Dukes, Ayeisha Raquel, Shumba Maasai x AfronautZu and Shaun Sky.",
       price_cents: rand(500..1000),
-      start_time: DateTime.new(2021,3,10,8),
-      end_time: DateTime.new(2021,4,10,16),
+      start_time: DateTime.new(2021,3,11,8),
+      end_time: DateTime.new(2021,4,12,16),
       city: Faker::Address.city,
       country: Faker::Address.country,
       user: artist

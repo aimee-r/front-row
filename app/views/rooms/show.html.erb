@@ -29,8 +29,7 @@
           <% end %>
         </div>
         <div class="col-3">
-          <h1>Live Chat<%= @room.chatroom.name %></h1>
-          <hr>
+          <h2 id="live-title">Live Chat<%= @room.chatroom.name %></h2>
           <div id="messages" class="messages-container" data-chatroom-id="<%= @room.chatroom.id %>">
             <% @room.chatroom.messages.each do |message| %>
               <div class="message-container" id="message-<%= message.id %>">
