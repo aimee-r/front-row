@@ -31,10 +31,6 @@ body {
   margin: 20px;
 }
 
-.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
-  color: black;
-}
-
 
 .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
   color: black;
@@ -43,4 +39,10 @@ body {
 
 .select2-results__option--selectable {
   color: black;
+}
+
+.select2-container--default .select2-search--inline .select2-search__field {
+  position: relative;
+  min-width: 550px;
+  right: 50px;
 }
