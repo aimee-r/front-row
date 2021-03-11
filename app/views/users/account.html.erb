@@ -175,7 +175,7 @@
                 <%= f.input :dob %>
                 <% if current_user.artist? %>
                 <%= f.input :artist_name %>
-                <%= f.input :bio %>
+                <%= f.rich_text_area :bio %>
                 <%= f.input :bank_details %>
                 <%= f.input :facebook %>
                 <%= f.input :instergram %>
