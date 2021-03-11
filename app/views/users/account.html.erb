@@ -1,4 +1,7 @@
-
+<% content_for :chartkick do %>
+                  <%= javascript_pack_tag 'chartkick' %>
+                  <%= javascript_include_tag "//www.google.com/jsapi" %>
+                <% end %>
 
 <div class="container">
   <div class="row p-5">
@@ -146,34 +149,38 @@
                   <% end %>
 
                   <% @events.each_with_index do |event, index| %>
-                      <div class="stats_box <%= "d-none" unless index == 0 %> " data-stats="stats_<%= event.id %>">
-                        <div class="col-md-6 p-3">
-                            <%= line_chart UserView.where(event_id: event).group_by_minute(:created_at).count %>
+                    <div class="container stats_box <%= "d-none" unless index == 0 %> " data-stats="stats_<%= event.id %>">
+                      <div class="row p-3">
+                        <div class="col-md-9 p-3">
+                            <%= line_chart UserView.where(event_id: event).group_by_minute(:created_at).count, id: "line_chart#{index}" %>
                         </div>
-                        <div class="col-md-6 p-3" style="height: 200px;text-align: center;background: #201D2B;font-size: 18px;font-weight: bold;">
-                          <h4>Total Income</h4>
-                          £<%=(event.price_cents)*(Order.where(event_id: event).count) %>
+
+                        <div class="col-md-3 p-3">
+                          <div class="align-middle d-flex justify-content-center align-items-center h-50 p-3 grey-border-bottom">
+                            <div class="text-center">
+                              <p><strong>Total Income</strong></p>
+                              £<%=(event.price_cents)*(Order.where(event_id: event).count) %>
+                            </div>
+                          </div>
+                          <div class="align-middle d-flex justify-content-center align-items-center h-50 p-3 ">
+                           <div class="text-center">
+                            <p><strong>Total Income</strong></p>
+                              <%=(Order.where(event_id: event).count) %>
+                            </div>
+                          </div>
                         </div>
-                        <div class="col-md-6 p-3" style="height: 200px;text-align: center;background: #201D2B;font-size: 18px;font-weight: bold;">
-                          <h4>Total Ticket Sales</h4>
-                          <%=(Order.where(event_id: event).count) %>
-                        </div>
+                     </div>
+
+                      <div class="row">
                         <div class="col-md-12 p-3">
-                          <%= geo_chart UserView.where(event_id: event).group(:country).count, {background: "#000"}  %>
+                          <%= geo_chart UserView.where(event_id: event).group(:country).count, id: "map_chart#{index}"  %>
                         </div>
                       </div>
-                    <% end %>
+
+                    </div>
+                  <% end %>
                 <% end %>
 
-
-
-
-
-                 <% content_for :chartkick do %>
-
-                 <%= javascript_include_tag "//www.google.com/jsapi" %>
-                  <%= javascript_pack_tag 'chartkick' %>
-                <% end %>
               </div>
             </div>
           </div>
@@ -249,4 +256,10 @@
       })
     })
   })
+  </script>
+
+  <script>
+    Chartkick.eachChart( function(chart) {
+    chart.redraw();
+    });
   </script>
