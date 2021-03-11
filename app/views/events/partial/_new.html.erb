@@ -9,12 +9,12 @@
       <%= simple_form_for (@event) do |f| %>
         <%= f.input :event_name, input_html: { class: "nice-class", maxlength: 50 } %>
         <%= f.input :description, input_html: { maxlength: 150 } %>
-        <%= f.input :start_time %>
-        <%= f.input :end_time %>
+        <%= f.input :start_time, as: :string, required: true, input_html: {class: "datepicker"} %>
+        <%= f.input :end_time, as: :string, required: true, input_html: {class: "datepicker"} %>
         <%= f.input :city %>
         <%= f.country_select :country, priority_countries: ["GB", "US"] %>
         <%= f.input :price_cents, label: "Price per Ticket in £" %>
-        <%= f.association :genres, multiple: true, size: 3 %>
+        <%= f.association :genres, multiple: true, size: 3, input_html: { class: 'select2'}, label: "Select your Genre" %>
         <%= f.input :photo, as: :file %>
         <%= f.submit 'Add your Event', class: 'btn btn-primary' %>
       <% end %>

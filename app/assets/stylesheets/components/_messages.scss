@@ -1,12 +1,14 @@
 // WHOLE CHAT CONTAINER
 .messages-container {
+  width: 400px;
   height: 400px;
   overflow-y: scroll;
   border: 5px solid #2a2c3a;
   border-radius: 4px;
-  margin-right: px;
   background: #6729f9;
   margin-top: 70px;
+  position: relative;
+  right: 80px;
 }
 
 // MESSAGE SENT BY USER NAME AND DATE
@@ -53,4 +55,8 @@
   margin: 200px;
 }
 
-
+#something {
+  width: 400px;
+  position: relative;
+  right: 80px;
+}

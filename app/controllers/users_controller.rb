@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def account
-    @events = Event.all
+    @events = Event.where(user: current_user)
     @event = Event.new
   end
 
@@ -24,6 +24,6 @@ class UsersController < ApplicationController
 
   # PARAMS
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :location, :dob)
+    params.require(:user).permit(:first_name, :last_name, :email, :location, :dob, :rich_body)
   end
 end

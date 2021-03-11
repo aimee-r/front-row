@@ -26,6 +26,7 @@ export default class extends Controller {
 
     }
   }
+
   initializeSession() {
    this.session = OT.initSession(this.apiKey, this.sessionId)
     this.session.on("streamCreated", this.streamCreated.bind(this))
@@ -54,6 +55,7 @@ export default class extends Controller {
       heigth: '100%'
     }, this.handleError.bind(this))
   }
+
 
   handleError(error) {
     if (error) {

@@ -7,6 +7,8 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("trix")
+require("@rails/actiontext")
 
 
 
@@ -28,8 +30,15 @@ require("channels")
 import "bootstrap";
 import $ from "jquery"
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
 
+import { initSelect2 } from '../components/init_select2';
+
+
+import { initSelect2 } from '../components/init_select2';
+import { initFlatpickr } from "../components/flatpickr";
+
+
+>
 
 import "controllers"
 import { countdownTimer } from '../components/countdown.js'
@@ -55,8 +64,15 @@ const initUpdateNavbarOnScroll = () => {
 
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
+
+  initSelect2();
+  initFlatpickr();
+
+
+
   initUpdateNavbarOnScroll();
    if (document.getElementById("event-start-time")) {
+
     countdownTimer();
    }
    initChatroomCable();
