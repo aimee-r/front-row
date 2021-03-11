@@ -1,20 +1,36 @@
   <div class="row p-5">
     <h1>Create a new event</h1>
     <div class="">
-      <%= simple_form_for (@event) do |f| %>
-        <%= f.input :event_name, input_html: { class: "nice-class", maxlength: 50 } %>
+      <%= simple_form_for (@event), html:  {onsubmit: "return validateForm()"} do |f| %>
+        <%= f.input :event_name, input_html: { class: "nice-class", maxlength: 50 }  %>
         <%= f.label :Description %>
         <%= f.rich_text_area :description, input_html: { maxlength: 150 }, input_html: {class: "pr-0"} %>
         <div class="d-flex">
           <div class="col-md-6 pl-0"><%= f.input :start_time, as: :string, required: true, input_html: {class: "datepicker"} %></div>
           <div class="col-md-6 pr-0"><%= f.input :end_time, as: :string, required: true, input_html: {class: "datepicker"} %></div>
         </div>
-        <%= f.input :city %>
+
+        <%= f.input :city, label: "City & Country" %>
         <%= f.country_select :country, priority_countries: ["GB", "US"] %>
         <%= f.input :price_cents, label: "Price per Ticket in £" %>
-        <%= f.association :genres, multiple: true, size: 3, input_html: { class: 'select2'}, label: "Select your Genre" %>
+        <p class="mb-1">Genres</p>
+        <%= f.association :genres, multiple: true, size: 3, input_html: { class: 'select2'}, label: false %>
         <%= f.input :photo, as: :file %>
         <%= f.submit 'Add your Event', class: 'btn btn-primary' %>
       <% end %>
     </div>
 </div>
+
+
+
+
+<script>
+    function validateForm() {
+  var name = document.forms["nice-class"].value;
+  if (name == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+}
+</script>
+
