@@ -31,14 +31,10 @@ import "bootstrap";
 import $ from "jquery"
 // Internal imports, e.g:
 
-import { initSelect2 } from '../components/init_select2';
 
 
 import { initSelect2 } from '../components/init_select2';
 import { initFlatpickr } from "../components/flatpickr";
-
-
->
 
 import "controllers"
 import { countdownTimer } from '../components/countdown.js'
