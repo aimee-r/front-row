@@ -67,3 +67,54 @@ background-color: #201d2b !important;
     white-space: nowrap;
     color: #BABABF !important;
 }
+
+
+input:-internal-autofill-selected {
+    appearance: menulist-button;
+    background-color: #2E303E !important;
+    background-image: none !important;
+    color: -internal-light-dark(black, #2E303E) !important;
+}
+
+
+.form-control:focus {
+    color: #495057;
+    background-color: #2E303E !important;
+    border-color: #93c4fd;
+    outline: 0;
+}
+
+input:-internal-autofill-selected {
+    appearance: menulist-button;
+    background-color: #2E303E !important;
+    background-image: none !important;
+    color: -internal-light-dark(black, #2E303E) !important;
+}
+
+
+select:-internal-autofill-selected {
+    appearance: menulist-button;
+    background-color: #2E303E !important;
+    background-image: none !important;
+    color: -internal-light-dark(black, #2E303E) !important;
+}
+
+
+select:-internal-autofill-selected {
+    color: -internal-light-dark(black, #2E303E) !important;
+}
+
+
+select:-webkit-autofill:focus {
+  border: 1px solid green;
+  -webkit-text-fill-color: green;
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+
+.select2-container--default .select2-search--inline .select2-search__field {
+  position: relative;
+  min-width: 550px !important;
+  right: 50px;
+}
