@@ -10,6 +10,7 @@
     "bootstrap": "^4.6.0",
     "chart.js": "^2.9.4",
     "chartkick": "^3.2.1",
+    "flatpickr": "^4.6.9",
     "jquery": "^3.5.1",
     "jquery-ui": "^1.12.1",
     "moment": "^2.29.1",
