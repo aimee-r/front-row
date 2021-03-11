@@ -3,17 +3,17 @@
   width: 400px;
   height: 400px;
   overflow-y: scroll;
-  border: 5px solid #2a2c3a;
-  border-radius: 4px;
-  background: #6729f9;
+  border: 2px solid #4e4e4e;
+  border-radius: 5px;
+  background-color: #3d3d3de7;
   margin-top: 70px;
   position: relative;
   right: 80px;
 }
 
 // MESSAGE SENT BY USER NAME AND DATE
-#messages span{
-  color: white;
+#messages span {
+  color: rgb(214, 214, 214);
   font-weight: bold;
   padding: 2px;
   margin-left: 5px;
@@ -21,17 +21,26 @@
 
 // MESSAGE CONTENT
 #messages p {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
   padding: 2px;
-  font-weight: bold;
   margin-left: 10px;
   margin-right: 10px;
-  color: white;
-  border-bottom: 1px solid #2a2c3a;
+  color: #672af9;
+  border-bottom: 1px solid #4e4e4e;
 }
 // .container-flex{
 //   display: flex;
 // }
+
+#something {
+  margin-top: 10px;
+  background-color: #3d3d3de7;
+  border: 2px solid #4e4e4e;
+  width: 400px;
+  position: relative;
+  right: 80px;
+}
 
 // STREAMING VIDEO STYLES
 
@@ -39,7 +48,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
-  padding: 10px;
+  padding: 20px;
 }
 
 .OT_root {
@@ -53,10 +62,4 @@
 .showtime {
   font-weight: bold;
   margin: 200px;
-}
-
-#something {
-  width: 400px;
-  position: relative;
-  right: 80px;
 }

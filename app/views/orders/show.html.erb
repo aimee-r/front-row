@@ -5,19 +5,16 @@
 </div>
 
 <div class="container">
-  <div class="row py-4">
-    <div class="col">
-      <h1>Order #<%= @order.id %> <small><span class="badge badge-primary m-5"><%= @order.state %></span></small></h1>
+      <h1>Congratulations, your order is successful!</h1>
+      <br>
       <ul class="list-unstyled">
+        <li><strong>ORDER NUMBER: </strong> #<%= @order.id %></li>
+        <li><strong>ORDER STATUS: </strong> <%= @order.state %></li>
         <li><strong>ISSUED ON: </strong> <%= @order.created_at.to_date %></li>
-        <hr>
-        <li><strong>Event: </strong> <%= @order.event.event_name %> [<%= @order.event_sku %>]</li>
-        <hr>
+        <li><strong>EVENT: </strong> <%= @order.event.event_name %> [<%= @order.event_sku %>]</li>
         <li><strong>TOTAL: </strong> <%= humanized_money_with_symbol @order.amount %></li>
-        <hr>
         </li>
       </ul>
-    </div>
-  </div>
+
   <%= link_to "Go to stream", room_path(@order.event.room), class: "btn btn-success"  %>
 </div>

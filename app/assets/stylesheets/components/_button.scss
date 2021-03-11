@@ -54,11 +54,16 @@ a:hover {
 
 #search-button {
   position: fixed;
-  right: 135px;
-  top: 1%;
+  right: 150px;
+  top: 10px;
   z-index: 11;
   transform: translate(-50%, 50%);
-  background-color: black;
+  background-color: transparent;
   color: white;
   border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+#search-button:hover {
+  color: #6729f9;
 }
