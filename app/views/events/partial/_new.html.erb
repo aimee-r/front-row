@@ -12,8 +12,9 @@
         </div>
 
         <%= f.input :city, label: "City & Country" %>
-        <%= f.country_select :country, priority_countries: ["GB", "US"] %>
-        <%= f.input :price_cents, label: "Price per Ticket in £" %>
+        <%= f.country_select :country, priority_countries: ["GB", "US"], html: { autocomplete: 'off' } %>
+         <p class="mt-3 mb-1">Price per Ticket in £</p>
+        <%= f.input :price_cents, input_html: { class: 'price-width bootstrap-val-override'}, label: false %>
         <p class="mb-1">Genres</p>
         <%= f.association :genres, multiple: true, size: 3, input_html: { class: 'select2'}, label: false %>
         <%= f.input :photo, as: :file, input_html: { class: "d-none" }, label_html: { class: 'upload-photo'}, label:  "📷     Upload a photo  " %>
