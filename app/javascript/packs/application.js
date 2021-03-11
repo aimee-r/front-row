@@ -32,6 +32,9 @@ import $ from "jquery"
 // Internal imports, e.g:
 
 import { initSelect2 } from '../components/init_select2';
+
+
+import { initSelect2 } from '../components/init_select2';
 import { initFlatpickr } from "../components/flatpickr";
 
 
@@ -66,8 +69,10 @@ document.addEventListener('turbolinks:load', () => {
   initFlatpickr();
 
 
+
   initUpdateNavbarOnScroll();
    if (document.getElementById("event-start-time")) {
+
     countdownTimer();
    }
    initChatroomCable();
