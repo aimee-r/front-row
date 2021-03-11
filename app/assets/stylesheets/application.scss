@@ -12,6 +12,8 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import 'select2/dist/css/select2';
+
 
 body {
   background-color: #060505;
@@ -24,4 +26,10 @@ body {
   margin: 20px;
 }
 
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+  color: black;
+}
 
+.select2-results__option--selectable {
+  color: black;
+}
