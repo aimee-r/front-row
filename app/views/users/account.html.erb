@@ -99,28 +99,28 @@
 
                 <table>
                   <tr class="row-border">
-                    <td class="lable">Artist Name: </td>
+                    <td class="lable-sm">Artist Name: </td>
                     <td><%= current_user.artist_name %></td>
                   </tr>
                   <tr class="row-border">
-                    <td class="lable">Bank Details:</td>
-                    <td><%= current_user.bank_details %></td>
-                  </tr>
-                  <tr class="row-border">
-                    <td class="lable">Facebook:</td>
+                    <td class="lable-sm">Facebook:</td>
                     <td><%= current_user.facebook %></td>
                   </tr>
                   <tr class="row-border">
-                    <td class="lable">instagram:</td>
+                    <td class="lable-sm">Instagram:</td>
                     <td><%= current_user.instagram %></td>
                   </tr>
                   <tr class="row-border">
-                    <td class="lable">Youtube:</td>
+                    <td class="lable-sm">Youtube:</td>
                     <td><%= current_user.youtube %></td>
                   </tr>
                   <tr class="row-border">
-                      <td class="lable">bio: </td>
-                      <td><%= current_user.bio %></td>
+                    <td class="lable-sm">Spotify:</td>
+                    <td><%= current_user.spotify %></td>
+                  </tr>
+                  <tr class="row-border">
+                      <td class="lable-sm">Bio: </td>
+                      <td class="multi-line"><%= current_user.bio %></td>
                   </tr>
                 </table>
 
@@ -143,7 +143,7 @@
                     <div class="event-line">
                        <%= event.event_name %>
                       <div class="button-box">
-                        <button class="btn btn-primary btn_stats" data-btn="stats_<%= event.id %>"><%= index == 0 ? "Showing" : "Show" %></button>
+                        <button class="stats-button btn_stats" data-btn="stats_<%= event.id %>"><%= index == 0 ? "Showing" : "Show" %></button>
                       </div>
                     </div>
                   <% end %>
