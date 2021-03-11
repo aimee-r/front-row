@@ -168,8 +168,8 @@ ActiveRecord::Schema.define(version: 2021_03_11_104009) do
     t.text "bio"
     t.string "bank_details"
     t.string "facebook"
-    t.string "instergram"
-    t.string "twitter"
+    t.string "instagram"
+    t.string "youtube"
     t.string "spotify"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
