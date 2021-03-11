@@ -57,9 +57,10 @@ const initUpdateNavbarOnScroll = () => {
 
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
+  initSelect2();
   initUpdateNavbarOnScroll();
    if (document.getElementById("event-start-time")) {
-    initSelect2();
+
     countdownTimer();
    }
    initChatroomCable();
