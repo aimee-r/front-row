@@ -39,8 +39,16 @@
   background-color: white!important;
 }
 
-#user_bio {
+#user_bio, #event_description {
   border: 1px solid #6729f9;
+  background-color: #2E303E;
+  margin-bottom: 30px;
+  width: 660px;
+  height: 300px;
+}
+
+#event_description {
+  border: 1px solid #373A47;
   background-color: #2E303E;
   margin-bottom: 30px;
   width: 660px;
@@ -59,6 +67,9 @@
   ul {
     list-style: initial;
   }
-
-  color: black!important;
+  ol {
+    list-style: decimal;
+  }
 }
+
+

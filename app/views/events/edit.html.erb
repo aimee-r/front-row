@@ -9,7 +9,8 @@
     <div class="col-md-8">
       <%= simple_form_for (@event) do |f| %>
         <%= f.input :event_name, input_html: { class: "nice-class", maxlength: 50 } %>
-        <%= f.input :description, input_html: { maxlength: 150 } %>
+        <%= f.label :Description %>
+        <%= f.rich_text_area :description, input_html: { maxlength: 150 } %>
         <%= f.input :start_time, as: :string, required: true, input_html: {class: "datepicker"} %>
         <%= f.input :end_time, as: :string, required: true, input_html: {class: "datepicker"} %>
         <%= f.input :city %>
