@@ -13,6 +13,7 @@ require "faker"
 puts "Running seed..."
 puts "Destorying tables..."
 
+Message.destroy_all
 Genre.destroy_all
 EventGenre.destroy_all
 EventAttendee.destroy_all
