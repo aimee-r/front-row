@@ -8,6 +8,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "trix/dist/trix";
+@import 'select2/dist/css/select2';
 
 // Your CSS partials
 @import "components/index";
@@ -25,3 +26,10 @@ body {
 }
 
 
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+  color: black;
+}
+
+.select2-results__option--selectable {
+  color: black;
+}

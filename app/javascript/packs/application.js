@@ -30,7 +30,7 @@ require("@rails/actiontext")
 import "bootstrap";
 import $ from "jquery"
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+import { initSelect2 } from '../components/init_select2';
 
 
 import "controllers"
@@ -59,6 +59,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
   initUpdateNavbarOnScroll();
    if (document.getElementById("event-start-time")) {
+    initSelect2();
     countdownTimer();
    }
    initChatroomCable();
