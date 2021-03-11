@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+  has_rich_text :description
+
   # PG Search
   include PgSearch::Model
   multisearchable against: [:event_name, :city, :country]
