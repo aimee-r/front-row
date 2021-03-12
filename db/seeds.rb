@@ -57,7 +57,7 @@ event_name12 = "Dance with me! A Midnight Special"
 event_name13 = "Techno Party X Machina"
 event_name14 = "Lose Yourself To Dance"
 
-event_name_arr = [event_name1, event_name2,
+event_name_arr = [event_name1, event_name2, event_name3, event_name4, event_name5, event_name6, event_name7, event_name8, event_name9, event_name10, event_name11, event_name12, event_name13, event_name14]
 
 country1 = "France 🇫🇷"
 country2 = "Australia 🇦🇺"
@@ -164,7 +164,7 @@ artists.each do |artist|
       start_time: DateTime.new(2021,3,11,8),
       end_time: DateTime.new(2021,4,12,16),
       city: Faker::Address.city,
-      country: Faker::Address.country,
+      country: country_arr.sample,
       user: artist
       )
     file = URI.open(event_img_arr.sample)
