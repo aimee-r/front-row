@@ -1,12 +1,12 @@
 // WHOLE CHAT CONTAINER
 .messages-container {
-  width: 350px;
-  height: 430px;
+  // width: 350px;
+  height: 410px;
   overflow-y: scroll;
   border: 2px solid #4e4e4e;
   border-radius: 5px;
   background-color: #131313e7;
-  right: 80px;
+  // right: 80px;
 }
 
 // MESSAGE SENT BY USER NAME AND DATE
@@ -35,12 +35,12 @@
   margin-top: 10px;
   background-color: #3d3d3de7;
   border: 1px solid #672af9;
-  width: 350px;
+  // width: 350px;
   color: white;
 }
 
 #live-title {
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 // STREAMING VIDEO STYLES
@@ -48,12 +48,11 @@
 #videos {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-  margin: 0px 20px 0px 0px;
+  // gap: 1rem;
 }
 
 .OT_root {
-  height: 600px !important;
+  height: 550px !important;
 }
 
 .OT_publisher .OT_video-element {
@@ -63,4 +62,85 @@
 .showtime {
   font-weight: bold;
   margin: 200px;
+}
+
+#live-button {
+  position: absolute;
+  margin-top: 30px;
+  margin-left: 30px;
+  z-index: 10;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial;
+  font-size: 15px;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  -webkit-animation: glowing 2000ms infinite;
+  -moz-animation: glowing 2000ms infinite;
+  -o-animation: glowing 2000ms infinite;
+  animation: glowing 2000ms infinite;
+}
+@-webkit-keyframes glowing {
+  0% {
+    background-color: #b20000;
+    -webkit-box-shadow: 0 0 3px #b20000;
+  }
+  50% {
+    background-color: #ff0000;
+    -webkit-box-shadow: 0 0 40px #ff0000;
+  }
+  100% {
+    background-color: #b20000;
+    -webkit-box-shadow: 0 0 3px #b20000;
+  }
+}
+
+@-moz-keyframes glowing {
+  0% {
+    background-color: #b20000;
+    -moz-box-shadow: 0 0 3px #b20000;
+  }
+  50% {
+    background-color: #ff0000;
+    -moz-box-shadow: 0 0 40px #ff0000;
+  }
+  100% {
+    background-color: #b20000;
+    -moz-box-shadow: 0 0 3px #b20000;
+  }
+}
+
+@-o-keyframes glowing {
+  0% {
+    background-color: #b20000;
+    box-shadow: 0 0 3px #b20000;
+  }
+  50% {
+    background-color: #ff0000;
+    box-shadow: 0 0 40px #ff0000;
+  }
+  100% {
+    background-color: #b20000;
+    box-shadow: 0 0 3px #b20000;
+  }
+}
+
+@keyframes glowing {
+  0% {
+    background-color: #b20000;
+    box-shadow: 0 0 3px #b20000;
+  }
+  50% {
+    background-color: #ff0000;
+    box-shadow: 0 0 40px #ff0000;
+  }
+  100% {
+    background-color: #b20000;
+    box-shadow: 0 0 3px #b20000;
+  }
 }

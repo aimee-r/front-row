@@ -1,6 +1,6 @@
 
 <% if @event.photo.attached? %>
-        <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url('<%= cl_image_path @event.photo.key %>');">
+  <div class="banner-event" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.3)), url('<%= cl_image_path @event.photo.key %>');">
   <div class="container" id="event-header" >
     <h1><%= @event.user.artist_name %></h1>
     <h2><%= @event.start_time.strftime('%e %B %Y') %></h2>
@@ -17,14 +17,13 @@
 
 <div class ="container">
 
-
 <div class ="body-flex">
 
 <div class="flex-left">
 
 <h1><%= @event.event_name %></h1>
-</br>
-<h4>Hosted by <%= link_to @event.user.artist_name, profile_path(@event.user_id) %></h4>
+<br>
+<h5><%= cl_image_tag @event.user.photo.key, class: "avatar-event" %>Hosted by <%= link_to @event.user.artist_name, profile_path(@event.user_id) %></h5>
 </br>
 <h4>Event Description</h4>
 
@@ -53,11 +52,11 @@
   <% if Order.where(event: @event, state: 'paid', user: current_user).any? %>
     <%= link_to "Go to stream", room_path(@event.room), class: 'btn btn-primary' %>
     <% elsif @event.user == current_user %>
-    <%= link_to "Start your Stream", room_path(@event.room), class: 'btn btn-primary' %>
+    <%= link_to "Start Stream", room_path(@event.room), class: 'btn btn-primary' %>
     <% else %>
     <%= form_tag orders_path do %>
     <%= hidden_field_tag 'event_id', @event.id %>
-    <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+    <%= submit_tag 'Buy Ticket', class: 'btn btn-primary' %>
     <% end %>
  <% end %>
 
