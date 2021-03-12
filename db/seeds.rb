@@ -80,6 +80,7 @@ country18 = "Latvia 🇱🇻"
 country19 = "Japan 🇯🇵"
 country20 = "Russia 🇷🇺"
 
+
 country_arr =[country1, country2, country3, country4, country5, country6, country7, country8, country9, country10, country11, country12, country13, country14, country15, country16, country17, country18, country19, country20]
 
 
