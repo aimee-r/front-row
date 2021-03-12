@@ -57,7 +57,32 @@ event_name12 = "Dance with me! A Midnight Special"
 event_name13 = "Techno Party X Machina"
 event_name14 = "Lose Yourself To Dance"
 
-event_name_arr = [event_name1, event_name2, event_name3, event_name4, event_name5, event_name6, event_name7, event_name8, event_name9, event_name10, event_name11, event_name12, event_name13, event_name14 ]
+event_name_arr = [event_name1, event_name2, event_name3, event_name4, event_name5, event_name6, event_name7, event_name8, event_name9, event_name10, event_name11, event_name12, event_name13, event_name14]
+
+country1 = "France 🇫🇷"
+country2 = "Australia 🇦🇺"
+country3 = "Czech Republic 🇨🇿"
+country4 = "United Kingdom 🇬🇧"
+country5 = "South Africa 🇿🇦"
+country6 = "Italy 🇮🇹"
+country7 = "Portugal 🇵🇹"
+country8 = "Spain 🇪🇸"
+country9 = "United States 🇺🇸"
+country10 = "Canada 🇨🇦"
+country11 = "Ireland 🇮🇪"
+country12 = "Greece 🇬🇷"
+country13 = "Sweeden 🇸🇪"
+country14 = "South Korea 🇰🇷"
+country15 = "Canary Islands 🇮🇨"
+country16 = "Philippines 🇵🇭"
+country17 = "United Arab Emirates 🇦🇪"
+country18 = "Latvia 🇱🇻"
+country19 = "Japan 🇯🇵"
+country20 = "Russia 🇷🇺"
+
+
+country_arr =[country1, country2, country3, country4, country5, country6, country7, country8, country9, country10, country11, country12, country13, country14, country15, country16, country17, country18, country19, country20]
+
 
 puts "Creating artists..."
 aimee = User.create!(first_name: 'Aimée', last_name: 'Rawlings', location: 'South Africa', dob: '1989-09-14', email: 'aimee@example.com', password: '123456', artist: true, artist_name: 'DJ Amzy', bank_details: '121212 12345678', facebook: 'https://www.facebook.com/daftpunk/', instagram: 'https://www.facebook.com/daftpunk/', youtube: 'https://www.youtube.com/embed/2aFcwLgO1wI',  bio: "DJ Amzy has been at the nexus of music, fashion, and nightlife for over half her living years as the go-to deejay for music impresarios, entertainment moguls, fashion icons, cultural trendsetters, and even world leaders. When President Obama wanted a deejay for both of his Inaugurations and his fiftieth birthday party at the White House, theres only one person he called. When Oprah Winfrey celebrated the opening of her school in South Africa on New Years Eve, there’s only one person she called. And when Jay Z needed a deejay for his wedding to Beyoncé, theres only one person he called." )
@@ -140,7 +165,7 @@ artists.each do |artist|
       start_time: DateTime.new(2021, rand(3..9), rand(12..30), rand(1..23)),
       end_time: DateTime.new(2021,6,20,9),
       city: Faker::Address.city,
-      country: Faker::Address.country,
+      country: country_arr.sample,
       user: artist
       )
     file = URI.open(event_img_arr.sample)

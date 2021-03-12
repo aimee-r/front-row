@@ -69,3 +69,19 @@
 #search-result {
   margin-top: 10px;
 }
+
+.sorted-table a {
+  font-size: 18px;
+  color: #d8d8db;
+  transition: all 200ms;
+}
+
+.sorted-table a:hover {
+  color: #672af9;
+}
+
+.search-border {
+  border-bottom: solid 1px rgb(44, 44, 44);
+  width: 200px;
+  padding-bottom: 10px;
+}

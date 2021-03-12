@@ -6,13 +6,13 @@
     <% else %>
       <div class="row justify-content-between">
       <% unless artists.empty? %>
-        <div class="col-sd-md-ld-12">
-          <div class="sorted-table" id="event-artist">
+        <div class="col-md-6">
+          <div class="sorted-table mb-4" id="event-artist">
             
-              <h4>Artists</h4>
+              <h3 class="mb-3">Artists</h3>
                 <ul>
                   <% artists.each do |artist| %>
-                    <li><%= link_to "#{artist.searchable_type.constantize.find(artist.searchable_id).artist_name}", profile_path(artist.searchable_id) %></li>
+                    <li class="mb-3"><%= cl_image_tag artist.searchable_type.constantize.find(artist.searchable_id).photo.key, class: "avatar-search mr-3" %><%= link_to "#{artist.searchable_type.constantize.find(artist.searchable_id).artist_name}", profile_path(artist.searchable_id) %></li>
                   <% end %>
                 </ul>
           </div>
@@ -21,11 +21,11 @@
 
       <% unless events.empty? %>
         <div class="col-md-6">
-          <div class="sorted-table" id="event-event">
-              <h4>Events</h4>
+          <div class="sorted-table mb-4" id="event-event">
+              <h3 class="mb-3">Events</h3>
                 <ul>
                   <% events.each do |event| %>
-                    <li><%= link_to "#{event.searchable_type.constantize.find(event.searchable_id).event_name}", event_path(event.searchable_id) %></li>
+                    <li class="mb-3"><%= cl_image_tag event.searchable_type.constantize.find(event.searchable_id).photo.key, class: "avatar-search mr-3" %><%= link_to "#{event.searchable_type.constantize.find(event.searchable_id).event_name}", event_path(event.searchable_id) %></li>
                   <% end %>
                 </ul>
           </div>
@@ -34,11 +34,11 @@
 
       <% unless genres.empty? %>
         <div class="col-md-6">
-          <div class="sorted-table" id="event-genre">
-              <h4>Genres</h4>
+          <div class="sorted-table mb-4" id="event-genre">
+              <h3 class="mb-3">Genres</h3>
                 <ul>
                   <% genres.each do |genre| %>
-                    <li><%= link_to "#{genre.searchable_type.constantize.find(genre.searchable_id).name}", events_path(query: genre.searchable_type.constantize.find(genre.searchable_id).name, search: true) %></li>
+                    <li class="mb-3"><%= image_tag "genre.png", class: "avatar-search mr-3" %><%= link_to "#{genre.searchable_type.constantize.find(genre.searchable_id).name}", events_path(query: genre.searchable_type.constantize.find(genre.searchable_id).name, search: true) %></li>
                   <% end %>
                 </ul>
           </div>
@@ -47,11 +47,11 @@
       
       <% unless events.empty? %>
         <div class="col-md-6">
-          <div class="sorted-table" id="event-genre">
-              <h4>Countries</h4>
+          <div class="sorted-table mb-4" id="event-genre">
+              <h3 class="mb-3">Countries</h3>
                 <ul>
                   <% events.each do |event| %>
-                    <li><%= link_to "#{event.searchable_type.constantize.find(event.searchable_id).country}", events_path(country: event.searchable_type.constantize.find(event.searchable_id).country, search: true) %></li>
+                    <li class="mb-3"><%= image_tag "globe.png", class: "avatar-search mr-3" %><%= link_to "#{event.searchable_type.constantize.find(event.searchable_id).country}", events_path(country: event.searchable_type.constantize.find(event.searchable_id).country, search: true) %></li>
                   <% end %>
                 </ul>
           </div>
@@ -60,11 +60,11 @@
 
       <% unless events.empty? %>
         <div class="col-md-6">
-          <div class="sorted-table" id="event-genre">
-            <h4>Cities</h4>
+          <div class="sorted-table mb-4" id="event-genre">
+            <h3 class="mb-3">Cities</h3>
               <ul>
                 <% events.each do |event| %>
-                  <li><%= link_to "#{event.searchable_type.constantize.find(event.searchable_id).city}", events_path(city: event.searchable_type.constantize.find(event.searchable_id).city, search: true) %></li>
+                  <li class="mb-3"><%= image_tag "city.png", class: "avatar-search mr-3" %><%= link_to "#{event.searchable_type.constantize.find(event.searchable_id).city}", events_path(city: event.searchable_type.constantize.find(event.searchable_id).city, search: true) %></li>
                 <% end %>
               </ul>
           </div>
