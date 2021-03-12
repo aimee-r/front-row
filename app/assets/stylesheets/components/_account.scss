@@ -4,7 +4,7 @@
 .tab {
   float: left;
   // border: 1px solid #ccc;
-  background-color: #201d2b;
+  background-color: #201d2b61;
   width: 20%;
   height: 100%;
   border-top-left-radius: 8px;
@@ -29,14 +29,14 @@
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-  background-color: #2a2c3a;
+  background-color: #1c1a23;
   color:#d8d8db;
 
 }
 
 /* Create an active/current "tab button" class */
 .tab button.active {
-  background-color: #2a2c3a;
+  background-color: #1c1a23;
   color:#d8d8db;
 }
 
@@ -46,7 +46,7 @@
   padding: 0px 12px;
   width: 80%;
   border-left: none;
-  background-color: #2a2c3a;
+  background-color: #2a2c3a8c;
   height: 100%;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
@@ -118,10 +118,12 @@
     margin-right: 10px;
 }
 
-.stats-button{
-  border: none;
+.stats-button {
+    border: none;
     background: none;
-    color: #6729f9;
+    color: #d8d8db;
+    border: solid 1px #672af9;
+    border-radius: 4px;
 }
 
 .stats-button:hover {

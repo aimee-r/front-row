@@ -206,6 +206,7 @@ select:-webkit-autofill:active
 .was-validated .form-control:valid, .form-control.is-valid {
     border-color: #6729f900;
     background-image: none;
+    border: 1px solid #373A47;
 }
 
 .was-validated .form-control:valid, .form-control.is-valid:focus{
