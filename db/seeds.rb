@@ -38,9 +38,9 @@ img12 = 'https://images.unsplash.com/photo-1568480046613-6e3b671c66d2?ixid=MXwxM
 img13 = 'https://images.unsplash.com/photo-1518499845966-9a86ddb68051?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80'
 img14 = 'https://images.unsplash.com/photo-1612633509856-e10888c2df9e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80'
 img15 = 'https://images.unsplash.com/photo-1544191674-3d2c0f2342f8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1062&q=80'
-img16 = 'https://unsplash.com/photos/-O530O7KWcY'
 
-event_img_arr =[img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16]
+
+event_img_arr =[img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15]
 
 event_name1 = "Shunaji X Boogey Town"
 event_name2 = "Streaming From Home | #13"
@@ -132,13 +132,13 @@ puts customer_arr
 puts "Creating events..."
 
 artists.each do |artist|
-  rand(1..4).times do
+  rand(1..2).times do
     event = Event.new(
       event_name: event_name_arr.sample,
       description: "The evening will consist of 9 sets from 15 artists spanning UK rap, hip hop, soul, grime & beyond. Alongside Lex Amor & Project Karnak's, we have exclusive DJ sets from Rei Sky & Rare Treat plus live PA performances from Josette Joseph & Temesgen, Dips & Lo-Wu, Intalekt & Billy Dukes, Ayeisha Raquel, Shumba Maasai x AfronautZu and Shaun Sky.",
       price_cents: rand(500..1000),
       start_time: DateTime.new(2021,3,11,8),
-      end_time: DateTime.new(2021,4,12,16),
+      end_time: DateTime.new(2021,3,12,9),
       city: Faker::Address.city,
       country: Faker::Address.country,
       user: artist

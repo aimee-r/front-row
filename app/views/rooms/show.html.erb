@@ -1,7 +1,6 @@
 <div class="container">
-    <div class="container-fluid">
       <div class="row justify-content-center">
-        <div class="col-9">
+        <div class="col-8">
           <% if @room.event.start_time > Time.now %>
             <div class="showtime">
               <input value="<%= @room.event.start_time%>" type="hidden" id="event-start-time" />
@@ -9,14 +8,17 @@
             </div>
           <% else %>
           <% if @room.event.user == current_user %>
+           <p id="live-button">LIVE NOW</p>
             <div id="videos"
                 data-controller="vonage"
                 data-vonage-api-key="<%= ENV["VONAGE_API_KEY"] %>"
                 data-vonage-session-id= "<%= @room.vonage_session_id %>"
                 data-vonage-token="<%= @token %>"
                 data-vonage-name="<%= current_user.first_name %>">
+           
               </div>
             <% elsif %>
+             <p id="live-button">LIVE NOW</p>
               <div id="videos"
                 data-controller="vonageVisitor"
                 data-vonageVisitor-api-key="<%= ENV["VONAGE_API_KEY"] %>"
@@ -28,8 +30,8 @@
 
           <% end %>
         </div>
-        <div class="col-3">
-          <h2 id="live-title">Live Chat<%= @room.chatroom.name %></h2>
+        <div class="col-4">
+          <h3 id="live-title">Live Chat<%= @room.chatroom.name %></h3>
           <div id="messages" class="messages-container" data-chatroom-id="<%= @room.chatroom.id %>">
             <% @room.chatroom.messages.each do |message| %>
               <div class="message-container" id="message-<%= message.id %>">
@@ -47,4 +49,16 @@
         </div>
       </div>
     </div>
-</div>
+
+    <script type="text/javascript">
+  (function() {
+    var blinks = document.getElementById('#live-button');
+    var visibility = 'hidden';
+    window.setInterval(function() {
+      for (var i = blinks.length - 1; i >= 0; i--) {
+        blinks[i].style.visibility = visibility;
+      }
+      visibility = (visibility === 'visible') ? 'hidden' : 'visible';
+    }, 250);
+  })();
+</script>
