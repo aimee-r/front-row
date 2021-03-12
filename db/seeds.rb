@@ -66,11 +66,11 @@ aimee = User.create!(first_name: 'Aimée', last_name: 'Rawlings', location: 'Sou
     aimee.save!
 
 yoda = User.create!(first_name: 'DJ', last_name: 'Yoda', location: 'London', dob: '1989-09-14', email: 'yoda@example.com', password: '123456', artist: true, artist_name: 'DJ Yoda', bank_details: '121212 12345678', spotify: 'https://open.spotify.com/artist/134rP599PLJMjrccfctkmX', facebook: 'https://www.facebook.com/daftpunk/', instagram: 'https://www.youtube.com/embed/2aFcwLgO1wI', youtube: 'https://www.youtube.com/embed/pcnUNgCtSOk',  bio: "DJ Yoda has been at the nexus of music, fashion, and nightlife for over half his living years as the go-to deejay for music impresarios, entertainment moguls, fashion icons, cultural trendsetters, and even world leaders. When President Obama wanted a deejay for both of his Inaugurations and his fiftieth birthday party at the White House, theres only one person he called. When Oprah Winfrey celebrated the opening of her school in South Africa on New Years Eve, there’s only one person she called. And when Jay Z needed a deejay for his wedding to Beyoncé, theres only one person he called." )
-    file = URI.open('https://github.com/Annedj.png')
+    file = URI.open('https://images.unsplash.com/photo-1505964253539-4ca5a36328dd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2672&q=80')
     yoda.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
     yoda.save!
 
-ife = User.create!(first_name: 'ife', last_name: 'Odugbesan', location: 'London', dob: '1989-09-14', email: 'ife@example.com', password: '123456', artist: true, artist_name: 'DJ Ife', bank_details: '121212 12345678', facebook: 'https://www.facebook.com/daftpunk/', instagram: 'https://www.facebook.com/daftpunk/', youtube: 'https://www.facebook.com/daftpunk/',  bio: "DJ Ife has been at the nexus of music, fashion, and nightlife for over half her living years as the go-to deejay for music impresarios, entertainment moguls, fashion icons, cultural trendsetters, and even world leaders. When President Obama wanted a deejay for both of his Inaugurations and his fiftieth birthday party at the White House, theres only one person he called. When Oprah Winfrey celebrated the opening of her school in South Africa on New Years Eve, there’s only one person she called. And when Jay Z needed a deejay for his wedding to Beyoncé, theres only one person he called." )
+ife = User.create!(first_name: 'ife', last_name: 'Odugbesan', location: 'London', dob: '1989-09-14', email: 'ife@example.com', password: '123456', artist: true, artist_name: 'Ife', bank_details: '121212 12345678', facebook: 'https://www.facebook.com/daftpunk/', instagram: 'https://www.facebook.com/daftpunk/', youtube: 'https://www.facebook.com/daftpunk/',  bio: "DJ Ife has been at the nexus of music, fashion, and nightlife for over half her living years as the go-to deejay for music impresarios, entertainment moguls, fashion icons, cultural trendsetters, and even world leaders. When President Obama wanted a deejay for both of his Inaugurations and his fiftieth birthday party at the White House, theres only one person he called. When Oprah Winfrey celebrated the opening of her school in South Africa on New Years Eve, there’s only one person she called. And when Jay Z needed a deejay for his wedding to Beyoncé, theres only one person he called." )
     file = URI.open('https://github.com/ifeodugbesan.png')
     ife.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
     ife.save!
@@ -136,9 +136,9 @@ artists.each do |artist|
     event = Event.new(
       event_name: event_name_arr.sample,
       description: "The evening will consist of 9 sets from 15 artists spanning UK rap, hip hop, soul, grime & beyond. Alongside Lex Amor & Project Karnak's, we have exclusive DJ sets from Rei Sky & Rare Treat plus live PA performances from Josette Joseph & Temesgen, Dips & Lo-Wu, Intalekt & Billy Dukes, Ayeisha Raquel, Shumba Maasai x AfronautZu and Shaun Sky.",
-      price_cents: rand(500..1000),
-      start_time: DateTime.new(2021,3,11,8),
-      end_time: DateTime.new(2021,3,12,9),
+      price_cents: rand(200..1000),
+      start_time: DateTime.new(2021, rand(3..9), rand(12..30), rand(1..23)),
+      end_time: DateTime.new(2021,6,20,9),
       city: Faker::Address.city,
       country: Faker::Address.country,
       user: artist
@@ -157,7 +157,7 @@ puts "Customers buying tickets..."
 Event.all.each do |event|
   rand(25..75).times do
     Order.create!(
-      state: "paid",
+      state: "Paid",
       event_sku: event.sku,
       amount_cents: event.price_cents,
       event_id: event.id,
@@ -166,7 +166,7 @@ Event.all.each do |event|
   end
 end
 
-puts "Creating genra table..."
+puts "Creating genre table..."
 100.times do
   genre = Genre.new(
     name: Faker::Music.genre
