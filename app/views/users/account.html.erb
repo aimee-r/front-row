@@ -158,7 +158,7 @@
                     <div class="container stats_box <%= "d-none" unless index == 0 %> " data-stats="stats_<%= event.id %>">
                       <div class="row p-3">
                         <div class="col-md-9 p-3">
-                            <%= line_chart UserView.where(event_id: event).group_by_minute(:created_at).count, id: "line_chart#{index}" %>
+                            <%= line_chart UserView.where(event_id: event).group_by_day(:created_at).count, id: "line_chart#{index}" %>
                         </div>
 
                         <div class="col-md-3 p-3">
