@@ -25,7 +25,7 @@ class EventsController < ApplicationController
   # SHOW
   def show
     @event = Event.find(params[:id])
-    UserVisit.visit(request.remote_ip, Event.find(params[:id]), "show")
+    # UserVisit.visit(request.remote_ip, Event.find(params[:id]), "show")
   end
 
   # CREATE
